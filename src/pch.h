@@ -5,6 +5,9 @@
 #define NOMINMAX
 #include <windows.h>
 
+// must be after windows.h
+#include <wincrypt.h>
+
 #ifdef __cplusplus
 #include <algorithm>
 #include <array>
@@ -12,6 +15,9 @@
 #include <charconv>
 #include <cstdint>
 #include <filesystem>
+#include <fstream>
+#include <ios>
+#include <iostream>
 #include <print>
 #include <ranges>
 

@@ -47,6 +47,7 @@ function(add_common_args target_name)
 
     target_precompile_headers(${target_name} PUBLIC "src/pch.h")
     target_include_directories(${target_name} PUBLIC "src" "${CONFIGURE_FILES_DIR}")
+    target_link_libraries(${target_name} PUBLIC Bcrypt.dll)
 endfunction()
 
 add_common_args(crypter_exe)

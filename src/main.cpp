@@ -6,7 +6,8 @@
 namespace {
 
 int main_impl(int argc, char* argv[]) {
-    if (argc != 4) {
+    // NOLINTNEXTLINE(readability-magic-numbers)
+    if (argc != 5) {
         std::print(stderr, "wrong num args\n");
         return 1;
     }
@@ -29,9 +30,15 @@ int main_impl(int argc, char* argv[]) {
         return 1;
     }
 
+    std::ofstream output{argv[4], std::ios::binary};
+    if (!output.good()) {
+        std::print(stderr, "couldn't open output: {}\n", argv[4]);
+        return 1;
+    }
+
     if (action == 'd') {
         auto data = b4ac::decrypt(path, key);
-        fwrite(data.data(), 1, data.size(), stdout);
+        output.write(reinterpret_cast<char*>(data.data()), (std::streamsize)data.size());
     } else {
         // TODO
         std::print(stderr, "not implemented\n");
@@ -46,7 +53,7 @@ int main_impl(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
     auto ret = main_impl(argc, argv);
     if (ret != 0) {
-        std::print(stderr, "usage: {} <d|e> <filename> <key>\n", argv[0]);
+        std::print(stderr, "usage: {} <d|e> <input> <key> <output>\n", argv[0]);
     }
     return ret;
 }
