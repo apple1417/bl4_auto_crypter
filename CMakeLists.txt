@@ -2,12 +2,10 @@ cmake_minimum_required(VERSION 3.28)
 project(bl4_auto_crypter VERSION 1)
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "src/*.cpp" "src/*.h")
-list(REMOVE_ITEM sources "src/main.cpp")
-list(REMOVE_ITEM sources "src/dllmain.cpp")
 list(APPEND sources "src/versioninfo.rc")
 
-add_executable(crypter_exe ${sources} "src/main.cpp")
-add_library(crypter_plugin SHARED ${sources} "src/dllmain.cpp")
+add_executable(crypter_exe ${sources})
+add_library(crypter_plugin SHARED ${sources})
 
 set(CONFIGURE_FILES_DIR "${CMAKE_CURRENT_BINARY_DIR}/configure")
 
@@ -53,3 +51,6 @@ endfunction()
 
 add_common_args(crypter_exe)
 add_common_args(crypter_plugin)
+
+target_compile_definitions(crypter_exe PUBLIC CRYPTER_EXE)
+target_compile_definitions(crypter_exe PUBLIC CRYPTER_PLUGIN)
