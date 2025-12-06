@@ -22,5 +22,6 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 
+*.sav
 *.bin
 *.yaml

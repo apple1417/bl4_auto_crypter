@@ -1,3 +1,6 @@
 [submodule "common_cmake"]
 	path = common_cmake
 	url = https://github.com/bl-sdk/common_cmake
+[submodule "zlib"]
+	path = zlib
+	url = https://github.com/madler/zlib.git

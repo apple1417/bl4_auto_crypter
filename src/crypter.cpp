@@ -23,6 +23,21 @@ struct RaiiLambda {
     RaiiLambda& operator=(RaiiLambda&&) = delete;
 };
 
+constexpr z_stream init_z_stream(void) {
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-designated-field-initializers"
+#endif
+
+    z_stream strm{.zalloc = Z_NULL, .zfree = Z_NULL, .opaque = Z_NULL};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+
+    return strm;
+}
+
 }  // namespace
 
 bool parse_key(const std::string& account_id, crypto_key& out_key) {
@@ -92,30 +107,63 @@ void decrypt(std::ostream& output, std::istream& input, const crypto_key& key) {
     }
     const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
 
+    auto strm = init_z_stream();
+    if (inflateInit(&strm) != Z_OK) {
+        throw std::runtime_error("failed to init zlib");
+    }
+    const RaiiLambda raii3{[&]() { inflateEnd(&strm); }};
+
     while (true) {
         const constexpr auto chunk_size = 0x1000;
 
-        uint8_t ciphertext[chunk_size];
-        input.read(reinterpret_cast<char*>(&ciphertext[0]), sizeof(ciphertext));
-        auto ciphertext_size = (ULONG)input.gcount();
-
         uint8_t plaintext[chunk_size];
         ULONG plaintext_size{};
-        if ((status = BCryptDecrypt(key_handle, &ciphertext[0], ciphertext_size, nullptr, nullptr,
-                                    0, &plaintext[0], sizeof(plaintext), &plaintext_size, 0))
-            != 0) {
-            throw std::runtime_error("couldn't decrypt chunk");
+        bool end_of_input{};
+        {
+            uint8_t ciphertext[chunk_size];
+            input.read(reinterpret_cast<char*>(&ciphertext[0]), sizeof(ciphertext));
+            auto ciphertext_size = (ULONG)input.gcount();
+
+            end_of_input = ciphertext_size != chunk_size || input.eof();
+
+            if ((status =
+                     BCryptDecrypt(key_handle, &ciphertext[0], ciphertext_size, nullptr, nullptr, 0,
+                                   &plaintext[0], sizeof(plaintext), &plaintext_size, 0))
+                != 0) {
+                throw std::runtime_error("couldn't decrypt chunk");
+            }
         }
 
         // Remove padding
-        if (ciphertext_size != chunk_size || input.eof()) {
+        if (end_of_input) {
             // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
             plaintext_size -= plaintext[plaintext_size - 1];
         }
 
-        output.write(reinterpret_cast<char*>(&plaintext[0]), plaintext_size);
+        strm.next_in = &plaintext[0];
+        strm.avail_in = plaintext_size;
 
-        if (ciphertext_size != chunk_size || input.eof()) {
+        uint8_t decompressed[2 * chunk_size];
+        strm.next_out = &decompressed[0];
+        strm.avail_out = sizeof(decompressed);
+
+        do {
+            auto ret = inflate(&strm, Z_NO_FLUSH);
+            if (ret != Z_OK && (!end_of_input || ret != Z_STREAM_END)) {
+                throw std::runtime_error("decompress failed");
+            }
+
+            output.write(reinterpret_cast<char*>(&decompressed[0]),
+                         (std::streamsize)sizeof(decompressed) - strm.avail_out);
+            strm.next_out = &decompressed[0];
+            strm.avail_out = sizeof(decompressed);
+
+            if (ret == Z_STREAM_END) {
+                break;
+            }
+        } while (strm.avail_in > 0);
+
+        if (end_of_input) {
             break;
         }
     }

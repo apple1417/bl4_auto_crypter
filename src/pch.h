@@ -8,6 +8,8 @@
 // must be after windows.h
 #include <wincrypt.h>
 
+#include <zlib.h>
+
 #ifdef __cplusplus
 #include <algorithm>
 #include <array>

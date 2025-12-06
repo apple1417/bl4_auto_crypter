@@ -15,6 +15,23 @@ set(GIT_PRE_CONFIGURE_FILE "src/git.inl.in")
 set(GIT_POST_CONFIGURE_FILE "${CONFIGURE_FILES_DIR}/git.inl")
 include(common_cmake/git_watcher.cmake)
 
+# This is probably misusing it, but I want to compile from source
+set(ZLIB_BUILD_TESTING False)
+set(ZLIB_BUILD_SHARED False)
+set(ZLIB_BUILD_MINIZIP False)
+set(ZLIB_INSTALL False)
+add_subdirectory(zlib EXCLUDE_FROM_ALL)
+
+# https://stackoverflow.com/a/52136398
+function(target_link_libraries_system target)
+    set(libs ${ARGN})
+    foreach(lib ${libs})
+        get_target_property(lib_include_dirs ${lib} INTERFACE_INCLUDE_DIRECTORIES)
+        target_include_directories(${target} SYSTEM PRIVATE ${lib_include_dirs})
+        target_link_libraries(${target} PRIVATE ${lib})
+    endforeach(lib)
+endfunction(target_link_libraries_system)
+
 function(add_common_args target_name)
     target_compile_features(${target_name} PUBLIC cxx_std_23)
     set_target_properties(${target_name} PROPERTIES
@@ -50,6 +67,7 @@ function(add_common_args target_name)
     target_precompile_headers(${target_name} PUBLIC "src/pch.h")
     target_include_directories(${target_name} PUBLIC "src" "${CONFIGURE_FILES_DIR}")
     target_link_libraries(${target_name} PUBLIC Bcrypt.dll)
+    target_link_libraries_system(${target_name} zlibstatic)
 endfunction()
 
 add_common_args(crypter_exe)
