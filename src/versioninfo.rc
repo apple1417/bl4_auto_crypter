@@ -3,6 +3,7 @@
 #include <winver.h>
 #include <stdbool.h>
 
+#include "git.inl"
 #include "version.inl"
 
 #ifdef NDEBUG

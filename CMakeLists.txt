@@ -9,8 +9,10 @@ add_library(crypter_plugin SHARED ${sources})
 
 set(CONFIGURE_FILES_DIR "${CMAKE_CURRENT_BINARY_DIR}/configure")
 
-set(GIT_PRE_CONFIGURE_FILE "src/version.inl.in")
-set(GIT_POST_CONFIGURE_FILE "${CONFIGURE_FILES_DIR}/version.inl")
+configure_file("src/version.inl.in" "${CONFIGURE_FILES_DIR}/version.inl")
+
+set(GIT_PRE_CONFIGURE_FILE "src/git.inl.in")
+set(GIT_POST_CONFIGURE_FILE "${CONFIGURE_FILES_DIR}/git.inl")
 include(common_cmake/git_watcher.cmake)
 
 function(add_common_args target_name)
