@@ -39,9 +39,7 @@ int main_impl(int argc, char* argv[]) {
     if (action == 'd') {
         b4ac::decrypt(output, input, key);
     } else {
-        // TODO
-        std::print(stderr, "not implemented\n");
-        return 2;
+        b4ac::encrypt(output, input, key);
     }
 
     return 0;
