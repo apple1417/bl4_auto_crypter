@@ -10,7 +10,20 @@ const constexpr crypto_key BASE_KEY = {
     0x27, 0x25, 0x64, 0x2e, 0xd5, 0x49, 0x06, 0x29, 0x05, 0x78, 0xbd, 0x60, 0xba, 0x4a, 0xa7, 0x87,
 };
 
-}
+template <typename F>
+struct RaiiLambda {
+    F func;
+
+    [[nodiscard]] RaiiLambda(F&& func) : func(std::move(func)) {}
+    ~RaiiLambda() { func(); }
+
+    RaiiLambda(const RaiiLambda&) = delete;
+    RaiiLambda& operator=(const RaiiLambda&) = delete;
+    RaiiLambda(RaiiLambda&&) = delete;
+    RaiiLambda& operator=(RaiiLambda&&) = delete;
+};
+
+}  // namespace
 
 bool parse_key(const std::string& account_id, crypto_key& out_key) {
     std::ranges::copy(BASE_KEY, out_key.begin());
@@ -40,23 +53,14 @@ bool parse_key(const std::string& account_id, crypto_key& out_key) {
     return false;
 }
 
-std::vector<uint8_t> decrypt(const std::filesystem::path& path, const crypto_key& key) {
-    std::vector<uint8_t> ciphertext(std::filesystem::file_size(path));
-    {
-        std::ifstream stream{path, std::ios::binary};
-        stream.read(reinterpret_cast<char*>(ciphertext.data()), (std::streamsize)ciphertext.size());
-    }
-
+void decrypt(std::ostream& output, std::istream& input, const crypto_key& key) {
     NTSTATUS status{};
-    // TODO: proper error handling
-    // TODO: free things
-    // TODO: streaming?
-
     BCRYPT_ALG_HANDLE aes_alg_handle = nullptr;
     if ((status = BCryptOpenAlgorithmProvider(&aes_alg_handle, BCRYPT_AES_ALGORITHM, nullptr, 0))
         != 0) {
         throw std::runtime_error("couldn't get aes provider");
     }
+    const RaiiLambda raii1{[&]() { BCryptCloseAlgorithmProvider(aes_alg_handle, 0); }};
 
     wchar_t mode[] = BCRYPT_CHAIN_MODE_ECB;
     if ((status =
@@ -74,7 +78,7 @@ std::vector<uint8_t> decrypt(const std::filesystem::path& path, const crypto_key
             {
                 .dwMagic = BCRYPT_KEY_DATA_BLOB_MAGIC,
                 .dwVersion = BCRYPT_KEY_DATA_BLOB_VERSION1,
-                .cbKeyData = key.size(),
+                .cbKeyData = (ULONG)key.size(),
             },
         .key = key,
     };
@@ -86,22 +90,29 @@ std::vector<uint8_t> decrypt(const std::filesystem::path& path, const crypto_key
         != 0) {
         throw std::runtime_error("couldn't import key");
     }
+    const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
 
-    ULONG plaintext_size{};
-    if ((status = BCryptDecrypt(key_handle, ciphertext.data(), ciphertext.size(), nullptr, nullptr,
-                                0, nullptr, 0, &plaintext_size, 0))
-        != 0) {
-        throw std::runtime_error("couldn't get plaintext size");
+    while (true) {
+        const constexpr auto chunk_size = 0x1000;
+
+        uint8_t ciphertext[chunk_size];
+        input.read(reinterpret_cast<char*>(&ciphertext[0]), sizeof(ciphertext));
+        auto ciphertext_size = (ULONG)input.gcount();
+
+        uint8_t plaintext[chunk_size];
+        ULONG plaintext_size{};
+        if ((status = BCryptDecrypt(key_handle, &ciphertext[0], ciphertext_size, nullptr, nullptr,
+                                    0, &plaintext[0], sizeof(plaintext), &plaintext_size, 0))
+            != 0) {
+            throw std::runtime_error("couldn't decrypt chunk");
+        }
+
+        output.write(reinterpret_cast<char*>(&plaintext[0]), plaintext_size);
+
+        if (ciphertext_size != chunk_size || input.eof()) {
+            break;
+        }
     }
-
-    std::vector<uint8_t> plaintext(plaintext_size);
-    if ((status = BCryptDecrypt(key_handle, ciphertext.data(), ciphertext.size(), nullptr, nullptr,
-                                0, plaintext.data(), plaintext.size(), &plaintext_size, 0))
-        != 0) {
-        throw std::runtime_error("couldn't decrypt");
-    }
-
-    return plaintext;
 }
 
 }  // namespace b4ac

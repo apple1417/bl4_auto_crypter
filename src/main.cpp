@@ -18,9 +18,9 @@ int main_impl(int argc, char* argv[]) {
         return 1;
     }
 
-    auto path = std::filesystem::path{argv[2]};
-    if (!std::filesystem::exists(path)) {
-        std::print(stderr, "couldn't find file: {}\n", path.string());
+    std::ifstream input{argv[2], std::ios::binary};
+    if (!input.good()) {
+        std::print(stderr, "couldn't open input: {}\n", argv[2]);
         return 1;
     }
 
@@ -37,8 +37,7 @@ int main_impl(int argc, char* argv[]) {
     }
 
     if (action == 'd') {
-        auto data = b4ac::decrypt(path, key);
-        output.write(reinterpret_cast<char*>(data.data()), (std::streamsize)data.size());
+        b4ac::decrypt(output, input, key);
     } else {
         // TODO
         std::print(stderr, "not implemented\n");

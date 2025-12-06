@@ -54,4 +54,12 @@ add_common_args(crypter_exe)
 add_common_args(crypter_plugin)
 
 target_compile_definitions(crypter_exe PUBLIC CRYPTER_EXE)
-target_compile_definitions(crypter_exe PUBLIC CRYPTER_PLUGIN)
+target_compile_definitions(crypter_plugin PUBLIC CRYPTER_PLUGIN)
+
+install(
+    TARGETS
+       crypter_exe
+       crypter_plugin
+    RUNTIME DESTINATION
+        .
+)
