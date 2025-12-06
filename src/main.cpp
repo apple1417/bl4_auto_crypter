@@ -18,15 +18,15 @@ int main_impl(int argc, char* argv[]) {
         return 1;
     }
 
-    std::ifstream input{argv[2], std::ios::binary};
-    if (!input.good()) {
-        std::print(stderr, "couldn't open input: {}\n", argv[2]);
+    b4ac::crypto_key key;
+    if (!b4ac::parse_key(argv[2], key)) {
+        std::print(stderr, "couldn't parse key: {}\n", argv[2]);
         return 1;
     }
 
-    b4ac::crypto_key key;
-    if (!b4ac::parse_key(argv[3], key)) {
-        std::print(stderr, "couldn't parse key: {}\n", argv[3]);
+    std::ifstream input{argv[3], std::ios::binary};
+    if (!input.good()) {
+        std::print(stderr, "couldn't open input: {}\n", argv[3]);
         return 1;
     }
 
@@ -50,7 +50,7 @@ int main_impl(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
     auto ret = main_impl(argc, argv);
     if (ret != 0) {
-        std::print(stderr, "usage: {} <d|e> <input> <key> <output>\n", argv[0]);
+        std::print(stderr, "usage: {} <d|e> <key> <input> <output>\n", argv[0]);
     }
     return ret;
 }
