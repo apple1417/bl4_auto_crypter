@@ -11,7 +11,7 @@ using crypto_key = std::array<uint8_t, 32>;  // NOLINT(readability-magic-numbers
  * @param out_key Reference to the key to write the output into.
  * @return True if parsing succeeded.
  */
-[[nodiscard]] bool parse_key(const std::string& account_id, crypto_key& out_key);
+[[nodiscard]] bool parse_key(std::string_view account_id, crypto_key& out_key);
 
 /**
  * @brief Decrypts the given file.

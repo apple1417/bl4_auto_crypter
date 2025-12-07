@@ -20,8 +20,11 @@
 #include <fstream>
 #include <ios>
 #include <iostream>
+#include <limits>
 #include <print>
 #include <ranges>
+#include <string>
+#include <string_view>
 
 using std::int16_t;
 using std::int32_t;

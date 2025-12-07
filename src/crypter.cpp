@@ -92,11 +92,39 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
 
 }  // namespace
 
-bool parse_key(const std::string& account_id, crypto_key& out_key) {
+bool parse_key(std::string_view account_id, crypto_key& out_key) {
     std::ranges::copy(BASE_KEY, out_key.begin());
 
-    // TODO: epic
+    // Since we ultimately get input from a file path, we can be a bit stricter on the format
+    // e.g. no need to strip whitespace
+    // Epic account id: 32 hex characters
+    // Steam account id: 64-bit (decimal) int, typically 17 digits
 
+    constexpr auto epic_account_id_len = 32;
+
+    // Anything longer must be invalid
+    static_assert(epic_account_id_len > std::numeric_limits<uint64_t>::max_digits10);
+    if (account_id.size() > epic_account_id_len) {
+        return false;
+    }
+
+    if (account_id.size() == epic_account_id_len) {
+        // Assume an epic account id
+        // We're apparently suppose to encode as utf16-le - but we can assume all chars are ascii
+
+        // Since these are the same size to begin with, but utf16 doubles it, the second half just
+        // falls off the end
+        static_assert(epic_account_id_len == out_key.size());
+        for (size_t i = 0; i < (epic_account_id_len / 2); i++) {
+            // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
+            out_key[(2 * i) + 0] ^= account_id[i];
+            // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
+            out_key[(2 * i) + 1] ^= 0x00;
+        }
+        return true;
+    }
+
+    // Otherwise, assume must be a steam account id
     uint64_t steam_uid{};
     if (std::from_chars(account_id.data(), account_id.data() + account_id.size(), steam_uid).ec
         == std::errc{}) {
