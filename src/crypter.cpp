@@ -23,19 +23,71 @@ struct RaiiLambda {
     RaiiLambda& operator=(RaiiLambda&&) = delete;
 };
 
-constexpr z_stream init_z_stream(void) {
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmissing-designated-field-initializers"
-#endif
+/**
+ * @brief Encrypts or decrypts the given data.
+ *
+ * @param input The input to encrypt/decrypt.
+ * @param input_size The size of the input.
+ * @param key The crypto key to use.
+ * @param crypto_func One of BCryptEncrypt or BCryptDecrypt
+ * @return A vector of the output data.
+ */
+std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
+                                     size_t input_size,
+                                     const crypto_key& key,
+                                     decltype(BCryptEncrypt) crypto_func) {
+    NTSTATUS status{};
+    BCRYPT_ALG_HANDLE aes_alg_handle = nullptr;
+    if ((status = BCryptOpenAlgorithmProvider(&aes_alg_handle, BCRYPT_AES_ALGORITHM, nullptr, 0))
+        != 0) {
+        throw std::runtime_error("couldn't get aes provider");
+    }
+    const RaiiLambda raii1{[&]() { BCryptCloseAlgorithmProvider(aes_alg_handle, 0); }};
 
-    z_stream strm{.zalloc = Z_NULL, .zfree = Z_NULL, .opaque = Z_NULL};
+    wchar_t mode[] = BCRYPT_CHAIN_MODE_ECB;
+    if ((status =
+             BCryptSetProperty(aes_alg_handle, BCRYPT_CHAINING_MODE, reinterpret_cast<PUCHAR>(mode),
+                               sizeof(BCRYPT_CHAIN_MODE_ECB), 0))
+        != 0) {
+        throw std::runtime_error("couldn't set chaining mode");
+    }
 
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
+    struct {
+        BCRYPT_KEY_DATA_BLOB_HEADER header{};
+        crypto_key key{};
+    } key_blob = {
+        .header =
+            {
+                .dwMagic = BCRYPT_KEY_DATA_BLOB_MAGIC,
+                .dwVersion = BCRYPT_KEY_DATA_BLOB_VERSION1,
+                .cbKeyData = (ULONG)key.size(),
+            },
+        .key = key,
+    };
 
-    return strm;
+    BCRYPT_KEY_HANDLE key_handle = nullptr;
+    if ((status =
+             BCryptImportKey(aes_alg_handle, nullptr, BCRYPT_KEY_DATA_BLOB, &key_handle, nullptr, 0,
+                             reinterpret_cast<PUCHAR>(&key_blob), sizeof(key_blob), 0))
+        != 0) {
+        throw std::runtime_error("couldn't import key");
+    }
+    const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
+
+    // With this alg, intput and output are always the same size (assuming padded input)
+    std::vector<uint8_t> output(input_size);
+    ULONG output_size{};
+    if ((status = crypto_func(key_handle, input, (ULONG)input_size, nullptr, nullptr, 0,
+                              output.data(), (ULONG)output.size(), &output_size, 0))
+        != 0) {
+        throw std::runtime_error("en/decrypt failed");
+    }
+    if (output_size != output.size()) {
+        throw std::runtime_error("encryption buffer was wrong");
+    }
+    output.resize(output_size);
+
+    return output;
 }
 
 }  // namespace
@@ -68,249 +120,63 @@ bool parse_key(const std::string& account_id, crypto_key& out_key) {
     return false;
 }
 
-void decrypt(std::ostream& output, std::istream& input, const crypto_key& key) {
-    NTSTATUS status{};
-    BCRYPT_ALG_HANDLE aes_alg_handle = nullptr;
-    if ((status = BCryptOpenAlgorithmProvider(&aes_alg_handle, BCRYPT_AES_ALGORITHM, nullptr, 0))
-        != 0) {
-        throw std::runtime_error("couldn't get aes provider");
+std::vector<uint8_t> decrypt(std::filesystem::path& path, const crypto_key& key) {
+    std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
+    std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+                                               (std::streamsize)file_contents.size());
+
+    std::vector<uint8_t> decrypted =
+        encrypt_decrypt(file_contents.data(), file_contents.size(), key, BCryptDecrypt);
+
+    auto compressed_size = decrypted.size();
+
+    // Strip padding
+    compressed_size -= decrypted.back();
+
+    // Grab the decompressed size out
+    uint32_t decompressed_size{};
+    compressed_size -= sizeof(decompressed_size);
+    memcpy(&decompressed_size, file_contents.data() + compressed_size, sizeof(decompressed_size));
+
+    std::vector<uint8_t> yaml(decompressed_size);
+    auto dest_len = (uLongf)decompressed_size;
+    if (::uncompress(yaml.data(), &dest_len, decrypted.data(), (uLong)compressed_size) != Z_OK) {
+        throw std::runtime_error("decompression failled");
     }
-    const RaiiLambda raii1{[&]() { BCryptCloseAlgorithmProvider(aes_alg_handle, 0); }};
-
-    wchar_t mode[] = BCRYPT_CHAIN_MODE_ECB;
-    if ((status =
-             BCryptSetProperty(aes_alg_handle, BCRYPT_CHAINING_MODE, reinterpret_cast<PUCHAR>(mode),
-                               sizeof(BCRYPT_CHAIN_MODE_ECB), 0))
-        != 0) {
-        throw std::runtime_error("couldn't set chaining mode");
-    }
-
-    struct {
-        BCRYPT_KEY_DATA_BLOB_HEADER header{};
-        crypto_key key{};
-    } key_blob = {
-        .header =
-            {
-                .dwMagic = BCRYPT_KEY_DATA_BLOB_MAGIC,
-                .dwVersion = BCRYPT_KEY_DATA_BLOB_VERSION1,
-                .cbKeyData = (ULONG)key.size(),
-            },
-        .key = key,
-    };
-
-    BCRYPT_KEY_HANDLE key_handle = nullptr;
-    if ((status =
-             BCryptImportKey(aes_alg_handle, nullptr, BCRYPT_KEY_DATA_BLOB, &key_handle, nullptr, 0,
-                             reinterpret_cast<PUCHAR>(&key_blob), sizeof(key_blob), 0))
-        != 0) {
-        throw std::runtime_error("couldn't import key");
-    }
-    const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
-
-    auto strm = init_z_stream();
-    if (inflateInit(&strm) != Z_OK) {
-        throw std::runtime_error("failed to init zlib");
-    }
-    const RaiiLambda raii3{[&]() { inflateEnd(&strm); }};
-
-    while (true) {
-        const constexpr auto chunk_size = 0x1000;
-
-        uint8_t plaintext[chunk_size];
-        ULONG plaintext_size{};
-        bool end_of_input{};
-        {
-            uint8_t ciphertext[chunk_size];
-            input.read(reinterpret_cast<char*>(&ciphertext[0]), sizeof(ciphertext));
-            auto ciphertext_size = (ULONG)input.gcount();
-
-            end_of_input = ciphertext_size != chunk_size || input.eof();
-
-            if ((status =
-                     BCryptDecrypt(key_handle, &ciphertext[0], ciphertext_size, nullptr, nullptr, 0,
-                                   &plaintext[0], sizeof(plaintext), &plaintext_size, 0))
-                != 0) {
-                throw std::runtime_error("couldn't decrypt chunk");
-            }
-        }
-
-        // Remove padding
-        if (end_of_input) {
-            // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
-            plaintext_size -= plaintext[plaintext_size - 1];
-        }
-
-        strm.next_in = &plaintext[0];
-        strm.avail_in = plaintext_size;
-
-        uint8_t decompressed[2 * chunk_size];
-        strm.next_out = &decompressed[0];
-        strm.avail_out = sizeof(decompressed);
-
-        do {
-            auto ret = inflate(&strm, Z_NO_FLUSH);
-            if (ret != Z_OK && (!end_of_input || ret != Z_STREAM_END)) {
-                throw std::runtime_error("decompress failed");
-            }
-
-            output.write(reinterpret_cast<char*>(&decompressed[0]),
-                         (std::streamsize)sizeof(decompressed) - strm.avail_out);
-            strm.next_out = &decompressed[0];
-            strm.avail_out = sizeof(decompressed);
-
-            if (ret == Z_STREAM_END) {
-                break;
-            }
-        } while (strm.avail_in > 0);
-
-        if (end_of_input) {
-            break;
-        }
-    }
+    yaml.resize(dest_len);
+    return yaml;
 }
 
-void encrypt(std::ostream& output, std::istream& input, const crypto_key& key) {
-    NTSTATUS status{};
-    BCRYPT_ALG_HANDLE aes_alg_handle = nullptr;
-    if ((status = BCryptOpenAlgorithmProvider(&aes_alg_handle, BCRYPT_AES_ALGORITHM, nullptr, 0))
-        != 0) {
-        throw std::runtime_error("couldn't get aes provider");
-    }
-    const RaiiLambda raii1{[&]() { BCryptCloseAlgorithmProvider(aes_alg_handle, 0); }};
+std::vector<uint8_t> encrypt(std::filesystem::path& path, const crypto_key& key) {
+    std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
+    std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+                                               (std::streamsize)file_contents.size());
 
-    wchar_t mode[] = BCRYPT_CHAIN_MODE_ECB;
-    if ((status =
-             BCryptSetProperty(aes_alg_handle, BCRYPT_CHAINING_MODE, reinterpret_cast<PUCHAR>(mode),
-                               sizeof(BCRYPT_CHAIN_MODE_ECB), 0))
-        != 0) {
-        throw std::runtime_error("couldn't set chaining mode");
+    std::vector<uint8_t> compressed(compressBound((uLong)file_contents.size()));
+    auto compressed_size = (uLongf)compressed.size();
+    if (::compress2(compressed.data(), &compressed_size, file_contents.data(),
+                    (uLong)file_contents.size(), Z_DEFAULT_COMPRESSION)
+        != Z_OK) {
+        throw std::runtime_error("compression failed");
     }
 
-    struct {
-        BCRYPT_KEY_DATA_BLOB_HEADER header{};
-        crypto_key key{};
-    } key_blob = {
-        .header =
-            {
-                .dwMagic = BCRYPT_KEY_DATA_BLOB_MAGIC,
-                .dwVersion = BCRYPT_KEY_DATA_BLOB_VERSION1,
-                .cbKeyData = (ULONG)key.size(),
-            },
-        .key = key,
-    };
+    auto decompressed_size = (uint32_t)file_contents.size();
 
-    BCRYPT_KEY_HANDLE key_handle = nullptr;
-    if ((status =
-             BCryptImportKey(aes_alg_handle, nullptr, BCRYPT_KEY_DATA_BLOB, &key_handle, nullptr, 0,
-                             reinterpret_cast<PUCHAR>(&key_blob), sizeof(key_blob), 0))
-        != 0) {
-        throw std::runtime_error("couldn't import key");
-    }
-    const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
+    // In case we perfectly filled the buffer, need to resize to add the worst case on top of that
+    // In 99% of cases we'll have plenty of free space so this shouldn't need an extra allocation
+    constexpr auto encryption_block_size = 16;
+    constexpr auto worst_case_added_bytes = sizeof(decompressed_size) + encryption_block_size;
+    compressed.resize(compressed_size + worst_case_added_bytes);
 
-    auto strm = init_z_stream();
-    if (deflateInit(&strm, Z_DEFAULT_COMPRESSION) != Z_OK) {
-        throw std::runtime_error("failed to init zlib");
-    }
-    const RaiiLambda raii3{[&]() { deflateEnd(&strm); }};
+    // Add the decompressed size and padding onto the end
+    memcpy(compressed.data() + compressed_size, &decompressed_size, sizeof(decompressed_size));
+    compressed_size += sizeof(decompressed_size);
 
-    const constexpr auto chunk_size = 0x1000;
-    uint8_t plaintext[chunk_size];
-    {
-        uint8_t decompressed[chunk_size];
-        size_t decompressed_size = 0;
+    uint8_t num_padding = encryption_block_size - (compressed_size % encryption_block_size);
+    memset(compressed.data() + compressed_size, num_padding, num_padding);
+    compressed_size += num_padding;
 
-        strm.next_out = &plaintext[0];
-        strm.avail_out = sizeof(plaintext);
-
-        while (true) {
-            input.read(reinterpret_cast<char*>(&decompressed[0]) + decompressed_size,
-                       (std::streamsize)(sizeof(decompressed) - decompressed_size));
-            decompressed_size += (ULONG)input.gcount();
-
-            bool end_of_input = decompressed_size != chunk_size || input.eof();
-
-            strm.next_in = &decompressed[0];
-            strm.avail_in = (uInt)decompressed_size;
-            auto ret = deflate(&strm, end_of_input ? Z_FINISH : Z_NO_FLUSH);
-            if (ret != Z_OK && (!end_of_input || ret != Z_STREAM_END)) {
-                throw std::runtime_error("compress failed");
-            }
-
-            // Most of the time we'll compress an entire decompressed buffer at once
-            if (strm.avail_in == 0) {
-                decompressed_size = 0;
-            } else {
-                // If we have leftovers, move them back to the beginning for the next go around
-                decompressed_size = strm.avail_in;
-                memmove(&decompressed[0], &decompressed[0] + sizeof(decompressed) - strm.avail_in,
-                        strm.avail_in);
-            }
-
-            // Fill the plaintext buffer before continuing
-            if (strm.avail_out > 0) {
-                if (end_of_input) {
-                    break;
-                }
-                continue;
-            }
-
-            uint8_t ciphertext[chunk_size];
-            ULONG ciphertext_size{};
-            if ((status =
-                     BCryptEncrypt(key_handle, &plaintext[0], sizeof(plaintext), nullptr, nullptr,
-                                   0, &ciphertext[0], sizeof(ciphertext), &ciphertext_size, 0))
-                != 0) {
-                throw std::runtime_error("couldn't encrypt chunk");
-            }
-
-            output.write(reinterpret_cast<char*>(&ciphertext[0]), ciphertext_size);
-            strm.next_out = &plaintext[0];
-            strm.avail_out = sizeof(plaintext);
-        }
-    }
-
-    // Handle whatever's left in the plaintext buffer
-    const constexpr auto encryption_block_size = 0x10;
-    auto plaintext_size = sizeof(plaintext) - strm.avail_out;
-    auto plaintext_size_aligned =
-        (ULONG)(plaintext_size / encryption_block_size) * encryption_block_size;
-
-    // Encrypt up to the last block
-    uint8_t ciphertext[chunk_size];
-    ULONG ciphertext_size{};
-    if ((status = BCryptEncrypt(key_handle, &plaintext[0], plaintext_size_aligned, nullptr, nullptr,
-                                0, &ciphertext[0], sizeof(ciphertext), &ciphertext_size, 0))
-        != 0) {
-        throw std::runtime_error("couldn't encrypt chunk");
-    }
-    output.write(reinterpret_cast<char*>(&ciphertext[0]), ciphertext_size);
-
-    // It's possible the plaintext buffer didn't have enough bytes to write a single block, in which
-    // case these bytes are already in the same place, and we're not actually allowed to memcpy them
-    if (plaintext_size_aligned != 0) {
-        memcpy(&plaintext[0], &plaintext[0] + plaintext_size_aligned,
-               plaintext_size - plaintext_size_aligned);
-    }
-    plaintext_size -= plaintext_size_aligned;
-
-    // Add the trailing decompressed length. It's possible this pushes us past the end of the block,
-    // so we take up two, but we have more than enough space.
-    uint32_t decompressed_num_bytes = strm.total_in;
-    memcpy(&plaintext[0] + plaintext_size, &decompressed_num_bytes, sizeof(decompressed_num_bytes));
-    plaintext_size += sizeof(decompressed_num_bytes);
-
-    // If we were aligned before, this (correctly) gives us a full block size
-    auto num_padding = encryption_block_size - plaintext_size;
-    memset(&plaintext[0] + plaintext_size, (int)num_padding, num_padding);
-
-    // Encrypt the last block(s)
-    if ((status = BCryptEncrypt(key_handle, &plaintext[0], encryption_block_size, nullptr, nullptr,
-                                0, &ciphertext[0], sizeof(ciphertext), &ciphertext_size, 0))
-        != 0) {
-        throw std::runtime_error("couldn't encrypt chunk");
-    }
-    output.write(reinterpret_cast<char*>(&ciphertext[0]), ciphertext_size);
+    return encrypt_decrypt(compressed.data(), compressed_size, key, BCryptEncrypt);
 }
 
 }  // namespace b4ac

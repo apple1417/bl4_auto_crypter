@@ -16,19 +16,19 @@ using crypto_key = std::array<uint8_t, 32>;  // NOLINT(readability-magic-numbers
 /**
  * @brief Decrypts the given file.
  *
- * @param output Stream to write the decrypted file to.
- * @param input Stream to read encrypted input from.
+ * @param path Path to file to decrypt.
  * @param key The key to decrypt with.
+ * @return The decrypted bytes.
  */
-void decrypt(std::ostream& output, std::istream& input, const crypto_key& key);
+std::vector<uint8_t> decrypt(std::filesystem::path& path, const crypto_key& key);
 
 /**
  * @brief Encrypts the given file.
  *
- * @param output Stream to write the encrypted file to.
- * @param input Stream to read decrypted input from.
+ * @param path Path to file to encrypt.
  * @param key The key to encrypt with.
+ * @return The encrypted bytes.
  */
-void encrypt(std::ostream& output, std::istream& input, const crypto_key& key);
+std::vector<uint8_t> encrypt(std::filesystem::path& path, const crypto_key& key);
 
 }  // namespace b4ac

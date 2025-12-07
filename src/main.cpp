@@ -24,23 +24,21 @@ int main_impl(int argc, char* argv[]) {
         return 1;
     }
 
-    std::ifstream input{argv[3], std::ios::binary};
-    if (!input.good()) {
+    std::filesystem::path input{argv[3]};
+    if (!std::filesystem::exists(input)) {
         std::print(stderr, "couldn't open input: {}\n", argv[3]);
         return 1;
     }
 
-    std::ofstream output{argv[4], std::ios::binary};
-    if (!output.good()) {
+    std::ofstream output_file{argv[4], std::ios::binary};
+    if (!output_file.good()) {
         std::print(stderr, "couldn't open output: {}\n", argv[4]);
         return 1;
     }
 
-    if (action == 'd') {
-        b4ac::decrypt(output, input, key);
-    } else {
-        b4ac::encrypt(output, input, key);
-    }
+    auto output_bytes = action == 'd' ? b4ac::decrypt(input, key) : b4ac::encrypt(input, key);
+    output_file.write(reinterpret_cast<char*>(output_bytes.data()),
+                      (std::streamsize)output_bytes.size());
 
     return 0;
 }
