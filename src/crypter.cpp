@@ -114,7 +114,7 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
 
         // Since these are the same size to begin with, but utf16 doubles it, the second half just
         // falls off the end
-        static_assert(epic_account_id_len == out_key.size());
+        static_assert(epic_account_id_len == sizeof(out_key));
         for (size_t i = 0; i < (epic_account_id_len / 2); i++) {
             // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
             out_key[(2 * i) + 0] ^= account_id[i];
@@ -148,10 +148,12 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
     return false;
 }
 
-std::vector<uint8_t> decrypt(std::filesystem::path& path, const crypto_key& key) {
-    std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
-    std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
-                                               (std::streamsize)file_contents.size());
+void decrypt(const std::filesystem::path& yaml,
+             const std::filesystem::path& sav,
+             const crypto_key& key) {
+    std::vector<uint8_t> file_contents(std::filesystem::file_size(sav));
+    std::ifstream{sav, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+                                              (std::streamsize)file_contents.size());
 
     std::vector<uint8_t> decrypted =
         encrypt_decrypt(file_contents.data(), file_contents.size(), key, BCryptDecrypt);
@@ -166,18 +168,21 @@ std::vector<uint8_t> decrypt(std::filesystem::path& path, const crypto_key& key)
     compressed_size -= sizeof(decompressed_size);
     memcpy(&decompressed_size, file_contents.data() + compressed_size, sizeof(decompressed_size));
 
-    std::vector<uint8_t> yaml(decompressed_size);
+    std::vector<uint8_t> output(decompressed_size);
     auto dest_len = (uLongf)decompressed_size;
-    if (::uncompress(yaml.data(), &dest_len, decrypted.data(), (uLong)compressed_size) != Z_OK) {
+    if (::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size) != Z_OK) {
         throw std::runtime_error("decompression failled");
     }
-    yaml.resize(dest_len);
-    return yaml;
+
+    std::ofstream{yaml, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
+                                                (std::streamsize)dest_len);
 }
 
-std::vector<uint8_t> encrypt(std::filesystem::path& path, const crypto_key& key) {
-    std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
-    std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+void encrypt(const std::filesystem::path& sav,
+             const std::filesystem::path& yaml,
+             const crypto_key& key) {
+    std::vector<uint8_t> file_contents(std::filesystem::file_size(yaml));
+    std::ifstream{yaml, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
                                                (std::streamsize)file_contents.size());
 
     std::vector<uint8_t> compressed(compressBound((uLong)file_contents.size()));
@@ -204,7 +209,9 @@ std::vector<uint8_t> encrypt(std::filesystem::path& path, const crypto_key& key)
     memset(compressed.data() + compressed_size, num_padding, num_padding);
     compressed_size += num_padding;
 
-    return encrypt_decrypt(compressed.data(), compressed_size, key, BCryptEncrypt);
+    auto output = encrypt_decrypt(compressed.data(), compressed_size, key, BCryptEncrypt);
+    std::ofstream{sav, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
+                                               (std::streamsize)output.size());
 }
 
 }  // namespace b4ac

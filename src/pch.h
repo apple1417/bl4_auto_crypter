@@ -25,6 +25,8 @@
 #include <ranges>
 #include <string>
 #include <string_view>
+#include <unordered_map>
+#include <unordered_set>
 
 using std::int16_t;
 using std::int32_t;

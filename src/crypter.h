@@ -16,19 +16,23 @@ using crypto_key = std::array<uint8_t, 32>;  // NOLINT(readability-magic-numbers
 /**
  * @brief Decrypts the given file.
  *
- * @param path Path to file to decrypt.
+ * @param yaml Path to output file to write decrypted yaml into.
+ * @param sav Path to encrypted input sav file.
  * @param key The key to decrypt with.
- * @return The decrypted bytes.
  */
-std::vector<uint8_t> decrypt(std::filesystem::path& path, const crypto_key& key);
+void decrypt(const std::filesystem::path& yaml,
+             const std::filesystem::path& sav,
+             const crypto_key& key);
 
 /**
  * @brief Encrypts the given file.
  *
- * @param path Path to file to encrypt.
+ * @param sav Path to output file to write encrypted sav into.
+ * @param yaml Path to decrypted input yaml file.
  * @param key The key to encrypt with.
- * @return The encrypted bytes.
  */
-std::vector<uint8_t> encrypt(std::filesystem::path& path, const crypto_key& key);
+void encrypt(const std::filesystem::path& sav,
+             const std::filesystem::path& yaml,
+             const crypto_key& key);
 
 }  // namespace b4ac
