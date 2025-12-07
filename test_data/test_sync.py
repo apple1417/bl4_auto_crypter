@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import filecmp
+import platform
 import shutil
 import subprocess
 import tempfile
@@ -30,6 +31,8 @@ def runner(pytestconfig: pytest.Config) -> Runner:
             USER_ID,
             folder,
         ]
+        if platform.system() != "Windows":
+            args.insert(0, "wine")
         print(args)  # noqa: T201
         _ = subprocess.run(args, check=True)
 
@@ -49,6 +52,12 @@ def cache_runner(pytestconfig: pytest.Config) -> CacheRunner:
             folder,
         ]
 
+        timeout = 1
+        if platform.system() != "Windows":
+            args.insert(0, "wine")
+            # Did once get a timeout so lets double it
+            timeout = 2
+
         print(args)  # noqa: T201
         proc = subprocess.Popen(
             args,
@@ -61,9 +70,9 @@ def cache_runner(pytestconfig: pytest.Config) -> CacheRunner:
         proc.stdout.readline()
 
         def finish() -> None:
-            stdout, stderr = proc.communicate("g", timeout=1)
+            stdout, stderr = proc.communicate("g", timeout=timeout)
             assert not stdout and not stderr
-            assert proc.wait(timeout=1) == 0
+            assert proc.wait(timeout=timeout) == 0
 
         return finish
 

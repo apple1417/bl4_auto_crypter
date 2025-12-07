@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import filecmp
+import platform
 import re
 import subprocess
 import tempfile
@@ -44,6 +45,8 @@ def runner(pytestconfig: pytest.Config) -> Runner:
             input_file,
             output_file,
         ]
+        if platform.system() != "Windows":
+            args.insert(0, "wine")
         print(args)  # noqa: T201
         _ = subprocess.run(args, check=True)
 
