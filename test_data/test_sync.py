@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import filecmp
+import hashlib
 import platform
 import shutil
 import subprocess
@@ -214,3 +215,24 @@ def test_cache_new_file(cache_runner: CacheRunner) -> None:
         assert filecmp.cmp(SYNC_1_YAML, folder / SYNC_1_YAML.name)
         assert filecmp.cmp(SYNC_2_SAV, folder / SYNC_2_SAV.name)
         assert filecmp.cmp(SYNC_2_YAML, folder / SYNC_2_YAML.name)
+
+
+def test_backs_up_invalid_sav(runner: Runner) -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        folder = Path(temp_dir)
+        corrupt_data = b"\x01\x02\x03\x04"
+        (folder / SYNC_1_SAV.name).write_bytes(corrupt_data)
+
+        runner(folder)
+
+        assert (folder / SYNC_1_SAV.name).exists()
+        assert (folder / SYNC_1_SAV.name).read_bytes() == corrupt_data
+
+        data_hash = hashlib.sha1(corrupt_data).hexdigest()  # noqa: S324
+        backup_file = folder / "bl4_auto_crypter errors" / (data_hash + ".sav")
+
+        assert backup_file.exists()
+        assert filecmp.cmp(folder / SYNC_1_SAV.name, backup_file)
+
+
+# not sure how we can force encryption to fail to test that path?

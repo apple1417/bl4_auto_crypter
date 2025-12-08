@@ -35,4 +35,12 @@ void encrypt(const std::filesystem::path& sav,
              const std::filesystem::path& yaml,
              const crypto_key& key);
 
+/**
+ * @brief Gets the SHA1 hash of the given file.
+ *
+ * @param path Path to the file to hash.
+ * @return The stringified SHA1.
+ */
+std::string sha1_file(const std::filesystem::path& path);
+
 }  // namespace b4ac

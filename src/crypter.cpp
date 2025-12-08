@@ -36,22 +36,6 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
                                      size_t input_size,
                                      const crypto_key& key,
                                      decltype(BCryptEncrypt) crypto_func) {
-    NTSTATUS status{};
-    BCRYPT_ALG_HANDLE aes_alg_handle = nullptr;
-    if ((status = BCryptOpenAlgorithmProvider(&aes_alg_handle, BCRYPT_AES_ALGORITHM, nullptr, 0))
-        != 0) {
-        throw std::runtime_error("couldn't get aes provider");
-    }
-    const RaiiLambda raii1{[&]() { BCryptCloseAlgorithmProvider(aes_alg_handle, 0); }};
-
-    wchar_t mode[] = BCRYPT_CHAIN_MODE_ECB;
-    if ((status =
-             BCryptSetProperty(aes_alg_handle, BCRYPT_CHAINING_MODE, reinterpret_cast<PUCHAR>(mode),
-                               sizeof(BCRYPT_CHAIN_MODE_ECB), 0))
-        != 0) {
-        throw std::runtime_error("couldn't set chaining mode");
-    }
-
     struct {
         BCRYPT_KEY_DATA_BLOB_HEADER header{};
         crypto_key key{};
@@ -66,13 +50,14 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
     };
 
     BCRYPT_KEY_HANDLE key_handle = nullptr;
+    NTSTATUS status{};
     if ((status =
-             BCryptImportKey(aes_alg_handle, nullptr, BCRYPT_KEY_DATA_BLOB, &key_handle, nullptr, 0,
-                             reinterpret_cast<PUCHAR>(&key_blob), sizeof(key_blob), 0))
+             BCryptImportKey(BCRYPT_AES_ECB_ALG_HANDLE, nullptr, BCRYPT_KEY_DATA_BLOB, &key_handle,
+                             nullptr, 0, reinterpret_cast<PUCHAR>(&key_blob), sizeof(key_blob), 0))
         != 0) {
         throw std::runtime_error("couldn't import key");
     }
-    const RaiiLambda raii2{[&]() { BCryptDestroyKey(key_handle); }};
+    const RaiiLambda raii{[&]() { BCryptDestroyKey(key_handle); }};
 
     // With this alg, intput and output are always the same size (assuming padded input)
     std::vector<uint8_t> output(input_size);
@@ -212,6 +197,43 @@ void encrypt(const std::filesystem::path& sav,
     auto output = encrypt_decrypt(compressed.data(), compressed_size, key, BCryptEncrypt);
     std::ofstream{sav, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
                                                (std::streamsize)output.size());
+}
+
+// This isn't strictly related to en/decryption, but lets keep all the bcrypt stuff to this file
+std::string sha1_file(const std::filesystem::path& path) {
+    NTSTATUS status{};
+    BCRYPT_HASH_HANDLE hash_handle = nullptr;
+    if ((status = BCryptCreateHash(BCRYPT_SHA1_ALG_HANDLE, &hash_handle, nullptr, 0, nullptr, 0, 0))
+        != 0) {
+        throw std::runtime_error("couldn't create sha1 hash handle");
+    }
+    RaiiLambda raii{[&]() { BCryptDestroyHash(hash_handle); }};
+
+    std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
+    std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+                                               (std::streamsize)file_contents.size());
+
+    if ((status = BCryptHashData(hash_handle, file_contents.data(), file_contents.size(), 0))
+        != 0) {
+        throw std::runtime_error("couldn't hash file data");
+    }
+
+    const constexpr auto sha1_hash_length = 20;
+    uint8_t hash[sha1_hash_length];
+
+    if ((status = BCryptFinishHash(hash_handle, &hash[0], sizeof(hash), 0)) != 0) {
+        throw std::runtime_error("couldn't finish hash");
+    }
+
+    // if it's stupid and it works...
+    return std::format(
+        "{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}"
+        "{:02x}{:02x}{:02x}{:02x}{:02x}",
+        // NOLINTBEGIN(readability-magic-numbers)
+        hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7], hash[8], hash[9],
+        hash[10], hash[11], hash[12], hash[13], hash[14], hash[15], hash[16], hash[17], hash[18],
+        hash[19]);
+    // NOLINTEND(readability-magic-numbers)
 }
 
 }  // namespace b4ac

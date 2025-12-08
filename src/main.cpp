@@ -70,6 +70,23 @@ int crypt_impl(int argc, char* argv[], bool encrypt) {
     return 0;
 }
 
+int hash_impl(int argc, char* argv[]) {
+    // NOLINTNEXTLINE(readability-magic-numbers)
+    if (argc != 3) {
+        std::cerr << "wrong num args\n";
+        return 1;
+    }
+
+    std::filesystem::path input{argv[2]};
+    if (!std::filesystem::exists(input)) {
+        std::cerr << "couldn't find input: " << argv[2] << "\n";
+        return 1;
+    }
+
+    std::cout << b4ac::sha1_file(input) << "\n";
+    return 0;
+}
+
 int main_impl(int argc, char* argv[]) {
     if (argc < 2) {
         std::cerr << "wrong num args\n";
@@ -89,6 +106,9 @@ int main_impl(int argc, char* argv[]) {
     if (action == 'S') {
         return sync_impl(argc, argv, true);
     }
+    if (action == 'h') {
+        return hash_impl(argc, argv);
+    }
 
     std::cerr << "bad action: " << action << "\n";
     return 1;
@@ -100,8 +120,11 @@ int main_impl(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
     auto ret = main_impl(argc, argv);
     if (ret != 0) {
-        std::cerr << "usage: " << argv[0] << " <d|e> <key> <input> <output>\n       " << argv[0]
-                  << " <s|S> <folder>\n";
+        // clang-format off
+        std::cerr << "usage: " << argv[0] << " <d|e> <key> <input> <output>\n"
+                     "       " << argv[0] << " <s|S> <key> <folder>\n"
+                     "       " << argv[0] << " <h> <file>\n";
+        // clang-format on
     }
     return ret;
 }
