@@ -21,12 +21,12 @@
 #include <ios>
 #include <iostream>
 #include <limits>
-#include <print>
 #include <ranges>
 #include <string>
 #include <string_view>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 using std::int16_t;
 using std::int32_t;

@@ -9,27 +9,26 @@ namespace {
 int sync_impl(int argc, char* argv[], bool wait) {
     // NOLINTNEXTLINE(readability-magic-numbers)
     if (argc != 4) {
-        std::print(stderr, "wrong num args\n");
+        std::cerr << "wrong num args\n";
         return 1;
     }
 
     b4ac::crypto_key key;
     if (!b4ac::parse_key(argv[2], key)) {
-        std::print(stderr, "couldn't parse key: {}\n", argv[2]);
+        std::cerr << "couldn't parse key: " << argv[2] << "\n";
         return 1;
     }
 
     std::filesystem::path folder{argv[3]};
     if (!std::filesystem::exists(folder)) {
-        std::print(stderr, "couldn't find folder: {}\n", argv[3]);
+        std::cerr << "couldn't find folder: " << argv[3] << "\n";
         return 1;
     }
 
     b4ac::sync_saves(folder, key);
 
     if (wait) {
-        std::print(stdout, "first sync done; waiting for input\n");
-        std::fflush(stdout);
+        std::cout << "first sync done; waiting for input\n" << std::flush;
 
         char dummy{};
         std::cin >> dummy;
@@ -43,19 +42,19 @@ int sync_impl(int argc, char* argv[], bool wait) {
 int crypt_impl(int argc, char* argv[], bool encrypt) {
     // NOLINTNEXTLINE(readability-magic-numbers)
     if (argc != 5) {
-        std::print(stderr, "wrong num args\n");
+        std::cerr << "wrong num args\n";
         return 1;
     }
 
     b4ac::crypto_key key;
     if (!b4ac::parse_key(argv[2], key)) {
-        std::print(stderr, "couldn't parse key: {}\n", argv[2]);
+        std::cerr << "couldn't parse key: " << argv[2] << "\n";
         return 1;
     }
 
     std::filesystem::path input{argv[3]};
     if (!std::filesystem::exists(input)) {
-        std::print(stderr, "couldn't find input: {}\n", argv[3]);
+        std::cerr << "couldn't find input: " << argv[3] << "\n";
         return 1;
     }
 
@@ -73,7 +72,7 @@ int crypt_impl(int argc, char* argv[], bool encrypt) {
 
 int main_impl(int argc, char* argv[]) {
     if (argc < 2) {
-        std::print(stderr, "wrong num args\n");
+        std::cerr << "wrong num args\n";
         return 1;
     }
 
@@ -91,19 +90,18 @@ int main_impl(int argc, char* argv[]) {
         return sync_impl(argc, argv, true);
     }
 
-    std::print(stderr, "bad action: {}\n", action);
+    std::cerr << "bad action: " << action << "\n";
     return 1;
 }
 
 }  // namespace
 
+// NOLINTNEXTLINE(misc-use-internal-linkage)
 int main(int argc, char* argv[]) {
     auto ret = main_impl(argc, argv);
     if (ret != 0) {
-        std::print(stderr,
-                   "usage: {} <d|e> <key> <input> <output>\n"
-                   "       {} <s|S> <folder>\n",
-                   argv[0], argv[0]);
+        std::cerr << "usage: " << argv[0] << " <d|e> <key> <input> <output>\n       " << argv[0]
+                  << " <s|S> <folder>\n";
     }
     return ret;
 }
