@@ -1,0 +1,2040 @@
+state: 
+  char_guid: 6E5574C84390275C4033A9A0E73724E5
+  class: Char_Gravitar
+  char_name: Harlowe
+  player_difficulty: Normal
+  experience: 
+  - type: Character
+    level: 35
+    points: 1302435
+  - type: Specialization
+    level: 1
+    points: 0
+  inventory: 
+    items: 
+      backpack: 
+        slot_0: 
+          serial: '@Uge8Usm/$ig!puLQN4;++Xi)E?p(S+XDgX'
+          flags: 1
+          state_flags: 1
+        slot_1: 
+          serial: '@UgfIh4Fgp-ov?NezRG}7?s7I/t^+WALeX0$r4(bjn7OEHGVQex1'
+          flags: 1
+          state_flags: 1
+        slot_2: 
+          serial: '@Ugr%Scm/%7w!d!`<M^&nQYe2i3Q2Ty?8UX'
+          flags: 1
+          state_flags: 1
+        slot_3: 
+          serial: '@Ugr$fEm/%P$!hBw!QK(LpL49i2P#RPl)FA)'
+          state_flags: 3
+        slot_4: 
+          serial: '@Ugr$WBm/%V&!W8IHgIeDkP@&dG<3%t5'
+          flags: 1
+          state_flags: 1
+        slot_5: 
+          serial: '@Uguq~c2?h!x%!UgpjVe^54wa}OLy`K43XAHA>Qo)nEmS$wJ5)Zz!`Ng3'
+          flags: 1
+          state_flags: 1
+        slot_6: 
+          serial: '@Ugr$xKm/&nF!gP6{MiuIOG}?rkK$2Jh'
+          flags: 1
+          state_flags: 1
+        slot_7: 
+          serial: '@Ugr$K7m/&nF!q@`sO)YAULB%zwHwRS?6&Ka^p!%a~N0Wj@dI&85'
+          flags: 1
+          state_flags: 1
+        slot_8: 
+          serial: '@UgxFw!2?h!xjE@c~jVe^47WJr@sF/ov)j{n-g+tv#Jd8~y00'
+          flags: 1
+          state_flags: 1
+        slot_9: 
+          serial: '@Ugr$oHm/&zJ!rTTms!;8t$ss&Y{1N~'
+          state_flags: 1
+        slot_10: 
+          serial: '@Ugvelk2}TMcjJ^p9jVe^49#s?7sXM4ysBoxy2m'
+          flags: 1
+          state_flags: 1
+        slot_11: 
+          serial: '@Uge8#%m/&tH!c_R6L>20MG}vUC)R8X$'
+          state_flags: 1
+        slot_12: 
+          serial: '@Ugd77*FjEj=bQI8NRG/{ps3Aj<YKi)ZnpCICqVAwZp=zPVA^-'
+    equipped_inventory: 
+      equipped: 
+        slot_7: 
+        - serial: '@Uge8Usm/$ig!puLQN4;++Xi)E?p(S+XDgX'
+          flags: 1
+          state_flags: 1
+        slot_1: 
+        - serial: '@UgfIh4Fgp-ov?NezRG}7?s7I/t^+WALeX0$r4(bjn7OEHGVQex1'
+          flags: 1
+          state_flags: 1
+        slot_4: 
+        - serial: '@Ugr%Scm/%7w!d!`<M^&nQYe2i3Q2Ty?8UX'
+          flags: 1
+          state_flags: 1
+        slot_5: 
+        - serial: '@Ugr$WBm/%V&!W8IHgIeDkP@&dG<3%t5'
+          flags: 1
+          state_flags: 1
+        slot_3: 
+        - serial: '@Uguq~c2?h!x%!UgpjVe^54wa}OLy`K43XAHA>Qo)nEmS$wJ5)Zz!`Ng3'
+          flags: 1
+          state_flags: 1
+        slot_6: 
+        - serial: '@Ugr$xKm/&nF!gP6{MiuIOG}?rkK$2Jh'
+          flags: 1
+          state_flags: 1
+        slot_8: 
+        - serial: '@Ugr$K7m/&nF!q@`sO)YAULB%zwHwRS?6&Ka^p!%a~N0Wj@dI&85'
+          flags: 1
+          state_flags: 1
+        slot_2: 
+        - serial: '@UgxFw!2?h!xjE@c~jVe^47WJr@sF/ov)j{n-g+tv#Jd8~y00'
+          flags: 1
+          state_flags: 1
+        slot_0: 
+        - serial: '@Ugvelk2}TMcjJ^p9jVe^49#s?7sXM4ysBoxy2m'
+          flags: 1
+          state_flags: 1
+    equip_slots_unlocked: 
+    - 2
+    - 3
+    - 6
+    - 7
+    - 8
+    active_slot: 0
+  player_customization: 
+  blackmarket_cooldown: 0
+  challenge_objectives: 
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 2181038470
+    - 234995712
+    - 0
+    - 1
+  - challenge_ident: Challenges_Achievements_24_missions_side
+    challenge_bitfield: 
+    - 388
+    - 33669120
+    - 0
+    - 0
+  gbxactorparts: 
+    character: 'gap,Cosmetics_Gravitar_Body[Cosmetics_Gravitar_Body01_Prison],Cosmetics_Gravitar_Head[Cosmetics_Gravitar_Head14_Thresher],Cosmetics_Gravitar_Skin[Cosmetics_Gravitar_SkinFilter10_Hawaiian],Cosmetics_Colorization_Tertiary[Cosmetics_Colorization_Tertiary_25]'
+    echo4: 'gap,Cosmetics_Echo4_Attachment[Cosmetics_Echo4_Attachment01_PartyHat],cosmetics_echo4_body[Cosmetics_Echo4_Body03_Ripper],cosmetics_echo4_skin[Cosmetics_Echo4_Skin50_BreakTheGame]'
+    vehicle: 'gap,Cosmetics_Vehicle[Cosmetics_Vehicle_Mat29_Cheers]'
+  total_playtime: 108348.304688
+  last_played_timestamp: 1758210962
+  first_timestamp: 
+  unique_rewards: 
+  - RewardPackage_SHiFT
+  - RewardPackage_PreOrder
+  - RewardPackage_Premium
+  - RewardPackage_Headhunter
+  - pgraph.sdu_upgrades.RepKit_Slot
+  - Reward_HoverDrive_Maliwan_01
+  - pgraph.sdu_upgrades.Weapon_Slot_03
+  - pgraph.sdu_upgrades.Weapon_Slot_04
+  - Reward_HoverDrive_Maliwan_02
+  - Reward_Vehicle_Grazer
+  - Reward_HoverDrive_Jakobs_01
+  - RewardPackage_EchoAttachment_01_PartyHat
+  - RewardPackage_Legacy
+  - RewardPackage_CharacterSkin_37_Maliwan
+  - Reward_HoverDrive_Torgue_01
+  - RewardPackage_GoldenEcho4
+  - pgraph.sdu_upgrades.Enhancement_Slot
+  - Reward_HoverDrive_Jakobs_02
+  - RewardPackage_VehicleSkin_28_Ripper
+  - RewardPackage_VehicleSkin_07_CuteCat
+  - RewardPackage_WeaponSkin_07_CuteCat
+  - RewardPackage_CharacterHeads_06_UniqueE
+  - RewardPackage_WeaponSkin_17_DeadWood
+  - Reward_HoverDrive_Jakobs_03
+  - Reward_HoverDrive_Daedalus_01
+  - pgraph.sdu_upgrades.Class_Mod_Slot
+  - RewardPackage_Combined_CupCake
+  - RewardPackage_EchoSkin_37_Maliwan
+  - RewardPackage_WeaponSkin_06_ElectiSamurai
+  - Reward_HoverDrive_Order_01
+  - RewardPackage_WeaponSkin_13_Whiteout
+  - Reward_HoverDrive_Torgue_02
+  - RewardPackage_EchoSkin_33_Jakobs
+  - Reward_HoverDrive_Vladof_01
+  - RewardPackage_EchoSkin_04_Tech
+  - RewardPackage_CharacterSkin_03_Ghost
+  - RewardPackage_CharacterSkin_30_Cute
+  - RewardPackage_WeaponSkin_21_Afterburn
+  - Reward_HoverDrive_Torgue_03
+  - Reward_HoverDrive_Order_02
+  packages: 
+  - time_received: 1758148671
+    game_stage: 33
+    reward_scale: 1.0
+    rewards_def: ChallengeReward_Loyalty_Order
+    source: None
+    viewed: false
+    contents: 
+    - rewards_data_index: 0
+      serial_numbers: 
+      - '@UgggUGFi{X;`hQSpR87>O8WpK{s7}>E%/iV`00'
+  - time_received: 1758150550
+    game_stage: 33
+    reward_scale: 1.0
+    rewards_def: Reward_ItemPool_Shatteredlands3
+    source: Mission_Main_Shatteredlands3
+    viewed: false
+    contents: 
+    - rewards_data_index: 0
+      serial_numbers: 
+      - '@Ugfs(8Fi{X;>J-pu)SwELs6#dCQgKkJP_t0+P$5w%5d'
+  - time_received: 1758210875
+    game_stage: 35
+    reward_scale: 1.0
+    rewards_def: RewardPackage_BFFEvent_NameAGun_Shotgun
+    source: None
+    viewed: false
+    contents: 
+    - rewards_data_index: 0
+      serial_numbers: 
+      - '@Uge(J0FjEj=ZX{4oRG/))sGX>PsF0{htwHTUjY5?/-9oiP00'
+  - time_received: 1758210875
+    game_stage: 35
+    reward_scale: 1.0
+    rewards_def: RewardPackage_BFFEvent_NameAGun_SniperRifle
+    source: None
+    viewed: false
+    contents: 
+    - rewards_data_index: 0
+      serial_numbers: 
+      - '@Uguq~c31$i+41-pp3e~7X4HZg>DvP>_+Eg0U9#kpRDAX%dFVsEMKLh'
+  currencies: 
+    cash: 2817956
+    eridium: 4055
+    golden_key: shift
+  ammo: 
+    assaultrifle: 1960
+    pistol: 400
+    shotgun: 200
+    smg: 1440
+    sniper: 210
+    repairkit: 10
+  checkpoint_name: World_P.FT_SHA_ZanesBar
+  world_region_name: KairosGeneric
+  personal_vehicle: PV_Borg
+  hover_drive: HoverDrive_Torgue_03
+  vehicle_weapon_slot: 0
+  lostloot: 
+    cooldown: '-1'
+    items: 
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@Ugr$-Om/&(L!qASOMI{0'
+      in_machine: false
+    - serial: '@Uge9B?m/&(L!q7>eK~(/'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@Ugr$rIm/&(L!bts~M7=L8Xb='
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: true
+    - serial: '@Uge8Usm/&(L!gT1MM7=L8Xc7'
+      in_machine: false
+    - serial: '@UgbV{rFjEj=E?3ZBRG}6XsZQ-d%/eYs00'
+      in_machine: false
+    - serial: '@Uga`vnFj5d<_-;^WRG}8tsG&lS+K1ZI9@H$<IMg`='
+      in_machine: true
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: true
+    - serial: '@Ugr$uJm/&zJ!q_^XK~(/'
+      in_machine: false
+    - serial: '@Ugr$oHm/%P$!qhpSMHQ-jbwKgEQ2Q1D'
+      in_machine: true
+    - serial: '@Uge8Oqm/&zJ!sz*+M7=L8s1N'
+      in_machine: false
+    - serial: '@Ugr$lGm/&zJ!qnKHL>20MG}(lj+z~GT'
+      in_machine: false
+    - serial: '@Ugr%Scm/&zJ!uYwMLRG4LaX`Ck0{{'
+      in_machine: false
+    - serial: '@Ugr$Q9m/&zJ!tBeSL>+2<c>n'
+      in_machine: false
+    - serial: '@Ugr%Scm/&zJ!raK9K~(/'
+      in_machine: false
+    - serial: '@Uge8Xtm/&zJ!hHFlLRD&gG&f`u00'
+      in_machine: false
+    - serial: '@Uge8Xtm/&zJ!hHFlLRD&gG&f`u00'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!r089MkT6!b3pMc00'
+      in_machine: false
+    - serial: '@Uge9B?m/&zJ!qCj1K~(/'
+      in_machine: false
+    - serial: '@Uge9B?m/&zJ!qCj1K~(/'
+      in_machine: false
+    - serial: '@Ugr%Scm/&zJ!e9aws#5Kn1KM2&00'
+      in_machine: false
+    - serial: '@Ugr$lGm/&zJ!qnKHL>20MG}(lj+z~GT'
+      in_machine: false
+    - serial: '@Ugr$lGm/&zJ!rWV+L>20MG}ok>Kmq'
+      in_machine: false
+    - serial: '@Ugr$Q9m/&zJ!rWb;L>+2<bpQ'
+      in_machine: false
+    - serial: '@Ugr$xKm/&zJ!pMoBLlx?LuK@'
+      in_machine: false
+    - serial: '@Ugr%Scm/&zJ!uYwMLRG4LaX`Ck0{{'
+      in_machine: false
+    - serial: '@Ugxp/&2}TMcO#BA=iz-y4UZOg62bBv/4gm'
+      in_machine: false
+    - serial: '@Ugr$oHm/&zJ!qAwYLlpu'
+      in_machine: false
+    - serial: '@Ugr$K7m/&zJ!fa}w(5XkAL(N6iE)@U'
+      in_machine: false
+    - serial: '@Uge8Cmm/&zJ!f1J*lBh$4F{m>JRl7X^'
+      in_machine: false
+    - serial: '@Ugr$Q9m/&zJ!rWb;L>+2<bpQ'
+      in_machine: false
+    - serial: '@Uge8Usm/&zJ!bmxwMZNDQ=uq!V3jh'
+      in_machine: false
+    - serial: '@Uge8Usm/&zJ!bmxwMZNDQ=uq!V3jh'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!r089MkT6!b3pMc00'
+      in_machine: false
+    - serial: '@Ugr$lGm/&zJ!rWV+L>20MG}ok>Kmq'
+      in_machine: false
+    - serial: '@Uga`vnFj5d<K7szC3KgkM?Lp;2<wWg700'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<xL(j-RG}W#4%MkVs9LCU2m'
+      in_machine: false
+    - serial: '@Ugr$Q9m/&zJ!llMgq7JpbI{*'
+      in_machine: false
+    - serial: '@Uge92<m/&zJ!dR`KLRG4LYe2gz00'
+      in_machine: false
+    - serial: '@Ugv?-o2__0649yApiz-y3h7LWdQ+rUgQ11`'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!t9@*MI{0'
+      in_machine: false
+    - serial: '@Uge92<m/&zJ!e}a>K~(/'
+      in_machine: false
+    - serial: '@Ugw$Yw2}TMc40ljHRG}I*bSP4rnuEH9I)@q_00'
+      in_machine: false
+    - serial: '@UgcJizFjEj=DjiU0RG/))s7Jj-P3jFQ6lxXf7OE@)'
+      in_machine: true
+    - serial: '@Uge8Rrm/&tH!bs1cLOtqyG}nZh@Bs'
+      in_machine: false
+    - serial: '@Ugvelk2}TMcOwSMciz-y29@VKis9UITsCoz'
+      in_machine: false
+    - serial: '@Ugvelk2}TMcOwSMciz-y29@VKis9UITsCoz'
+      in_machine: false
+    - serial: '@Ugr%DXm/&zJ!pvNtK~(/'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!u<T8MkT6!Z9wsBQ2Pb/'
+      in_machine: false
+    - serial: '@Uge92<m/&zJ!e}a>K~(/'
+      in_machine: false
+    - serial: '@Ugr%DXm/&zJ!pvNtK~(/'
+      in_machine: false
+    - serial: '@Uge8Rrm/&(L!tiLIK/ShxuK@'
+      in_machine: false
+    - serial: '@Uge8Rrm/&tH!bs1cLOtqyG}nZh@Bs'
+      in_machine: false
+    - serial: '@Ugv?-o2__0649yApiz-y3h7LWdQ+rUgQ11`'
+      in_machine: false
+    - serial: '@Uge8^+m/&tH!b/}bs#5KvsUcAS'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!t9@*MI{0'
+      in_machine: false
+    - serial: '@Ugv?-o2__0649yApiz-y3h7LWdQ+rUgQ11`'
+      in_machine: false
+    - serial: '@Ugw$Yw2}TMc40ljHRG}I*bSP4rnuEH9I)@q_00'
+      in_machine: false
+    - serial: '@Uge8Cmm/&zJ!f1J*lBh$4F{m>JRl7X^'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@Uge8^+m/&tH!b/}bs#5KvsUcAS'
+      in_machine: false
+    - serial: '@Uge8v#m/&(L!lkZIq}~@6Gzb'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!t9@*MI{0'
+      in_machine: false
+    - serial: '@Uge8^+m/&tH!b/}bs#5KvsUcAS'
+      in_machine: false
+    - serial: '@Ugr$-Om/&zJ!u<T8MkT6!Z9wsBQ2Pb/'
+      in_machine: false
+    - serial: '@Ugw$Yw2}TMc40ljHRG}I*bSP4rnuEH9I)@q_00'
+      in_machine: false
+    - serial: '@Uge8Cmm/&zJ!f1J*lBh$4F{m>JRl7X^'
+      in_machine: false
+    - serial: '@Uge8Rrm/&tH!bs1cLOtqyG}nZh@Bs'
+      in_machine: false
+    - serial: '@Ugr%DXm/&zJ!pvNtK~(/'
+      in_machine: false
+    - serial: '@Ugr$-Om/&(L!oZxMMI{0'
+      in_machine: false
+    - serial: '@Uge92<m/&zJ!e}a>K~(/'
+      in_machine: false
+    - serial: '@Ugvelk2}TMcOwSMciz-y29@VKis9UITsCoz'
+      in_machine: false
+    - serial: '@Uge8Rrm/&zJ!puFOK/ShxvjG'
+      in_machine: false
+    - serial: '@Ugr$`Rm/&zJ!dzXTMZNDQs8H`~2LJ'
+      in_machine: false
+    - serial: '@UgxFw!2}TMcOs)$0iz-y29#s?7sXM4$sB)-%2m'
+      in_machine: false
+    - serial: '@Ugct)%Fj5d<zBJHZRG}iZsWqros9p#'
+      in_machine: false
+    - serial: '@Ugr$K7m/&zJ!o<m-(5bws6$X{kpla6(00'
+      in_machine: false
+    - serial: '@Ugr$uJm/&zJ!obL&K~(/'
+      in_machine: false
+    - serial: '@Ug#2fK2}TMcOx6Nwi8@pt)GJi&{r~^'
+      in_machine: false
+    - serial: '@Uge8#%m/&zJ!f2VGL>20MG}y$N_yG'
+      in_machine: false
+    - serial: '@Ugr$uJm/&zJ!u(61LRG4LG&bZ100'
+      in_machine: false
+    - serial: '@Uge8dvm/&(L!bJI?Llx?Lu>k'
+      in_machine: false
+    - serial: '@Ugr%Scm/&zJ!gQaYLRG4LG&<x900'
+      in_machine: false
+    - serial: '@Uge8aum/&zJ!lj4Mp$4@+nj2yX00'
+      in_machine: false
+    - serial: '@UgbV{rFjEj=E?3ZBRG}6XsZQ-d%/eYs00'
+      in_machine: false
+    - serial: '@UgbV{rFj5d<_*776RG}J`s7TdAbt(@k6zUdg90C'
+      in_machine: false
+    - serial: '@Ugr%1Tm/&(L!ljo`qTUx4Gzb'
+      in_machine: false
+    - serial: '@Uga`vnFj5d<yd=;&RG}iZsXC}ysGO*C2m'
+      in_machine: false
+    - serial: '@Ugr%Scm/&(L!f0rqK~(/'
+      in_machine: false
+    - serial: '@Ugr$ZCm/&(L!oazpK/ShxwE+'
+      in_machine: false
+    - serial: '@UgfIh4Fj5d<I#y6<RG/{}sDG$WtwFs)g+l-'
+      in_machine: true
+    - serial: '@Ugr$uJm/&(L!bEtWK~(/'
+      in_machine: false
+    - serial: '@Ugb)KvFg_4rtR~QCRG/*ls7UQYb?OZ&4{8=FB?1'
+      in_machine: true
+    - serial: '@Ugr$N8m/&nF!es2ALp/zzG}@$^<N*'
+      in_machine: true
+    - serial: '@Uge8Xtm/&(L!t}nNK~(/'
+      in_machine: false
+  seen_eridium_logs: 1
+onlinecharacterprefs: 
+  recentfriends: 
+  - shiftid: 'Shift:1735504341955848176'
+    platformid: 'STEAM:76561198036277505'
+    platformname: steam
+  partyleader: 
+    shiftid: 'Shift:1735504341955848176'
+    platformid: 'STEAM:76561198036277505'
+    platformname: steam
+pips: 
+  pips_list: !tags
+  - Character.vehiclecustomization.HoverDrive.Borg
+  - Character.vehiclecustomization.HoverDrive.Daedalus
+  - Character.vehiclecustomization.HoverDrive.Jakobs
+  - Character.vehiclecustomization.HoverDrive.Maliwan
+  - Character.vehiclecustomization.HoverDrive.order
+  - Character.vehiclecustomization.HoverDrive.Tediore
+  - Character.vehiclecustomization.HoverDrive.Torgue
+  - Character.vehiclecustomization.HoverDrive.Vladof
+  - Character.Contract.Contract_Patrol_Bandit_157
+  - Character.Contract.Contract_Deliver_Order_Tablet_156
+  - Character.Contract.Contract_Bounty_Cat_158
+  - Character.Contract.Contract_Patrol_Bandit_0
+  - Character.Contract.Contract_Patrol_Order_2
+  - Character.Contract.Contract_Bounty_Bat_9
+  - Character.missions.Mission_Main_Grasslands2b
+  - Character.missions.Mission_Main_Grasslands3
+  - Character.Contract.Contract_Bounty_Cat_61
+  - Character.Contract.Contract_Collect_Beast_62
+  - Character.Contract.Contract_Patrol_Beast_63
+  - Character.Contract.Contract_Bounty_Bat_64
+  - Character.Contract.Contract_Bounty_Cat_65
+  - Character.Contract.Contract_Collect_Beast_66
+  - Character.Contract.Contract_Patrol_Beast_67
+  - Character.Contract.Contract_Bounty_Bat_68
+  - Character.missions.Mission_Micro_PowercorePlinko
+  - Character.Contract.Contract_Deliver_Order_Ball_426
+  - Character.Contract.Contract_Collect_Order_427
+  - Character.Contract.Contract_Patrol_Order_428
+  - Character.inventory.EchoLogs.echolog_mtn_gen_27
+  - Character.missions.Mission_Main_Mountains2
+  - Character.missions.Mission_Main_Mountains2b
+  - Character.Contract.Contract_Deliver_Creature_Egg_792
+  - Character.Contract.Contract_Bounty_Creep_893
+  - Character.Contract.Contract_Search_Bandit_894
+  - Character.Contract.Contract_Deliver_Creature_Egg_895
+  - Character.Contract.Contract_Bounty_Creep_896
+  - Character.Contract.Contract_Search_Bandit_897
+  - Character.Contract.Contract_Deliver_Creature_Egg_898
+  - Character.Contract.Contract_Bounty_Creep_0
+  - Character.Contract.Contract_Search_Bandit_1
+  - Character.Contract.Contract_Deliver_Creature_Egg_2
+  - Character.Contract.Contract_Deliver_Bandit_Blade_43
+  - Character.Contract.Contract_Bounty_Pangolin_42
+  - Character.inventory.anynew
+  - Character.inventory.unequippednew
+  - Character.missions.Mission_Main_Shatteredlands3
+  - Character.Replay.mission_main_shatteredlands1b
+  - Character.Replay.Mission_Main_Shatteredlands2
+  - Character.missions.Mission_Side_AGreatDisturbance
+  - Character.Replay.Micro_Shattered_EP_Agri
+  - Character.Contract.Contract_Deliver_Bandit_Blade_3
+  - Character.Contract.Contract_Bounty_Pangolin_4
+  - Character.Replay.Mission_Side_AGreatDisturbance
+  - Character.Replay.Mission_Side_Vending
+  - Character.missions.Mission_Main_SearchForLilith
+  - Character.Replay.Mission_Main_Shatteredlands3
+  - Character.inventory.rewards.RewardPackage_BFFEvent_NameAGun_Shotgun
+  - Character.inventory.rewards.RewardPackage_BFFEvent_NameAGun_SniperRifle
+globals: 
+  time_of_day: Day
+  introlights1: TRUE
+  introlights2: TRUE
+  introlights3: TRUE
+  introlights4: TRUE
+  movegrant_glide: TRUE
+  movegrant_grapplegrabber: TRUE
+  movegrant_grapplegrabber_presentation: TRUE
+  repkit_unlocked: TRUE
+  lockdownlifted: TRUE
+  movegrant_echolocation: TRUE
+  prologue_completed: TRUE
+  event_count_caravan: 6
+  event_count_ambush: 4
+  event_count_ambient_order: 13
+  event_colosseum_visited: 1
+  event_count_aircargo: 3
+stats: 
+  achievements: 
+    00_level_10: 1
+    01_level_30: 1
+    04_cosmetics_collect: 58
+    05_vehicles_collect: 4
+    10_worldevents_colosseum: 1
+    13_contracts_complete: 19
+    14_discovery_grasslands: 24
+    15_discovery_mountains: 10
+    16_discovery_shatteredlands: 29
+    18_worldboss_defeat: 1
+    19_vaultguardian_defeat: 
+      19_vaultguardian_grasslands: 1
+    24_missions_side: 13
+    25_missions_grasslands: 1
+    26_missions_mountains: 1
+    27_missions_shatteredlands: 1
+    28_missions_elpis: 1
+  challenge: 
+    kills_all: 2972
+    general_kill_enemies: 2880
+    general_kill_badass: 193
+    general_kill_corrupted: 18
+    general_kill_crit: 1067
+    general_kill_melee: 30
+    general_kill_sliding: 1
+    general_kill_dashing: 73
+    general_kill_airborne: 155
+    assault_kill: 554
+    assault_hit_crit: 2373
+    assault_kill_crit: 217
+    assault_kill_crouched: 22
+    assault_kill_scoped: 31
+    assault_kill_secondwind: 21
+    smg_kill: 300
+    smg_hit_crit: 1729
+    smg_kill_crit: 98
+    smg_kill_secondwind: 6
+    smg_kill_dashing: 1
+    shotgun_kill: 246
+    shotgun_hit_crit: 1024
+    shotgun_kill_crit: 116
+    shotgun_kill_close: 49
+    shotgun_kill_distant: 1
+    shotgun_bigshot: 1
+    shotgun_kill_secondwind: 15
+    shotgun_kill_dashing: 10
+    sniper_kill: 687
+    sniper_hit_crit: 1242
+    sniper_kill_crit: 509
+    sniper_kill_distant: 90
+    sniper_kill_oneshot: 115
+    sniper_kill_unaware: 300
+    sniper_kill_unscoped: 200
+    sniper_kill_secondwind: 13
+    pistol_kill: 139
+    pistol_hit_crit: 307
+    pistol_kill_crit: 45
+    pistol_kill_scoped: 10
+    pistol_kill_gliding: 7
+    killenemy_grenade: 87
+    killenemy_grenade_mirv: 4
+    killenemy_grenade_artillery: 26
+    killenemy_grenade_lingering: 7
+    killenemy_heavy_torgue: 10
+    killenemy_heavy_maliwan: 2
+    killenemy_heavy_borg: 3
+    killenemy_heavy_torgue_directhit: 7
+    shield_take_damage: 695632
+    shield_kills: 172
+    shield_kills_nova: 172
+    shield_absorb_ammo: 49
+    shield_pickup_boosters: 523
+    shield_pickup_shards: 174
+    repkit_uses: 173
+    repkit_healself: 117513
+    repkit_lifesteal: 10776
+    loot_whites: 69
+    loot_greens: 200
+    loot_blues: 150
+    loot_purples: 75
+    loot_legendaries: 14
+    loot_weapons: 500
+    loot_gadgets: 182
+    loot_shields: 193
+    loot_repkits: 146
+    loot_classmods: 138
+    loot_enhancements: 153
+    loot_redchest: 28
+    loot_anylootable: 1354
+    killenemyarmy_bandits: 1216
+    killenemyarmy_creatures: 613
+    killenemyarmy_order: 979
+    killenemytype_psycho: 229
+    killenemytype_guntoter: 683
+    killenemytype_splice: 198
+    killenemytype_meathead: 55
+    killenemytype_phalanx: 15
+    killenemytype_bat: 136
+    killenemytype_beast: 62
+    killenemytype_cat: 152
+    killenemytype_creep: 202
+    killenemytype_pangolin: 43
+    killenemytype_thresher: 20
+    killenemytype_soldier: 310
+    killenemytype_striker: 173
+    killenemytype_drone: 95
+    killenemytype_leader: 79
+    killenemytype_brute: 57
+    killenemytype_grunt: 240
+    revivepartner: 19
+    secondwind: 88
+    secondwindbadassboss: 13
+    getcash: 235256
+    geteridium: 237
+    kill_elemental_corrosive: 21
+    kill_elemental_cryo: 40
+    kill_elemental_cryo_status: 4
+    kill_elemental_fire: 218
+    kill_elemental_radiation: 456
+    kill_elemental_shock: 20
+    kill_2_status: 5
+    manufacturer_borg_criticalhits: 4
+    manufacturer_borg_multikills: 3
+    manufacturer_borg_kills: 3
+    manufacturer_daedalus_kills: 55
+    manufacturer_jakobs_grenadecrits: 27
+    manufacturer_jakobs_oneshot: 201
+    manufacturer_jakobs_quickdraw: 350
+    manufacturer_jakobs_ricochetkills: 138
+    manufacturer_jakobs_kills: 954
+    manufacturer_jakobs_underbarrel_kills: 1
+    manufacturer_maliwan_status_fire: 514
+    manufacturer_maliwan_status_radiation: 5
+    manufacturer_maliwan_status_shock: 16
+    manufacturer_maliwan_kills: 209
+    manufacturer_order_killorder: 55
+    manufacturer_order_fullcharge_kills: 46
+    manufacturer_order_halfcharge_kills: 43
+    manufacturer_order_oneshot_kills: 95
+    manufacturer_order_kills: 274
+    manufacturer_tediore_kills: 39
+    manufacturer_torgue_grenade_kills: 21
+    manufacturer_torgue_impact_kills: 337
+    manufacturer_torgue_sticky_kills: 3
+    manufacturer_torgue_splash_kills: 66
+    manufacturer_torgue_kills: 368
+    manufacturer_vladof_explosive_underbarrel: 5
+    manufacturer_vladof_kills: 122
+    spareparts_cov_overheated: 3
+    manufacturer_borg_loyalty: 3
+    manufacturer_daedalus_loyalty: 53
+    manufacturer_jakobs_loyalty: 954
+    manufacturer_maliwan_loyalty: 211
+    manufacturer_order_loyalty: 276
+    manufacturer_tediore_loyalty: 39
+    manufacturer_torgue_loyalty: 369
+    manufacturer_vladof_loyalty: 121
+    gravitar_exodus_tiered: 196
+    gravitar_exodus_single: 1
+    gravitar_stasis_tiered: 3
+    gravitar_terminal_tiered: 31
+    gravitar_terminal_single: 1
+    gravitar_levelup: 35
+    economy_maxheld_cash: 1
+    economy_sellloot: 500
+    economy_upgrade_inventory: 1
+  openworld: 
+    activities: 
+      safehouses: 
+        safehouse_grasslands_1: 1
+        safehouse_grasslands_2: 1
+        safehouse_grasslands_4: 1
+        safehouse_mountains_1: 1
+        safehouse_mountains_2: 1
+        safehouse_mountains_3: 1
+        safehouse_mountains_4: 1
+        safehouse_shatteredlands_1: 1
+      silos: 
+        silo_grasslands_1: 1
+        silo_grasslands_2: 1
+        silo_grasslands_3: 1
+        silo_mountains_1: 1
+        silo_shatteredlands_1: 1
+        silo_shatteredlands_2: 1
+      crawlers: 
+        crawlers_grasslands: 
+          crawler_grasslands_3: 1
+      bounties_augur: 
+        augurbounty_shatteredlands_2: 1
+      bounties_order: 
+        orderbounty_mountains_2: 1
+      bounties_vanguard: 
+        vanguardbounty_mountains_2: 1
+    collectibles: 
+      vaultsymbols: 
+        vaultsymbol_grasslands_1: 1
+        vaultsymbol_grasslands_2: 1
+        vaultsymbol_grasslands_4: 1
+        vaultsymbol_grasslands_5: 1
+        vaultsymbol_grasslands_8: 1
+        vaultsymbol_grasslands_10: 1
+        vaultsymbol_grasslands_11: 1
+        vaultsymbol_mountains_6: 1
+        vaultsymbol_mountains_9: 1
+        vaultsymbol_shatteredlands_6: 1
+        vaultsymbol_shatteredlands_7: 1
+        vaultsymbol_shatteredlands_10: 1
+        vaultsymbol_elpis_1: 1
+        vaultsymbol_elpis_2: 1
+      safes: 
+        safe_shatteredlands_3: 1
+        safe_shatteredlands_6: 1
+        safe_shatteredlands_8: 1
+      capsules: 
+        capsule_grasslands_2: 1
+        capsule_grasslands_6: 1
+        capsule_mountains_6: 1
+        capsule_shatteredlands_1: 1
+        capsule_shatteredlands_5: 1
+      evocariums: 
+        evocarium_shatteredlands_4: 1
+      propaspeakers: 
+        propaspeakers_grasslands_3: 1
+        propaspeakers_grasslands_4: 1
+        propaspeakers_mountains_7: 1
+        propaspeakers_shatteredlands_3: 1
+      echologs_general: 
+        el_g_grasslands: 
+          gra_gen_03: 1
+          gra_gen_09: 1
+          gra_gen_10: 1
+          gra_gen_12: 1
+          gra_gen_24: 1
+          gra_gen_27: 1
+          gra_gen_28: 1
+        el_g_mountains: 
+          mtn_gen_04: 1
+          mtn_gen_09: 1
+          mtn_gen_11: 1
+          mtn_gen_19: 1
+          mtn_gen_22: 1
+          mtn_gen_23: 1
+        el_g_shatteredlands: 
+          sha_gen_01: 1
+          sha_gen_02: 1
+          sha_gen_03: 1
+          sha_gen_04: 1
+          sha_gen_05: 1
+          sha_gen_08: 1
+          sha_gen_10: 1
+          sha_gen_11: 1
+          sha_gen_20: 1
+          sha_gen_21: 1
+          sha_gen_22: 1
+          sha_gen_26: 1
+          sha_gen_27: 1
+          sha_mis_01: 1
+          sha_mis_02: 1
+          sha_mis_06: 1
+        el_g_elpis: 
+          elp_gen_01: 1
+          elp_gen_03: 1
+          elp_gen_04: 1
+          elp_gen_06: 1
+          elp_gen_07: 1
+          elp_gen_08: 1
+      echologs_arjay: 
+        el_a_grasslands: 
+          gra_arj_01: 1
+        el_a_mountains: 
+          mtn_arj_01: 1
+        el_a_shatteredlands: 
+          sha_arj_02: 1
+      echologs_vaulthunter: 
+        el_vh_grasslands: 
+          gra_vh_03: 1
+          gra_vh_04: 1
+          gra_vh_05: 1
+        el_vh_shatteredlands: 
+          sha_vh_04: 1
+          sha_vh_07: 1
+          sha_vh_08: 1
+          sha_vh_09: 1
+      vaultdoor: 
+        vaultdoor_grasslands: 1
+      vaultlock: 
+        vaultlock_grasslands: 1
+      vaultkey_grasslands: 
+        vaultkey_a_grasslands: 1
+        vaultkey_b_grasslands: 1
+        vaultkey_c_grasslands: 1
+      vaultkey_mountains: 
+        vaultkey_b_mountains: 1
+      vaultkey_shatteredlands: 
+        vaultkey_a_shatteredlands: 1
+  spawncontrol: 
+    spawned_loot: 2
+  tutorial: 
+    climb: 1
+    crouch: 1
+    double_jump: 1
+    grapple: 1
+    ground_pound: 1
+    jump: 1
+    look: 1
+    revive: 1
+    shield: 1
+    walk: 1
+    weapon_fire: 1
+    weapon_reload: 1
+    checkpoints: 1
+    echo_location: 1
+    vault_tracking: 1
+    activity_safehouse_discovery: 1
+    activity_safehouse_capture: 1
+    activity_crawler_discovery: 1
+    activity_silo_discovery: 1
+    activity_silo_capture: 1
+    activity_augermine_discovery: 1
+    activity_augermine_locked: 1
+    activity_orderbunker_discovery: 1
+    activity_orderbunker_locked: 1
+    activity_drillsite_discovery: 1
+    collectible_vaultsymbol_discovery: 1
+    collectible_lostcapsule_discovery: 1
+    collectible_lostcapsule_decrypt: 1
+    collectible_echologgeneral_discovery: 1
+    collectible_echologarjay_discovery: 1
+    collectible_echologvh_discovery: 1
+    collectible_evocarium_discovery: 1
+    collectible_shrine_discovery: 1
+    collectible_cache_discovery: 1
+    collectible_safe_discovery: 3
+    collectible_speaker_discovery: 1
+    collectible_vaultpower_discovery: 1
+    misc_combatchest_discovery: 1
+    sdu_tokens: 1
+    vehicle: 1
+    actionskill_unlock: 1
+    repkit: 1
+    gamesystem_respecmachine: 2
+    dash: 1
+    glide: 1
+    augermines: 1
+    orderbunkers: 1
+    zonetransition_locked: 1
+    melee: 1
+  regions: 
+    grasslands_regiona: 
+      discovered: 1
+      region_kills: 324
+    grasslands_regionb: 
+      discovered: 1
+      region_kills: 125
+    grasslands_regionc: 
+      discovered: 1
+      region_kills: 147
+    grasslands_regiond: 
+      discovered: 1
+      region_kills: 175
+    grasslands_regione: 
+      discovered: 1
+      region_kills: 238
+    mountains_regiona: 
+      discovered: 1
+      region_kills: 286
+    mountains_regionb: 
+      discovered: 1
+      region_kills: 155
+    mountains_regionc: 
+      discovered: 1
+      region_kills: 13
+    mountains_regiond: 
+      discovered: 1
+      region_kills: 98
+    mountains_regione: 
+      discovered: 1
+      region_kills: 195
+    shatteredlands_regiona: 
+      discovered: 1
+      region_kills: 38
+    shatteredlands_regionb: 
+      discovered: 1
+      region_kills: 332
+    shatteredlands_regionc: 
+      discovered: 1
+      region_kills: 183
+    shatteredlands_regiond: 
+      discovered: 1
+      region_kills: 77
+    shatteredlands_regione: 
+      discovered: 1
+      region_kills: 113
+gbx_discovery_pc: 
+  pins_state: 
+  saveid: 2483
+  fodsaveversion: 2
+  foddatas: 
+  - levelname: Intro_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: World_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: eJztW3lUVccdfi7pUWubVE3Uk8oxtXFfogbFIBi1GpWImJ64FK3WNnq02qgBFdtEg7u4oVZTCMQFtwICsigiKIgIgjwVCCoqsoksgqwCArd37vLe7Pe+p//0HL9zeO++O3Pnmzszv3UGg+EN3uAN/t/wK8N7fbsZDO3ES5sBXQ3DnSZ0H+gwtL/dF1N7qVXeHW1nP2/OZKfBvdsrd7p2YDXXy3ZwW/DdbuTEj+D73d+lVv/Ezctjz/FdLv/cOH/UwsOndsw/kRzjeSTm1NEIY8L2+ctcXFf86evvtoZHBt7NiL/u77fWdu5c26Gj3Lw3zaDTT98ffnLltM+d3df898rJr4YNGzny46F243734fID3ovHjxvh/NnoHjbtDT169RkzpI2Nva3jf4qFCkFovVjXnBoRLwgNZwVByBVkFGQVX71VZixqLhVU5AdkZR0PPFAkNJ6bSaO3O94qCMZryRerqsXasYGBIaFhZ8IvHTqcLd6Oiw1ISwg/4Lvuq4M+P0SdXO59Iex8nmAF6sS/1u1vU/gX5uh4vOiG/NVoDbcJPr8l6bt5tbxSmxagaiNlCfYNeF3NV2iU5/3k2o7k77GP+cALHaQWLYaIaZT5nxXJqv5cR5NKH59oVhQXuVDpRuEfHaiz9yhSW5GfNXBvWKjzoPDPuMl5opRTJpjFXhAe0Ypbsd+Jiyn8ayo5BDXPqyh3m1gEUoc48nR0AEHfZkMzWa+B0yUEt5R+ZMvf6Xv5MxBpR77/Pwr1klGQoXxHKd/5aDE+Pr6/J/kdowQWKCNjxiNp3q41Sm+cjpa9LAefNcQzfr1Jfuc0Nkcthz+hDHzuO0stpMtjw9aBJL/DBahGOvU5wbwiXuIF1/Abd9hdFh64tyf4x8dCFWirHaBYvUCE5TqV9xinA8f6EvyuiVC5Hltoxj3wEVL4lFFcTd4K6IfTd9wC7quq9iFUt5xFq67qevDRfH7DnqvGGMrA1YiDVYgu7oL1hAW0lYZLXWiQ/NQnIo8WEe2rcpvDExNUH9xdQAz/vGyE5TGnLatgVL6lwRJCJ+H8Cx6YqgKBqkzIJ9uwEFfgH1lIUcnXOL9jsKkQWi8UwU9+nEA1MgSehUhf56qlFXQmEp6eytU4/4hQWhvJxJ06/EaB6QpXNkGSfQJinZd+8uQmWKfEueD8/Y6Q7I0sNQCh5bJJFRBCK+kkSThF215phEp2/wbn77yDaLomBP5VV3uFqCHhJtCJYL2ewAW9GbE7ML+PPc7f1VsuyZMXaAn4kBSKadqQ5qHJlEY5qiAviFAUqEDm3Ddfl6zB+duufwbVffZAIMASCJ7fAqCKshGuuBefgEnnoNLY9SyLl6levDQJFFhXcN+FlEJNj7X6W9wALVNXr9TUYZb1kpQdqejNEy3OcjNoiuZ9ldSoklu8DB//ZapilWc5J5PyPIFn7CJCTkUURN5Tru5t/QDjnxyhvAk08tm39HTChJcqJ+GOKrgo/pW3SJOT+iXGv1R6/6IGWIhv89h4HiatA4WRhyDb9WQpxr+kgHyE53ahqEd9vOh4WqUQ6N2I9x8PrX9R7V1Pr6jVo+cVmcJcTNrki8v2iClsr9uJz/+HB4i3Tb7LYjWHuMAPVEabNevmpzZ7BSYqwxwyHOOfRjiQJBSnsypcuyoVtUdMMV6YK8b/OWnqSCjjx3NOJPVNpACu774kPVhvuuPfH+Uf5KvrFQjkwXPdKNyW3ag4rFbG9z7g67nJfxYuOaL8ztzxpy8oGA/OlkoLiG4NgmvwICpwBMq/4CH+DBk2ocCC07BIyYP5mVKzKAxIfh3sn7T6YCGQE8O6WwCpwzQn+I4sG4jGSnZC+d/z1B5jLSRVNRk1qphSBklYDqjztlemF31cdu6rXDZoz1Ud6I9FYF32Srf15LoUVL0ol8L+SkbcVaPelyh9D6KlgUNQ/uH0AFoHkoKxG3kMVSIZPkXLNnhhSe1h1qW/RKRG6K0JJEb1K0LGovxjTljDDZyVSMiv5DvsRWJxgaKCMmej/H+hhdzm5dQo3KeUQygALwa1cf+q/F2q6Gzgj8VDaeuk6Sj/32Sl3iTAgE3iC6pNh5BbnE4abDhPUg2pmCdemAGecA57UtOcEkjlpfwA4OIUbBOi3d8xMTIrsjJ6Y7wEjzYeLkT5DYsoIQdALplxkHuHTJU6s9gIoNMJI3Yqxv+HC8y6XOSCj8ukSyCls4g0mQlP12L88y3LOSmovQdS000ZSfIvqKSxRLlgLKT93VD+mTd0UtKTwmACZNvbqGvlNnhiKagxuyjJynxkAtXXUwJhNCBFTI+2GbmOBQCjfbT3LmJ4hfW8QhXQ0BxDc/ArdOabWNlA9H5Z+ouqq5RakCyds4Xp227Q3n6TXHdOyCmjScikSixAM+TkhY1C3n+ZdrAjCUhScFo0dv8ZEL5mtqjBMLNcQFMwS7R30ACDuARvm6VMvgqSXYd4Pbsl5gUQ44C+v/byY6BEln1KVgID0BQFpl2W08MQ/innreWnJg5piCgTnoZeUn/FTED4HQL0CBDFu+bKDdmmSculOaPyx1y0COA5BnYRVTQ6trBNC6BwCcLvoUt/qJDNXZ7qb+lPVJiRNQ/hn5+O9M4ysM0sG9VoCnLyq8RfGtuzAJI1DL1kDipLVyL8zqnkM1oRqALV9nOr3wRrA6Tf1Nxk2SqE357hf1M2j2CACVMEv5QsgRCOH9mockf4F+vecckEb2B+15wU5ULO7DCWYpaknmHpKUEPAawooT8oA3b+ixB64Vk2XpnKT97a8UuYf3osXg6PPMyvsdipdiyfdO6eou/fxYvXKOu8jZQzqIJNF1hmlJ10yto8hmSgeh7m8aOQlrCsL4FCfvTYTE1ZrvVS508bTV1Qlsi5j2H+Dhu1pQ2JLjMkg2ls5Th+0spU0ioXU0zzplwctIH5u+7SIM9N5JfLg45k0fzMlxTn/tRgmL+3H1mjvtnSM15gUhpMA3k5qlXWCglHlTu1UJIpdCTM//ZWmgGy7pyXKWB8evxQYiEjJ/hid0+Yvw9l/09EtvAy5i7tNAJ1i4fsLhgQhmU9jETg7+/Fis2dvpKbgjmXGaV5l4NIW2kyIeVNzRrpCgF3wG3x+B8BRaumkQr7uYaxQPETcgZhyCmyRv7PnB2YFuYZEXgeOF55HBKBt19N2YDhgnkuAtUIzDEp8ngL7sBqrX3M1w5/eAF23YymWS4rZo2efNEPjgT/0AviH4m58de14hHNQFBEWt2Ti8zC/I3wHvAIPP96WZCtC/fw1SsBiUAdL2Gld2LrJYum+wycNrAVFvUJxD/8jFVNFnNLua5K/b7esP71h8tMYmupUCLIAT4tOz6LHQ/Lnztv057ZCFsJAOz2u32XHRvEfArze1D2X0xvX87anInAJiAjBXa+/LhBXeIUmH8Wxb9QdBfHC3jE3aLP5RUK1xAF7HqPrHGjBMQRVWG8VjRdhMcsCY6CU9Bt1hGarjCR8MkxaKb5KG6/GU2boBSkev5GgjzulXHorIO7stHXfVQ1nuvAwYdg3tqgGcSrCfJrGc1ltOQeBX5cLb4XTgFP0ZH/lmcSOB5N+sL1PG5W7t89IH4Xjj+BQn4n3YaRqVcermoD8Y/lOmAweAfFLcKpobABYp6/xxGvZ6cgl1Omimy0vVXjL8Zh1iR8SPwI7wGPk9/fygwUBn1xSzScguzsdqNFXw4ZBVvFa3oOd+BDQF08dWWAkVPi1vQXQvREiN8W1vJqwxZsx1uB3EUQ/2jqqR6LIhoA2spkDdO9P0P87++nVdHzvy9W45FHRzP/R5YeQHgNjvFp6BBEnx9fvT1LEQTvQfxVa4PdEuhSAOWb4AjkHdcdLGtN5CZFB6ABxMa1jE1rfTgNBwAihn17NjL64v2UupLkxNjnFannT532PfOkOmmne0hFY1qlkHM7M+IhOPPywDMi2tstKCZgi2dcevDpSP8qcaVmBmfdeKgm+lTBFeUnoRhkQdLVrJC6TdRyxQ8/g2j49YgxYyfNm7tupdPUGW7fOI8bOOiDT1e4z+pu+MztX/PWbVk2a86EhXP94iO/G2jnYNNhpGO/d3pMmmk31G7C975eqxfYz3FZvv1QWuaZHKHijCiHN0PuGg/571/wzbZVm7ct2hkefDY9Ji7E2/g4uSgtPOagE/lPSHwo3tqAifbE6e1ONsqtTgO+mG23dPPaqXtCjq1wcP1y0Aeij9HR0KGToceoEWNcJo4f1X/2oj8umWXniB+AfJ34hcHQc3h/7XpvIOF/1ul8bg==
+  - levelname: Vault_Grasslands_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: Fortress_Grasslands_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: Vault_ShatteredLands_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: Fortress_Shatteredlands_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: Vault_Mountains_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: eJztm3k8VGsfwEeJuomSemWpSEi2FpGUYbRw42Iq1FSWigkJQ8TYpdKihsYrFTLWrJVMkywtpjI3lJqbVJYQRRuJMlc3zpxz76058zbv0z++n4+P+cycM98zxzy/5/f7PQ8MZpRRRhlF8IwREpk6Y7qCupbaXOmxgJwScnMUpKWl5VXmKesaGhpZbsATiG4uDtbL5EHYpRaa2tlvWb9+g+02Z3uvwMCAQ5QYKi2TdvqQl+W8/59WVExcZraC5iKdVS7hcadOHj9OoSSnJubS6ReYNazqpramP66nhaybL2ityDR5+RnK2kt0cKZrbDYTXHd7BCUyaurZ1dXVrCeN7Pbe3k7OMAMPskPxCoKUj5FWwVpt3LjO0c3bMyQqgpJATc/NYlS94XwDdqYvdoKg5EJTZPWtHf0PU6lHzmQU5F65Xn6Xfa+5s7X3W3YOZ/DWcbuZqD/cmO+9Ok5xmfkGj+jT+cz795n1LV0dHzifvy0e4RmNqIFKLj53iSFWT3XKv7wkIiryi5KusS1pP+XstUfPeUthdObuXoRGr2iy1SuQTHJco/K3mCGhuhRngjMkeAVHZ1+rru3jy87htGd7LEChV7X2o+bQL+clkO10FMUwY0TGColNFps4XUZxpb1PSFiIL+Uco/QZivv9dx6ddlLlrZe3DM5ktfV+6KjJO7iLgFuwAoc1MDU3XY23sfOLzy8pLSlktvb9D3YO507MehmeemEDL1rd1+OfXc6K83MLCCXviYzeFxYTeyKD9aL/U/9Lvu479+Ce4kBj3uNvBv7wjYHhM948ryqgXbpKz69gVjCqau894P8zsyoHRx62ZO9ezPv2qzidqYed/6rh3UBv+yBn8D3/7iH6y9jQQyZlkyJvv8bOdP5G1Qi9A73NbU019xFPtuY2QK8XBxj+wts/34XWyL/8XQ3rasnlrKw06sUXsKc/M+ldI49fFfjo8dZjFAjUGtTaVx1Nn/76zTwVEx5C3u1OdKCUwy7gaRb3vdhJO9DMfxKmIUUv/iH6FwY5b9kXcs+V/17/uLo43mvdGhxWR0t9+U5KcX3P8CEt9OSnI4e/KY787T8o/BgNR0pZG2/9a1bFpZRwT+99lNNnYkO3GctOGvclWk41cIiiMZi1tU3tjXcLD6dz/Rf2LEWjx4gZEI9deMxL300/GRlI/G2Rvpmtg4PdGq3JI6dPXGDtHnwo7kRaNi2OfOTmp5ETmjPd0QTfISSXbY3Mvdv9fX9DKnENVlsag5kkp6QkLw4/X26RiaUNgejusgk2lAdvUzahzT4maNoEnKQ/6odkH4d+ugbg+jdl0etkv5nRikrJKKhrqy9yT2uB7leBr5EESj9GSHmVc0R6xYPm1saGquqHteWVv1cWlV7vgPR9txJ26n43QxhCGEumQ1HrQ0XsdgPUF4CR1MZ77k9MzzibdDw24URUdEx0YFjcxdrhW9J5O9nbZBqv95i54XAFd57qYFC2owi/3LOXWtjvdN3hZGNDsFtrgbcwXukQklrZ2P36xRPmeSrJjHc2v8At/RnsT9bBOICX4+MCMFJKGprzlOVkZslNkZwmKTJJw8L7WFph4bmzMf4OxiiKieV7i94ivrI0t4X8+P+B/ApbVx8fD+cNhmrivI8eiyUzEDP1++JA7I8VYeNnaenpLZwvJ4LqaAP/IsSk+bksfOX4H/LzhaR5VNkHuP/jlRAcuisXCLMI8ci5uC3HG80EKCiUHE4jovinW3Fb5oL0b054CP/r16WRjCYC9Ot65cATqVvpQZazAOpFcCElH7n6lrw9VioA9ZgJqyPKYcGv9ChBGaQeM9k09DJUDNfRY4n6okD9Q3lk7Yj+DT3CabkkUD1GzTkVyqM787x0UERsgaJO5CYfXQXeSwDrMTq70qDkqznDTQuwfsLK0CtQ9K+KRZ37CYopFtFMaPTdPmw5FbB/oXP8z/RLmUcyoMqv72r4apCRf4i5DoncZkH/9WgrVKWX4NB0y4RNPuxEexSNH0Gi7Z7dzvU3FQSu0xQG6Z+3I6WB6+ewMiM3qYP0y64/egfm59QXhlny7n0JDoUtCchmFTvVnZ/q50dRdkp6gvD3XgkDOQYVtyayEX7OnSNWUuD883acfYr0s2LwPCtWwbHE81wLQj94bf9a9OX3jzLOOBhZ+3Ge5/ka8GoYCI7xK8PLEC3qrooYAsDiQxQXfLkHcvd0Py6hui4DWHtKrD1wE/rsVcXnzx5wwQL89mHkbCgsrv+oLxGvAzT9HQo/UO3ZXxZpqgky9g6hsj0FGv59DPIPtj34R90lFfJ35JNAlv1/sdAjB2oWtmW5awPWCy33vwBlf88zXDUB+2VXwcLPw5P2INseQyj+6kkph5ad6uI3oV71FQgyv/olV7ZCw7/ykBXI0IORMPJMuQtrvN3YbzYJpF/dicqEzX2fyyNWo1j2EhgTcOSLL2Ez37siPwOAesx0PDLz7S5EtewmMOQ2UhFtz9fnfYH6ZW3jauH+l/kkXZB+GeuDN+H+90X+y0D6NVxS4OvXnFcFYKefpT6FXXD/H8nOQCs/A/9L8FWHPkaUpTRIvy4pHz78P5eGgVz0wGDUtp+Bt937S4AuegzFH4uIYljr4UW+D7plZ4Gh7XiM8QSaf1jxoFsvYvrbDqRf+7rv7cO9DD8TcGXfV8QXr98VV1zb2PykrjyFbIViz4mAEZpp6BRKTU1L/u/+XeZgVx2GEdcyJTi7OG220ANceEBMnq02X1kBYMdjlFFGAcpYUaA9dSTjZi/GmhjpqgFNbrhM17fdRQ4NIm2z0p3+E/TSJm5HMuiljPwzB11XA9nYj2DiCo+TFY09n/pePio7RVoFPMyrbo29Mby36N2dRCLIlYUvqNkEFUA53tuSfeZgVxfnWIbmwGrMuoStc0Dqlaz20uApdhPNReD/WPEdVK0CMqo/Iv1q4PRz8EEZNYMwPachyRFcg03cxC+zDqHn3I8ngNvYo2Ifz0LYOT1X960F11zX885tR+gHqpPcdIDphY2CkAtLrbdoe83ALa4LGwdfgX33m2/mxJIsQI5+fd9CbnnPzj/uu9kI5K4yjNq2U/eG7b3VGaEbVyiB3VkhZRZc8HVl+TUzyd96PtDexhfUNkbl3X3e3fnoaoKXGdC4/xVhbbsAalZhXtIBIo6v7cSCYozKqi3uJK8dVjqg9xSNID5nga7Oz0o8RxEwfwKt4tOJ
+  - levelname: Fortress_Mountains_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: ElpisElevator_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  - levelname: Elpis_P
+    foddimensionx: 128
+    foddimensiony: 128
+    compressiontype: Zlib
+    foddata: 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
+  mapviewsavedata: 
+    hiddenfilters: 
+  metrics: 
+    lastworld: World_P
+    lastregion: shatteredlands_RegionB
+    hasseenworldlist: 
+    - Intro_P
+    - World_P
+    - Vault_Grasslands_P
+    - Fortress_Grasslands_P
+    - Vault_ShatteredLands_P
+    - Fortress_Shatteredlands_P
+    - Vault_Mountains_P
+    - Fortress_Mountains_P
+    - ElpisElevator_P
+    - Elpis_P
+    hasseenregionlist: 
+    - grasslands_Prison
+    - grasslands_RegionA
+    - grasslands_RegionC
+    - grasslands_RegionB
+    - grasslands_RegionD
+    - grasslands_RegionE
+    - mountains_RegionA
+    - KairosGeneric
+    - shatteredlands_RegionD
+    - Grasslands_Vault
+    - Grasslands_Fortress
+    - mountains_RegionD
+    - mountains_RegionB
+    - shatteredlands_RegionA
+    - shatteredlands_RegionC
+    - mountains_RegionC
+    - shatteredlands_RegionB
+    - shatteredlands_RegionE
+    - mountains_RegionE
+    - city_RegionB
+    - city_RegionC
+    - city_RegionA
+    - shatteredlands_Vault
+    - shatteredlands_Fortress
+    - mountains_Vault
+    - Mountains_Fortress
+    - elpis_elevator
+    - elpis
+gbx_discovery_pg: 
+  dlblob: 'DLMD_Intro_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DEB85B02_1588122976:2:DLMD_Intro_P_LevelTravelStation_UAID_02504100000136FB01_1371254719:2:DLMD_World_P_CarryableObjectContainer_UAID_08BFB89AE7C85D2802_1684482113:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_047C1619B44AA00302_1861225831:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EF290002_1402034712:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EF2B0002_1667303070:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EF2D0002_1947412430:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EF54FE01_1960602211:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EFAD0F02_1616494078:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_089204DCF7EFC61D02_2081124994:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_08BFB89AE7C8082402_2027277924:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_08BFB89AE7C87C2302_1968194374:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_244BFE96422DF40F02_1726095288:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_5811224CB628B30F02_1893911891:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_5811224CB628B30F02_1955619892:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_D843AE5FAC6A091E02_1526421768:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_D843AE5FAC6ABC2302_1462881555:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_E04F43E63017481F02_1231511914:2:DLMD_World_P_IO_LostCapsule_DecryptStation_UAID_E04F43E6DF41E21A02_1097913731:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2053789696:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001256002_1337117384:2:DLMD_World_P_PoAActor_UAID_047C1619B44AA00302_1687647825:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001882102_2079195280:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000013C2202_1958193976:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001266002_1228412562:2:DLMD_World_P_OakInteractiveObject_UAID_E04F43E60D83840102_1427834786:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_2CF05D8C2CE92C3802_1813796376:2:DLMD_World_P_PoAActor_UAID_0050568BFC4DB31302_1570162105:1:DLMD_World_P_PoAActor_UAID_04922658D4A791C201_1271147543:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001296002_1621731092:2:DLMD_World_P_PoAActor_UAID_089204DCF632D0FB01_2041500824:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001912102_1109609876:2:DLMD_World_P_IO_EchoLog_VH_UAID_04922658D4A7A41F02_1291057141:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_089204DCF632CDFE01_1633445488:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000018F2102_1311268516:2:DLMD_World_P_IO_SurvivalistCache_UAID_04922658D4A73C1B02_2110777601:2:DLMD_World_P_IO_Switch_Evocarium_UAID_04922658D4A7A81F02_1827494874:2:DLMD_World_P_IO_BossReplay_UAID_54BF6467AEFC581402_1707512104:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001286002_2012206912:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7941B02_1148736104:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_04922658D4A7951B02_1095753282:2:DLMD_World_P_IO_EchoLog_General_UAID_14F6D87D5707AD4F02_1694823387:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_04922658D4A7E71A02_1837541650:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000013C2202_1402840974:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_04922658D4A7021A02_1941302402:2:DLMD_World_P_IO_VaultSymbol_UAID_04922658D4A7FB5602_1963877490:2:DLMD_World_P_IO_VaultSymbol_UAID_04922658D4A7022002_1893521669:2:DLMD_World_P_PoAActor_UAID_02504100000187D401_1882517809:2:DLMD_World_P_Lootable_GoldenChest_UAID_7C10C93FFF14E54702_1301926795:2:DLMD_World_P_IO_VaultSymbol_UAID_04922658D4A7A75602_1713283703:2:DLMD_World_P_IO_EchoLog_General_MissionDriven_UAID_047C1619B44AC56902_1828382048:2:DLMD_World_P_IO_EchoLog_General_MissionDriven_UAID_047C1619B44AC56902_1878303049:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7133F02_1708134406:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7153F02_1825666759:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012B6002_2021367452:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012A6002_1881346272:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001912102_1516002879:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DED23702_1870336543:2:DLMD_World_P_IO_VendingMachine_Health_UAID_94F6D6F414DED23702_1793596541:2:DLMD_World_P_IO_BossReplay_UAID_38D54710AFC02CF601_1987519684:2:DLMD_World_P_IO_VaultSymbol_UAID_04922658D4A75A1002_1853027232:2:DLMD_World_P_IO_Switch_Evocarium_UAID_089204DCF632FA1402_1872482647:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001922102_1085595058:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7123F02_1714952212:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000018E2102_1729712338:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_089204DCF632F83002_1992158832:2:DLMD_World_P_IO_EchoLog_General_UAID_089204DCF632CE1802_1183449098:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A79C2002_1330556752:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001902102_1797197698:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000018F2102_1560760518:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001C90202_2071035984:2:DLMD_World_P_PoAActor_UAID_04922658D4A799D801_1325231183:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001392202_1921861438:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012C6002_1288736630:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000018E2102_1179125336:2:DLMD_World_P_PoAActor_UAID_14F6D87D570787D401_1419323791:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012E6002_1449116988:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000013B2202_1615822794:2:DLMD_World_P_LevelTravelStationObject_UAID_64D69A64CE76297D01_1630823376:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_08BFB89AE7C80A2002_1958909122:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001CC0202_1892900516:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7183F02_1955961406:2:DLMD_World_P_IO_VaultSymbol_UAID_14F6D87D5707A95602_2057685142:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012F6002_1434149168:2:DLMD_World_P_PoAActor_UAID_907841CAD86512F801_1607060252:2:DLMD_World_P_PoAActor_UAID_907841CAD86510F801_1917494885:2:DLMD_World_P_IO_Vault_Door_LevelTravel_UAID_025041000001180702_1850596112:2:DLMD_World_P_IO_VaultSymbol_UAID_2CF05D1003644D3502_1576228160:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7123F02_2112961214:2:DLMD_World_P_FastTravelStationObject_UAID_907841CAD8650E4A02_1592825107:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7123F02_2021452213:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_089204DCF7EF52FE01_2058073849:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000013A2202_2064516616:2:DLMD_World_P_PoAActor_UAID_14F6D87D57071BD501_1530198843:2:DLMD_World_P_IO_EchoLog_General_MissionDriven_UAID_047C1619B44AD36902_1282556517:2:DLMD_World_P_IO_EchoLog_General_MissionDriven_UAID_047C1619B44AD36902_1289154518:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_14F6D87D57072C4202_1294657051:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A71D3F02_2081817292:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001392202_1240356436:2:DLMD_World_P_IO_SurvivalistCache_UAID_08BFB89AE7C85E2402_1539083067:2:DLMD_World_P_PoAActor_UAID_04922658D4A7AFD701_1939292037:2:DLMD_World_P_IO_EchoLog_VH_UAID_04922658D4A72F4902_1645049928:2:DLMD_World_P_IO_SurvivalistCache_UAID_04922658D4A7DB1802_1256140422:2:DLMD_World_P_IO_SurvivalistCache_UAID_04922658D4A7AB1F02_1295128419:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A71B3F02_1373757936:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012D6002_1725912808:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012D6002_2119128810:2:DLMD_World_P_IO_EchoLog_VH_UAID_907841CAD865E34202_1292868224:2:DLMD_World_P_IO_Switch_Evocarium_UAID_14F6D87D5707C2FB01_1152322393:2:DLMD_World_P_IO_VendingMachine_Health_UAID_907841CAD865CC1602_1966675672:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_907841CAD865CC1602_1992330674:2:DLMD_World_P_PoAActor_UAID_907841CAD86510F801_1664963883:2:DLMD_World_P_PoAActor_UAID_14F6D87D570760E101_1189134792:2:DLMD_World_P_PoAActor_UAID_581122B4C214252202_1522288912:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012E6002_1672106990:2:DLMD_World_P_PoAActor_UAID_907841CAD86511F801_1501116063:2:DLMD_World_P_IO_SurvivalistCache_UAID_08BFB89AE7C85E2402_1561455068:2:DLMD_World_P_IO_VaultSymbol_UAID_14F6D87D5707AA5602_1239130321:2:DLMD_World_P_OakInteractiveObject_UAID_907841CAD8657D0102_1585489597:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A71E3F02_1485994471:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000013B2202_1976190796:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_089204DCF7EF55FE01_1730788389:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001382202_1709058258:2:DLMD_World_P_IO_EchoLog_VH_UAID_907841CAD865E34202_1190281223:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001296002_1441121090:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001372202_2062706080:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1291078976:2:DLMD_World_P_IO_Switch_Evocarium_UAID_5811224CB628A80F02_1408997923:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1433111978:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1623248980:2:DLMD_World_P_PoAActor_UAID_D843AE5FAC6A37FF01_2129200119:2:DLMD_World_P_PoAActor_UAID_B04F130572E120DB01_1153963055:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749C3702_1409703243:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000012B6002_1091113450:2:DLMD_World_P_PoAActor_UAID_04922658D4A75EE201_1362582382:2:DLMD_World_P_PoAActor_UAID_D85ED3466C0338EF01_1641636403:2:DLMD_World_P_PoAActor_UAID_04922658D4A72CD401_1798204775:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1208432554:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1740256083:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1743424084:2:DLMD_World_P_PoAActor_UAID_089204DCF7EFDED901_1881139395:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1183570552:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000018F2102_2070757520:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7683302_2071671916:2:DLMD_World_P_IO_SurvivalistCache_UAID_089204DCF632C91202_1119552880:2:DLMD_World_P_IO_SurvivalistCache_UAID_089204DCF632F30F02_1144926122:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001CC0202_1504574514:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_04922658D4A7AD3502_1266046911:2:DLMD_World_P_IO_VendingMachine_Health_UAID_04922658D4A7773802_1545689628:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_04922658D4A7773802_1577351630:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7173F02_1365330123:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_04922658D4A7AD1F02_1799359776:2:DLMD_World_P_IO_EchoLog_VH_UAID_907841CAD865E14202_1357890869:2:DLMD_World_P_IO_VendingMachine_Health_UAID_907841CAD8650E4A02_1545886106:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_907841CAD8650F4A02_1815599288:2:DLMD_Vault_Grasslands_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EA361B02_1806109512:2:DLMD_Vault_Grasslands_P_FastTravelStation_UAID_047BCBA534EAB90D02_1539120784:2:DLMD_Vault_Grasslands_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EA3B1B02_2081091392:2:DLMD_Vault_Grasslands_P_OakVendingMachine_UAID_047BCBA5A4CDAF0302_1824930529:2:DLMD_Vault_Grasslands_P_OakVendingMachine_UAID_047BCBA5A4CDAF0302_1769934528:2:DLMD_Vault_Grasslands_P_FastTravelStationObject_UAID_047BCBA5A4B6A54602_1723672456:2:DLMD_Vault_Grasslands_P_OakVendingMachine_UAID_047BCBA5A4CDAF0302_1242631464:2:DLMD_Vault_Grasslands_P_IO_VendingMachine_ResupplyStation_UAID_047BCBA5A4B6084A02_1840932076:2:DLMD_Vault_Grasslands_P_IO_BossReplay_UAID_E04F43E6AE84FD4F02_2091336463:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_04922658D4A7AE3502_1137693095:2:DLMD_World_P_IO_Switch_Evocarium_UAID_907841CAD865A90E02_1344162127:2:DLMD_World_P_IO_SurvivalistCache_UAID_08BFB89AE7C85D2402_1920057889:2:DLMD_World_P_IO_BossReplay_UAID_74563CB78D1F8D0002_1977063315:2:DLMD_World_P_FastTravelStationObject_UAID_64D69A64CE76FE7901_1755073639:2:DLMD_World_P_IO_VaultSymbol_UAID_14F6D87D57077FFA01_1536490514:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_0250410000010F1F02_1153531893:2:DLMD_World_P_IO_VendingMachine_Health_UAID_047C1619B44A760C02_1709500938:2:DLMD_World_P_IO_BossReplay_UAID_B04F130574AA9E0402_1123078544:2:DLMD_World_P_IO_EchoLog_General_UAID_14F6D87D5707004002_1866034083:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_14F6D87D5707271202_1576763525:2:DLMD_World_P_IO_VendingMachine_Health_UAID_14F6D87D5707271202_1542651523:2:DLMD_World_P_IO_EchoLog_General_UAID_14F6D87D5707004002_1288156081:2:DLMD_World_P_IO_EchoLog_General_UAID_14F6D87D5707004002_1991802085:2:DLMD_World_P_IO_VendingMachine_Health_UAID_94F6D6F414DE161202_1306291379:2:DLMD_World_P_IO_BossReplay_UAID_94F6D6F414DE161202_2111909384:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_907841CAD865C71202_1445076566:2:DLMD_World_P_IO_EchoLog_General_UAID_04922658D4A7133F02_1360223391:2:DLMD_Fortress_Grasslands_P_LevelTravelStationObject_UAID_04D9F52032D5F18001_1882045875:2:DLMD_Fortress_Grasslands_P_FastTravelStationObject_UAID_2CF05D10036413E601_1711602384:2:DLMD_Fortress_Grasslands_P_OakVendingMachine_UAID_08BFB89AE7C8AD6702_1395318711:2:DLMD_Fortress_Grasslands_P_OakVendingMachine_UAID_08BFB89AE7C8AD6702_1532504712:2:DLMD_Fortress_Grasslands_P_OakInteractiveObject_UAID_08BFB89AE7C8954C02_2054303087:2:DLMD_Fortress_Grasslands_P_IO_VaultSymbol_UAID_2CF05D1003644A2B02_1889892932:2:DLMD_Fortress_Grasslands_P_OakInteractiveObject_UAID_08BFB89AE7C8954C02_2054300086:2:DLMD_Fortress_Grasslands_P_OakInteractiveObject_UAID_08BFB89AE7C8954C02_2054285085:2:DLMD_Fortress_Grasslands_P_IO_VaultSymbol_UAID_2CF05D1003644B2B02_1747454109:2:DLMD_Fortress_Grasslands_P_FastTravelStationObject_UAID_047BCBA5A4B6F74602_1736717888:2:DLMD_Fortress_Grasslands_P_IO_BossReplay_UAID_E04F43E6AE842F4702_2127496748:2:DLMD_Fortress_Grasslands_P_OakVendingMachine_UAID_08BFB89AE7C8682202_1734027704:2:DLMD_Fortress_Grasslands_P_OakVendingMachine_UAID_08BFB89AE7C8682202_1986935706:2:DLMD_Fortress_Grasslands_P_FastTravelStationObject_UAID_047BCBA5A5DE4FD201_1277874844:2:DLMD_World_P_IO_BossReplay_UAID_04922658D4A79C2F02_1589462592:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DEB73A02_1259672973:2:DLMD_World_P_IO_VendingMachine_Health_UAID_94F6D6F414DEB73A02_1247934971:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749B3702_1575951063:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749C3702_1517837244:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6A7B0102_1648938215:2:DLMD_World_P_IO_EchoLog_VH_UAID_04922658D4A71C4902_1919126578:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_04922658D4A7A91F02_1853476063:2:DLMD_World_P_PoAActor_UAID_5811224CB62835D501_1890737431:2:DLMD_World_P_IO_TranshumanistShrine_UAID_5811224CB628900F02_2046142680:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1851200984:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1939848986:2:DLMD_World_P_PoAActor_UAID_581122B4C214E22102_2008372158:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB628713902_2118795589:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_1734843982:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_5811224CB628BB3902_1619031688:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_CC96E5191F74053502_1408694359:2:DLMD_World_P_PoAActor_UAID_025041000001390B02_1493163148:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB6286C3902_1218650699:2:DLMD_World_P_IO_FirmwareTransferMachine_UAID_CC96E5191F74A56C02_1684868610:2:DLMD_World_P_IO_PlayerBank_UAID_CC96E5191F746C6502_1495188169:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_CC96E5191F746C6502_1415785167:2:DLMD_World_P_PoAActor_UAID_D85ED3466C033D0502_2021434511:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001D43202_1341781607:2:DLMD_World_P_PoAActor_UAID_025041000001330B02_1191238087:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_5811224CB628AF3902_1934919567:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011D6002_2076672988:2:DLMD_World_P_PoAActor_UAID_5811224CB62827D501_1937969200:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_1098058166:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_5811224CB628511F02_1675473437:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749B3702_1915125065:2:DLMD_World_P_PoAActor_UAID_025041000001181202_1219939729:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1749107086:2:DLMD_World_P_PoAActor_UAID_089204DCF7EF92FA01_2135167885:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1746413085:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1252597418:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_D843AE5FAC6A515202_1924449344:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001D20202_1437280568:2:DLMD_World_P_PoAActor_UAID_025041000001EF1B02_1282385074:2:DLMD_World_P_FastTravelStationObject_UAID_64D69A64CE76087A01_1645300414:2:DLMD_World_P_IO_RespecMachine_UAID_CC96E5191F746C6502_1381588163:2:DLMD_World_P_IO_TargetPracticeDummy_Static_UAID_0250410000018B4902_1157117057:2:DLMD_World_P_IO_TargetPracticeDummy_Static_UAID_5811224CB6282B4902_1824736333:2:DLMD_World_P_IO_TargetPracticeDummy_Static_UAID_025041000001C54902_1613658747:2:DLMD_World_P_IO_TargetPracticeDummy_Static_UAID_025041000001C54902_1694529751:2:DLMD_World_P_IO_TargetPracticeDummy_Static_UAID_CC96E5191F74366802_1965053823:2:DLMD_World_P_IO_VaultSymbol_UAID_5811224CB628915602_2117152831:2:DLMD_World_P_IO_VaultSymbol_UAID_5811224CB628935602_1135609185:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749C3702_1282640242:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F749B3702_1887937064:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001CE0202_1949568872:2:DLMD_World_P_IO_BossReplay_UAID_94F6D6F414DEAB3A02_1902783844:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1167549551:2:DLMD_World_P_PoAActor_UAID_089204DCF7EFE7CD01_1497324333:1:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1751567087:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1755036088:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1763420091:2:DLMD_World_P_IO_Switch_Evocarium_UAID_089204DCF7EF9E0F02_1246238312:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001356302_1926635371:1:DLMD_World_P_PoAActor_UAID_089204DCF7EFD0FA01_1541512767:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1139404548:2:DLMD_World_P_PoAActor_UAID_D85ED3466C0336EF01_1395506047:1:DLMD_World_P_IO_BossReplay_UAID_38D54710AFC0720102_1085973631:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001356302_1337662369:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_1716956170:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_1858595172:2:DLMD_World_P_IO_TranshumanistShrine_UAID_CC96E5191F74BC0E02_1836164368:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001346302_1269516192:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001356302_1572831370:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1155328549:2:DLMD_World_P_PoAActor_UAID_0250410000015FED01_1875042151:2:DLMD_World_P_IO_Vault_Door_LevelTravel_UAID_025041000001190702_1978629292:2:DLMD_World_P_PoAActor_UAID_025041000001410B02_1895474561:2:DLMD_World_P_PoAActor_UAID_089204DCF7EFF40F02_1177657411:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1766700092:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1757768089:2:DLMD_World_P_OakInteractiveObject_UAID_E04F43E60D77881B02_1565726943:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1278599425:2:DLMD_World_P_IO_VendingMachine_Legend_A_UAID_B04F1314BE4D902502_1903607935:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1458825733:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_089204DCF69B9B0002_1095338784:2:DLMD_World_P_IO_VendingMachine_Health_UAID_089204DCF69B9B0002_1129942786:2:DLMD_World_P_IO_VaultSymbol_UAID_D843AE5FAC6A8F5802_1436409608:2:DLMD_World_P_PoAActor_UAID_02504100000113ED01_1588318775:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_CC96E5191F74A14702_2025278888:2:DLMD_World_P_IO_TranshumanistShrine_UAID_CC96E5191F74991602_1455505661:2:DLMD_World_P_Lootable_GoldenChest_UAID_7C10C93FFF14EB4702_1782367869:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74A36102_2010019624:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1437885730:2:DLMD_World_P_IO_Switch_Evocarium_UAID_E04F43E6DB39273302_1118552218:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF64002_1371482384:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1760355090:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001396302_1862208093:2:DLMD_World_P_PoAActor_UAID_089204DCF7EF120E02_2035944540:2:DLMD_World_P_IO_VaultSymbol_UAID_089204DCF7EFA80F02_1108687189:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1403081726:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001D30202_1708187748:2:DLMD_World_P_IO_PropagandaSpeaker_Ripper_UAID_D843AE5FAC6A483102_1585563086:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1300922427:2:DLMD_World_P_IO_ElectiSafe_UAID_089204DCF7EFA70F02_2141533011:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001366302_1165071550:2:DLMD_World_P_IO_VendingMachine_Legend_A_UAID_B04F1314BE4DFD2502_1622221145:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_2103696565:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_1321554558:2:DLMD_World_P_IO_VaultSymbol_UAID_D843AE5FAC6A091E02_1225906766:2:DLMD_World_P_IO_ElectiSafe_UAID_D843AE5FAC6A163302_1924179233:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF44002_2088625027:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_7C10C93FFF14EE4702_1454711399:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_7C10C93FFF14E34702_2135522424:2:DLMD_World_P_IO_VendingMachine_Health_UAID_7C10C93FFF14E44702_1077965602:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF54002_1674283205:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF54002_1819825206:2:DLMD_World_P_FastTravelStationObject_UAID_64D69A64CE76087A01_1202798410:2:DLMD_World_P_LevelTravelStationObject_UAID_2CF05D562853E93502_1134731494:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1172859720:2:DLMD_World_P_IO_ElectiSafe_UAID_D843AE5FAC6A081E02_1171519586:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_1333730560:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1310495723:2:DLMD_World_P_IO_Switch_Evocarium_UAID_D843AE5FAC6A551F02_1280900193:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1505284736:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF44002_1260080026:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF64002_1122629383:2:DLMD_World_P_Lootable_GoldenChest_UAID_7C10C93FFF14F34702_1488387240:2:DLMD_World_P_OakInteractiveObject_UAID_D843AE5FAC6AF54002_1201981204:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1112196718:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_D843AE5FAC6A091E02_1690415769:2:DLMD_World_P_IO_VendingMachine_Legend_A_UAID_B04F1314BE4DB02402_1237989537:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1180777721:2:DLMD_World_P_IO_VendingMachine_Legend_A_UAID_B04F1314BE4DBB2302_1288844368:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1533579737:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_D843AE5FAC6A515202_1871129343:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1267959422:2:DLMD_World_P_FastTravelStationObject_UAID_2CF05D1003644A6102_1381889951:2:DLMD_World_P_OakInteractiveObject_UAID_E04F43E60D83C70202_1344365639:2:DLMD_World_P_OakVendingMachine_UAID_CC96E51C03AE1D0C02_2107775279:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DE723902_1498533760:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1259437420:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_2096353563:2:DLMD_World_P_PoAActor_UAID_089204DCF485770E02_1192963223:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_1337161561:2:DLMD_World_P_PoAActor_UAID_34CFF6FF1DA56FD601_1995548687:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_1324759559:2:DLMD_World_P_PoAActor_UAID_0050568BFC4D67FF01_1298388568:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_2093134562:2:DLMD_World_P_PoAActor_UAID_D843AE5FAC6A141D02_1110247641:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_2099496564:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1429190729:2:DLMD_World_P_IO_ElectiSafe_UAID_CC96E51A1C62913702_1934843096:2:DLMD_World_P_PoAActor_UAID_025041000001550E02_1949761240:2:DLMD_World_P_LevelTravelStationObject_UAID_64D69A64CE76297D01_2045164380:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001476302_2106707566:2:DLMD_World_P_IO_VaultSymbol_UAID_D843AE5FAC6A6E5902_1890210879:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_2057543176:2:DLMD_World_P_PoAActor_UAID_D85ED3466C037F1802_2016645195:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_1580590168:2:DLMD_World_P_IO_Vault_Door_LevelTravel_UAID_025041000001190702_1537859290:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_1645483356:2:DLMD_World_P_PoAActor_UAID_CC96E5191F7415DB01_1237205122:2:DLMD_World_P_IO_Switch_Evocarium_UAID_089204DCF7EF3B0002_1396072888:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001206002_1142805543:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001206002_1289498545:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74C32E02_1902738508:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001CF0202_1189685050:2:DLMD_World_P_PoAActor_UAID_CC96E5191F743DD401_1223726776:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001206002_1662707549:2:DLMD_World_P_PoAActor_UAID_244BFE96422D67FC01_1828107959:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2045889695:1:DLMD_World_P_PoAActor_UAID_244BFE96422D75DF01_1582716244:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017E6302_1785046230:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017E6302_1778673228:2:DLMD_World_P_IO_VaultSymbol_UAID_D843AE100841C31902_1475901221:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E630174D3502_1105878487:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017E6302_1781740229:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001846302_1122558289:2:DLMD_World_P_PoAActor_UAID_244BFE96422DC5FC01_1346905034:1:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE100841DF4202_2052973443:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017E6302_1788394231:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001836302_1093828112:2:DLMD_World_P_IO_EchoLog_VH_UAID_244BFE96422DD14202_1252702981:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_1996599690:1:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2008795691:1:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2018540692:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2027094693:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2035295694:2:DLMD_World_P_IO_EchoLog_Arjay_UAID_E04F43E6DF41F93402_2066017978:2:DLMD_World_P_FastTravelStation_UAID_E04F43E6DF415C4502_1132289554:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_2061469697:2:DLMD_World_P_LevelTravelStation_UAID_E04F43E6DB331B8E01_1561982867:2:DLMD_World_P_Lootable_GoldenChest_UAID_244BFE96422D564B02_1290402850:2:DLMD_World_P_PoAActor_UAID_244BFE96422D31D401_2101065829:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017B6302_1986755689:2:DLMD_World_P_IO_Switch_Evocarium_UAID_244BFE96422D341502_1332765824:2:DLMD_World_P_IO_VaultSymbol_UAID_244BFE96422D9EED01_1845723300:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E630174C3502_1410363310:2:DLMD_World_P_PoAActor_UAID_244BFE96422DA2F901_1897336641:1:DLMD_World_P_IO_VaultSymbol_UAID_E04F43E6DF41B31A02_1550165741:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E6DF41FD3402_1477430400:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000017E6302_1743938227:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_E04F43E6DF41B22402_1438772842:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E6DF41924202_1640837066:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E63017523502_2063581633:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E630174C3502_1136474309:2:DLMD_World_P_FastTravelStationObject_UAID_047C164D0C215D4502_1408312727:2:DLMD_World_P_LevelTravelStationObject_UAID_64D69A64CE76297D01_1924121378:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001206002_1560182547:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_CC96E5191F74F14602_1315473858:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_2100561365:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_1744292359:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_089204DCF7EF290002_2126087716:2:DLMD_World_P_PoAActor_UAID_CC96E5191F7479DB01_1312155739:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011E6002_1948535174:2:DLMD_World_P_PoAActor_UAID_CC96E5191F74D2D401_1997150008:2:DLMD_World_P_IO_VaultSymbol_UAID_CC96E5191F74BB0E02_1256148191:2:DLMD_World_P_PoAActor_UAID_CC96E5191F748CFA01_1356293799:2:DLMD_World_P_IO_VaultSymbol_UAID_CC96E5191F74B10E02_1272774502:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_1470939354:2:DLMD_World_P_PoAActor_UAID_CC96E5191F742FD501_1430332360:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_1910339363:2:DLMD_World_P_IO_PointOfInterest_UAID_0250410000011F6002_1836837361:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_CC96E5191F749B0F02_1744769620:2:DLMD_World_P_IO_PointOfInterest_UAID_025041000001206002_1763529551:2:DLMD_World_P_PoAActor_UAID_CC96E5191F74B8E601_1603838428:2:DLMD_World_P_IO_VaultSymbol_UAID_5811224CB6289F5602_1321149312:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1444847731:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E6DF41063502_1167924813:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_E04F43E6DF417A3702_2055516266:2:DLMD_World_P_IO_EchoLog_VH_UAID_E04F43E6DF41DB4202_1273349762:2:DLMD_World_P_IO_EchoLog_VH_UAID_E04F43E6DF41DB4202_2057540765:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_E04F43E6DF41E11A02_2036003553:2:DLMD_World_P_IO_EchoLog_General_UAID_244BFE96422DD43102_1806286558:2:DLMD_World_P_IO_EchoLog_General_UAID_244BFE96422DD43102_1774773553:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_244BFE96422DF40F02_1688761286:2:DLMD_World_P_IO_EchoLog_General_UAID_244BFE96422DD43102_1798428555:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E630174B3502_1844855132:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E630174D3502_1923136488:2:DLMD_World_P_IO_EchoLog_General_UAID_E04F43E6DF41023502_1156876314:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_244BFE96422D5F0E02_1101318062:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB628AD3902_2089397212:2:DLMD_World_P_OakInteractiveObject_UAID_00D861C3A6AA7B2402_1523338173:2:DLMD_World_P_IO_ElectiSafe_UAID_D843AE5FAC6A081E02_1170401585:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001D20202_1961069570:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1248593417:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1480093735:2:DLMD_World_P_IO_PropagandaSpeaker_UAID_CC96E51C03AEBB1C02_1910446976:2:DLMD_Vault_ShatteredLands_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EACC1C02_1110894968:2:DLMD_Vault_ShatteredLands_P_FastTravelStation_UAID_047BCBA534EA9D2A02_1907018480:2:DLMD_Vault_ShatteredLands_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EACB1C02_1156853810:2:DLMD_Vault_ShatteredLands_P_OakVendingMachine_UAID_047BCBA5A4CD6B0D02_1173001221:2:DLMD_Vault_ShatteredLands_P_OakVendingMachine_UAID_047BCBA5A4CD6A0D02_2054420044:2:DLMD_Vault_ShatteredLands_P_FastTravelStationObject_UAID_047BCBA534EAE74602_1893266071:2:DLMD_Vault_ShatteredLands_P_OakVendingMachine_UAID_047BCBA5A4CD8A1102_2130303178:2:DLMD_Vault_ShatteredLands_P_IO_VendingMachine_ResupplyStation_UAID_047BCBA5A4B6094A02_1129515256:2:DLMD_Vault_ShatteredLands_P_IO_BossReplay_UAID_2CF05D562853AF4F02_1787837744:2:DLMD_World_P_OakInteractiveObject_UAID_AC12039C9711FA4B02_1370802725:2:DLMD_World_P_IO_ElectiSafe_UAID_CC96E51A1C62CD3702_2003623656:2:DLMD_World_P_IO_VendingMachine_Health_UAID_B04F130570D7236B02_1124922654:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_089204DCF776543502_1473933359:2:DLMD_World_P_IO_EchoLog_VH_UAID_D843AE5FAC6AC44F02_1263007421:2:DLMD_World_P_FastTravelStationObject_UAID_64D69A64CE76077A01_1929442228:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_089204DCF7761A0E02_1755071993:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_089204DCF7761A0E02_1755041992:2:DLMD_World_P_LevelTravelStationObject_UAID_025041000001617C02_1144379513:2:DLMD_World_P_LevelTravelStationObject_UAID_2CF05D100364712D02_1502694903:2:DLMD_Fortress_Shatteredlands_P_FastTravelStationObject_UAID_025041000001609501_1315293402:2:DLMD_Fortress_Shatteredlands_P_LevelTravelStationObject_UAID_025041000001609501_1620023403:2:DLMD_Fortress_Shatteredlands_P_OakVendingMachine_UAID_CC96E51C04EA764902_1705089365:2:DLMD_Fortress_Shatteredlands_P_OakVendingMachine_UAID_CC96E51C04EA764902_1705117366:2:DLMD_Fortress_Shatteredlands_P_IO_VaultSymbol_UAID_F8B54DF0012146FE01_1914621704:2:DLMD_Fortress_Shatteredlands_P_IO_VaultSymbol_UAID_F8B54DF00121EFF901_1272575184:2:DLMD_Fortress_Shatteredlands_P_FastTravelStationObject_UAID_047BCBA5A4B6F54602_1712971535:2:DLMD_Fortress_Shatteredlands_P_IO_VendingMachine_ResupplyStation_UAID_047BCBA5A4B6074A02_2141721898:2:DLMD_Fortress_Shatteredlands_P_OakVendingMachine_UAID_047BCBA5A5DE021F02_1797188587:2:DLMD_Fortress_Shatteredlands_P_IO_BossReplay_UAID_2CF05D5628534C5002_2142538407:2:DLMD_World_P_IO_Vault_Key_UAID_025041000001CD0202_2119355694:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74C52E02_1877204865:2:DLMD_World_P_IO_TranshumanistShrine_UAID_CC96E5191F74991602_1383641660:2:DLMD_Vault_Mountains_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EAFC1E02_2004169528:2:DLMD_Vault_Mountains_P_FastTravelStationObject_UAID_2CF05D10036449D201_2017186767:2:DLMD_Vault_Mountains_P_IO_Vault_Door_LevelTravel_UAID_047BCBA534EAFF1E02_1999986058:2:DLMD_Vault_Mountains_P_IO_VendingMachine_Health_UAID_047BCBA5AA7FD80502_1394120796:2:DLMD_Vault_Mountains_P_IO_VendingMachine_Munitions_UAID_047BCBA5AA7FD80502_1402783798:2:DLMD_Vault_Mountains_P_FastTravelStationObject_UAID_047BCBA534EAEE4602_1796459304:2:DLMD_Vault_Mountains_P_IO_VendingMachine_ResupplyStation_UAID_047BCBA5A4B6084A02_2068635078:2:DLMD_Vault_Mountains_P_IO_VendingMachine_Health_UAID_047BCBA5AA7F290B02_1889796331:2:DLMD_Vault_Mountains_P_IO_BossReplay_UAID_2CF05D562853D84D02_1287652858:2:DLMD_World_P_IO_BossReplay_UAID_54BF6467AEFCA81A02_1388992592:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB6286D3902_1161572878:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB628AE3902_1495916389:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB6286B3902_1180038521:2:DLMD_World_P_IO_EchoLog_General_UAID_5811224CB6286B3902_1679632522:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_2CF05D8C2CE9B93902_1238841250:2:DLMD_World_P_IO_VendingMachine_Health_UAID_2CF05D8C2CE9B93902_1234629248:2:DLMD_World_P_IO_BossReplay_UAID_CC96E51AB12544F401_1592664794:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74C42E02_1291688686:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DE0B3F02_1580720969:2:DLMD_World_P_IO_VendingMachine_Health_UAID_94F6D6F414DE0B3F02_1576604967:2:DLMD_World_P_IO_BossReplay_UAID_B04F130574AA250102_1374902068:2:DLMD_World_P_IO_EchoLog_VH_UAID_CC96E5191F74C02E02_1344549973:2:DLMD_World_P_IO_LostCapsule_CarryableDispenser_UAID_089204DCF7EF2F0002_1181851786:2:DLMD_World_P_IO_PropagandaSpeaker_Order_UAID_CC96E5191F74F44002_1943759025:2:DLMD_World_P_IO_EchoLog_VH_UAID_CC96E5191F74BF2E02_2084872795:2:DLMD_World_P_IO_VendingMachine_Health_UAID_CC96E5191F7400F301_1916313789:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_CC96E5191F7400F301_1916481790:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74C42E02_2003769688:2:DLMD_World_P_IO_VendingMachine_Health_UAID_2CF05D8C2CE9694502_2017844841:2:DLMD_World_P_IO_VendingMachine_ResupplyStation_UAID_94F6D6F414DE773902_1760974650:2:DLMD_World_P_OakInteractiveObject_UAID_E04F43E60D837FEA01_1791653616:2:DLMD_World_P_FastTravelStation_UAID_14F6D8463D76E94002_1257203087:2:DLMD_World_P_IO_VendingMachine_Munitions_UAID_CC96E5191F74AAF301_1856477703:2:DLMD_World_P_IO_VendingMachine_Health_UAID_CC96E5191F7401F301_1090629968:2:DLMD_World_P_IO_EchoLog_General_UAID_CC96E5191F74C32E02_1677686507:2:DLMD_Fortress_Mountains_P_LevelTravelStationObject_UAID_B04F1307B522318101_1552810512:2:DLMD_Fortress_Mountains_P_FastTravelStationObject_UAID_0250410000015B9501_1846435520:2:DLMD_Fortress_Mountains_P_IO_VendingMachine_Health_UAID_047BCBA5A4CD4BF401_1093647024:2:DLMD_Fortress_Mountains_P_IO_VendingMachine_Health_UAID_047BCBA5A4CD4BF401_1204749026:2:DLMD_Fortress_Mountains_P_OakInteractiveObject_UAID_047BCBA5A4CDD5F001_1595751437:2:DLMD_Fortress_Mountains_P_OakInteractiveObject_UAID_047BCBA5A4CDD4F001_1184305260:2:DLMD_Fortress_Mountains_P_FastTravelStationObject_UAID_047BCBA5A4B6F84602_1233730065:2:DLMD_Fortress_Mountains_P_IO_BossReplay_UAID_2CF05D5628535B4F02_1586449935:2:DLMD_Fortress_Mountains_P_IO_VendingMachine_ResupplyStation_UAID_047BCBA5A4B6524B02_1531499128:2:DLMD_Fortress_Mountains_P_IO_VendingMachine_Health_UAID_047BCBA5A4CD38F401_1706584679:2:DLMD_ElpisElevator_P_FastTravelStationObject_UAID_0250410000018ED801_1663079247:2:DLMD_ElpisElevator_P_LevelTravelStationObject_UAID_0250410000015F7C02_1530049160:2:DLMD_Elpis_P_FastTravelStationObject_UAID_E04F43E6DB33FBFD01_1267828511:2:DLMD_Elpis_P_LevelTravelStationObject_UAID_08BFB89AE7C8F26602_1817662799:2:DLMD_Elpis_P_IO_VendingMachine_Munitions_UAID_244BFE96422D521402_2118481146:2:DLMD_Elpis_P_IO_VendingMachine_Health_UAID_244BFE96422D521402_2109818144:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7D3102_2030542243:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7D3102_2035119245:2:DLMD_Elpis_P_IO_VaultSymbol_UAID_244BFE96422D5C0D02_1227550436:2:DLMD_Elpis_P_IO_Elpis_HangingThruster_UAID_E04F43E65D25E8F901_1750160819:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7D3102_2033222244:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7D3102_1671280240:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7F3102_1297700602:2:DLMD_Elpis_P_IO_VaultSymbol_UAID_244BFE96422D5E0D02_1305627792:2:DLMD_Elpis_P_ResurrectTravelStationObject_UAID_E04F43E6DB33AB2F02_1850251223:2:DLMD_Elpis_P_LevelTravelStationObject_UAID_047C164D0C210D5602_1859613600:2:DLMD_Elpis_P_IO_EchoLog_General_UAID_244BFE96422D7D3102_2026799242:2:DLMD_Elpis_P_FinalRiftTravelStation_UAID_047BCBA5AA7F304E02_1654026314:2:DLMD_Elpis_P_LevelTravelStationObject_UAID_047C164D0C210D5602_2050343601:2:DLMD_Elpis_P_FastTravelStationObject_UAID_E04F43E6DB3302FE01_1914043744:2:DLMD_World_P_IO_EchoLog_VH_UAID_04922658D4A72F4902_1847124930:2:'
+activities: 
+  allactivities: 
+  - serial: 'act,5,ContractActivity_Bounty_Creep,Contract_Bounty_Creep,registry.World_P.top.base.ContractRequester_MTN_Gorge.__nochannel,0,adrs[registry.World_P.stamp_contractposter_mtn_gorge_2.base.contract_activityarea.__nochannel,registry.World_P.top.base.stamp_contractposter_mtn_gorge_2.SL_Contract_Poster_Spawner,registry.World_P.top.base.contract_bountyactivityarea_mou_creep_8.__nochannel],mas[GeneratedMission_RequestOwner,31,registry.World_P.top.base.ContractRequester_MTN_Gorge.__nochannel,Area,31,registry.World_P.stamp_contractposter_mtn_gorge_2.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.stamp_contractposter_mtn_gorge_2.SL_Contract_Poster_Spawner,Spawner,31,registry.World_P.stamp_contractposter_mtn_gorge_2.base.contract_spawner.__nochannel,WP_EntryPoint_1_Contract_Bounty_Creep,31,waypoints.li_contractposter_spawner_top_base_contract_spawner_wp_0,Area,31,registry.World_P.top.base.contract_bountyactivityarea_mou_creep_8.__nochannel,Boss_Spawner,31,registry.World_P.top.base.contract_bountyspawner_mou_creep_8.__nochannel,WP_Add_Kill_the_Order_Bounty_Boss_1_Contract_Bounty_Creep,31,waypoints.world_p_top_base_contract_bountyspawner_mou_creep_8_wp,WP_Kill_the_Order_Bounty_Boss_Contract_Bounty_Creep,31,waypoints.world_p_top_base_contract_bountyspawner_mou_creep_8_wp,Boss_Type,29,Char_CreepBadass|OakCharacterDef,hologramchoice,29,IO_Contract_Poster_Creep_Bounty|OakInteractiveObjectDef,MissionGiver_NameTag,29,MOUNTAINS_DJ_CB|GbxDialogNameTagDef,CharacterSignoff,29,CString_Signoff_DJ_Mountains_1|GbxUIDisplayDataDef_LocalizedText,Description,29,CDescription_Bounty_MountainDJ_Creature|GbxUIDisplayDataDef_LocalizedText,Color_Index,18,Mountain_DJ,Currency_Package,29,ContractReward_Currency_Bounty|GbxRewardsDef,Reward_Package,29,ContractReward_Bounty_NonWeapon|GbxRewardsDef,target_zone,29,World_P.Zone_Mountains|GbxLevelZoneDef,target_region,29,mountains_RegionA|GbxWorldRegionDef,Boss_Name_Text,29,cname_creep_25|OakUIDisplayDataDef_UICharacterName]'
+    missionstate: 
+      tracked_index: 2
+      sel_int_choices: 
+        enemy data: newoption
+        missiongiver: Mountains_DJ
+        currency rewards: Normal
+        mission rewards: nongun
+      status: Active
+      objectives: 
+        kill_the_order_bounty_boss: 
+          status: Active
+  - serial: 'act,5,ContractActivities_Search_Bandit,Contract_Search_Bandit,registry.World_P.top.base.ContractRequester_MTN_Gorge.__nochannel,0,adrs[registry.World_P.stamp_contractposter_mtn_gorge_4.base.contract_activityarea.__nochannel,registry.World_P.top.base.stamp_contractposter_mtn_gorge_4.SL_Contract_Poster_Spawner,registry.World_P.top.base.contract_beacon_activityarea_cluster_mou_n.__nochannel],mas[GeneratedMission_RequestOwner,31,registry.World_P.top.base.ContractRequester_MTN_Gorge.__nochannel,Area,31,registry.World_P.stamp_contractposter_mtn_gorge_4.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.stamp_contractposter_mtn_gorge_4.SL_Contract_Poster_Spawner,Spawner,31,registry.World_P.stamp_contractposter_mtn_gorge_4.base.contract_spawner.__nochannel,WP_EntryPoint_1_Contract_Search_Bandit,31,waypoints.li_contractposter_spawner_top_base_contract_spawner_wp_0,Area,31,registry.World_P.top.base.contract_beacon_activityarea_cluster_mou_n.__nochannel,Search_Key,31,registry.World_P.top.base.contract_searchdestination_mou_n2_bandit.__nochannel,WP_NewObjective_Contract_Search_Bandit,31,waypoints.world_p_top_base_contract_searchdestination_mou_n2_bandit_wp,activation_center,31,registry.World_P.top.base.contract_searchclusterwaypoint_mou_n.__nochannel,WP_Add_NewObjective_1_Contract_Search_Bandit,31,waypoints.world_p_top_base_contract_searchclusterwaypoint_mou_n_wp,MissionGiver_NameTag,29,CLAPTRAP_CB|GbxDialogNameTagDef,CharacterSignoff,29,CString_Signoff_Claptrap_5|GbxUIDisplayDataDef_LocalizedText,Description,29,CDescription_Search_Claptrap_Bandit|GbxUIDisplayDataDef_LocalizedText,Color_Index,18,CLAPTRAP,Currency_Package,29,ContractReward_Currency_Search|GbxRewardsDef,Reward_Package,29,ContractReward_Search_Weapons|GbxRewardsDef,target_zone,29,World_P.Zone_Mountains|GbxLevelZoneDef,target_region,29,mountains_RegionA|GbxWorldRegionDef]'
+    missionstate: 
+      sel_int_choices: 
+        missiongiver: CLAPTRAP
+        currency rewards: Normal
+        mission rewards: gun
+      status: Active
+      objectives: 
+        newobjective: 
+          status: Active
+  - serial: 'act,5,ContractActivity_Deliver_Creature_Egg,Contract_Deliver_Creature_Egg,registry.World_P.top.base.ContractRequester_MTN_NorthCliffs.__nochannel,0,adrs[registry.World_P.top.base.contract_deliverydropoff_poa_mtn_northcliffs.__nochannel,registry.World_P.contract_deliverydestination_mou_creature_18.base.contract_activityarea.__nochannel,registry.World_P.top.base.contract_deliverydestination_mou_creature_18.SL_ContractDestination_DeliveryDispenser_Egg,registry.World_P.stamp_contractposter_mtn_northcliffs_4.base.contract_activityarea.__nochannel,registry.World_P.top.base.stamp_contractposter_mtn_northcliffs_4.SL_Contract_Poster_Spawner],mas[GeneratedMission_RequestOwner,31,registry.World_P.top.base.ContractRequester_MTN_NorthCliffs.__nochannel,Area,31,registry.World_P.top.base.contract_deliverydropoff_poa_mtn_northcliffs.__nochannel,Contract_Container,31,registry.World_P.top.base.contract_deliverydropoff_mtn_northcliffs.__nochannel,WP_Kill_Boss_Name_Text_the_Boss_Type_Text_in_Location_Text_wanted_for_killing_victim_Contract_Deliver_Creature_Egg,31,waypoints.world_p_top_base_contract_deliverydropoff_mtn_northcliffs_wp,Area,31,registry.World_P.contract_deliverydestination_mou_creature_18.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.contract_deliverydestination_mou_creature_18.SL_ContractDestination_DeliveryDispenser_Egg,Contract_Dispenser,31,registry.World_P.contract_deliverydestination_mou_creature_18.base.IO_Dispenser_ContractItem_Egg.__nochannel,WP_Kill_Boss_Name_Text_the_Boss_Type_Text_in_Location_Text_wanted_for_killing_victim_1_Contract_Deliver_Creature_Egg,31,waypoints.li_contractdestination_dispenser_egg_top_base_io_dispenser_contractitem_egg_wp_0,Area,31,registry.World_P.stamp_contractposter_mtn_northcliffs_4.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.stamp_contractposter_mtn_northcliffs_4.SL_Contract_Poster_Spawner,Spawner,31,registry.World_P.stamp_contractposter_mtn_northcliffs_4.base.contract_spawner.__nochannel,WP_EntryPoint_1_Contract_Deliver_Creature_Egg,31,waypoints.li_contractposter_spawner_top_base_contract_spawner_wp_1,MissionGiver_NameTag,29,CLAPTRAP_CB|GbxDialogNameTagDef,CharacterSignoff,29,CString_Signoff_Claptrap_4|GbxUIDisplayDataDef_LocalizedText,Description,29,CDescriptions_Deliver_Claptrap_Creature|GbxUIDisplayDataDef_LocalizedText,Color_Index,18,CLAPTRAP,Currency_Package,29,ContractReward_Currency_Deliver|GbxRewardsDef,Reward_Package,29,ContractReward_Deliver_Weapons|GbxRewardsDef,container_location,29,mountains_RegionB|GbxWorldRegionDef,dispenser_location,29,mountains_RegionB|GbxWorldRegionDef,target_zone,29,World_P.Zone_Mountains|GbxLevelZoneDef]'
+    missionstate: 
+      sel_int_choices: 
+        missiongiver: CLAPTRAP
+        currency rewards: Normal
+        mission rewards: gun
+      status: Active
+      objectives: 
+        kill_boss_name_text_the_boss_type_text_in_location_text_wanted_for_killing_victim: 
+          status: Active
+  - serial: 'act,5,ContractActivity_Deliver_Bandit_Blade,Contract_Deliver_Bandit_Blade,registry.World_P.top.base.ContractRequester_SHA_Scrapyard.__nochannel,0,adrs[registry.World_P.top.base.contract_deliverydropoff_poa_sha_scrapyard.__nochannel,registry.World_P.contract_deliverydestination_sha_bandit2.base.contract_activityarea.__nochannel,registry.World_P.top.base.contract_deliverydestination_sha_bandit2.SL_ContractDestination_DeliveryDispenser_Blade_Corner,registry.World_P.stamp_contractposter_sha_scrapyard_1.base.contract_activityarea.__nochannel,registry.World_P.top.base.stamp_contractposter_sha_scrapyard_1.SL_Contract_Poster_Spawner],mas[GeneratedMission_RequestOwner,31,registry.World_P.top.base.ContractRequester_SHA_Scrapyard.__nochannel,Area,31,registry.World_P.top.base.contract_deliverydropoff_poa_sha_scrapyard.__nochannel,Contract_Container,31,registry.World_P.top.base.contract_deliverydropoff_sha_scrapyard.__nochannel,WP_Kill_Boss_Name_Text_the_Boss_Type_Text_in_Location_Text_wanted_for_killing_victim_Contract_Deliver_Bandit_Blade,31,waypoints.world_p_top_base_contract_deliverydropoff_sha_scrapyard_wp,Area,31,registry.World_P.contract_deliverydestination_sha_bandit2.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.contract_deliverydestination_sha_bandit2.SL_ContractDestination_DeliveryDispenser_Blade_Corner,Contract_Dispenser,31,registry.World_P.contract_deliverydestination_sha_bandit2.base.IO_Dispenser_ContractItem_Blade.__nochannel,WP_Kill_Boss_Name_Text_the_Boss_Type_Text_in_Location_Text_wanted_for_killing_victim_1_Contract_Deliver_Bandit_Blade,31,waypoints.li_contractdestination_dispenser_blade_corner_top_base_io_dispenser_contractitem_blade_wp_0,Area,31,registry.World_P.stamp_contractposter_sha_scrapyard_1.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.stamp_contractposter_sha_scrapyard_1.SL_Contract_Poster_Spawner,Spawner,31,registry.World_P.stamp_contractposter_sha_scrapyard_1.base.contract_spawner.__nochannel,WP_EntryPoint_1_Contract_Deliver_Bandit_Blade,31,waypoints.li_contractposter_spawner_top_base_contract_spawner_wp_1,MissionGiver_NameTag,29,AMARA_CB|GbxDialogNameTagDef,CharacterSignoff,29,CString_Signoff_Amara_4|GbxUIDisplayDataDef_LocalizedText,Description,29,CDescriptions_Deliver_Amara_Bandit|GbxUIDisplayDataDef_LocalizedText,Color_Index,18,AMARA,Currency_Package,29,ContractReward_Currency_Deliver|GbxRewardsDef,Reward_Package,29,ContractReward_Deliver_Mixed|GbxRewardsDef,container_location,29,shatteredlands_RegionC|GbxWorldRegionDef,dispenser_location,29,shatteredlands_RegionC|GbxWorldRegionDef,target_zone,29,World_P.Zone_ShatteredLands|GbxLevelZoneDef]'
+    missionstate: 
+      sel_int_choices: 
+        missiongiver: AMARA
+        currency rewards: Normal
+        mission rewards: mixed
+      status: Active
+      objectives: 
+        kill_boss_name_text_the_boss_type_text_in_location_text_wanted_for_killing_victim: 
+          status: Active
+  - serial: 'act,5,ContractActivity_Bounty_Pangolin,Contract_Bounty_Pangolin,registry.World_P.top.base.ContractRequester_SHA_Scrapyard.__nochannel,0,adrs[registry.World_P.stamp_contractposter_sha_scrapyard_3.base.contract_activityarea.__nochannel,registry.World_P.top.base.stamp_contractposter_sha_scrapyard_3.SL_Contract_Poster_Spawner,registry.World_P.top.base.contract_bountyactivityarea_sha_pangolin_1.__nochannel],mas[GeneratedMission_RequestOwner,31,registry.World_P.top.base.ContractRequester_SHA_Scrapyard.__nochannel,Area,31,registry.World_P.stamp_contractposter_sha_scrapyard_3.base.contract_activityarea.__nochannel,Stamp,31,registry.World_P.top.base.stamp_contractposter_sha_scrapyard_3.SL_Contract_Poster_Spawner,Spawner,31,registry.World_P.stamp_contractposter_sha_scrapyard_3.base.contract_spawner.__nochannel,WP_EntryPoint_1_Contract_Bounty_Pangolin,31,waypoints.li_contractposter_spawner_top_base_contract_spawner_wp_0,Area,31,registry.World_P.top.base.contract_bountyactivityarea_sha_pangolin_1.__nochannel,Boss_Spawner,31,registry.World_P.top.base.contract_bountyspawner_sha_pangolin_1.__nochannel,WP_Add_Kill_the_Order_Bounty_Boss_1_Contract_Bounty_Pangolin,31,waypoints.world_p_top_base_contract_bountyspawner_sha_pangolin_1_wp,WP_Kill_the_Order_Bounty_Boss_Contract_Bounty_Pangolin,31,waypoints.world_p_top_base_contract_bountyspawner_sha_pangolin_1_wp,Boss_Type,29,Char_PangolinBadass|OakCharacterDef,hologramchoice,29,IO_Contract_Poster_Pangolin_Bounty|OakInteractiveObjectDef,MissionGiver_NameTag,29,AMARA_CB|GbxDialogNameTagDef,CharacterSignoff,29,CString_Signoff_Amara_1|GbxUIDisplayDataDef_LocalizedText,Description,29,CDescription_Bounty_Amara_Creature|GbxUIDisplayDataDef_LocalizedText,Color_Index,18,AMARA,Currency_Package,29,ContractReward_Currency_Bounty|GbxRewardsDef,Reward_Package,29,ContractReward_Bounty_Weapons|GbxRewardsDef,target_zone,29,World_P.Zone_ShatteredLands|GbxLevelZoneDef,target_region,29,shatteredlands_RegionA|GbxWorldRegionDef,Boss_Name_Text,29,cname_pangolin_30|OakUIDisplayDataDef_UICharacterName]'
+    missionstate: 
+      sel_int_choices: 
+        enemy data: newoption
+        missiongiver: AMARA
+        currency rewards: Normal
+        mission rewards: gun
+      status: Active
+      objectives: 
+        kill_the_order_bounty_boss: 
+          status: Active
+missions: 
+  remote_sets: 
+    missionset_micro_grasslandsb: 
+      missions: 
+        micro_grasslands_hydroplantpowerup2: 
+          status: completed
+    missionset_main_elpis: 
+      missions: 
+        mission_main_elpis: 
+          status: completed
+          final: 
+            clearenemies_pregenerator_endstate: completed
+            inv_interactwithelevator_endstate: completed
+            generatorlight_1: TRUE
+            generatorlight_2: TRUE
+            generatorlight_3: TRUE
+            generatorlight_4: TRUE
+            generatorlight_5: TRUE
+            generatorlight_6: TRUE
+            generatorlight_7: TRUE
+            generatorlight_8: TRUE
+            takeelevator_fixed_endstate: completed
+            escortavatoarch_endstate: completed
+            findlilith_endstate: completed
+    missionset_main_city1: 
+      missions: 
+        mission_main_city1: 
+          status: Active
+          objectives: 
+            talktolilith: 
+              status: Active
+  tracked_missions: 
+  - Mission_Main_SearchForLilith
+  - none
+  - none
+  local_sets: 
+    missionset_main_prisonprologue: 
+      status: completed
+      missions: 
+        mission_main_prisonprologue: 
+          ui_flags: 1
+          status: completed
+          final: 
+            possessionscene_endstate: completed
+            obj_followarjay_walkntalk_endstate: completed
+            obj_firstswim_endstate: completed
+            inv_gettocrouch_endstate: completed
+            inv_afterprisonexit_endstate: completed
+            inv_beforeprisonexit_endstate: completed
+            inv_firstdropdown_endstate: completed
+    missionset_main_grasslands2a: 
+      status: completed
+      missions: 
+        mission_main_grasslands2: 
+          ui_flags: 1
+          status: completed
+          final: 
+            find_zadra_1_endstate: completed
+            kill_the_gunship_endstate: completed
+            invis_fast_complete_generator_endstate: completed
+            wait_for_zadra_endstate: completed
+            enter_slide_quick_complete_endstate: completed
+            find_zadra_endstate: completed
+            holder_for_timekeeper_vo_finish_endstate: completed
+            kill_roof_intro_guys_endstate: completed
+            kill_synth_reinforcements_invis_tracker_endstate: deactivated
+            combat_composit_obj_endstate: deactivated
+    missionset_zoneactivity_safehouse: 
+      missions: 
+        zoneactivity_grasslands_safehousemain: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+            find_the_datapad_endstate: completed
+            claim_the_command_console_endstate: completed
+        zoneactivity_shatteredlands_safehouse2: 
+          status: Active
+          objectives: 
+            datapadwaypoint: 
+              status: Active
+            find_the_datapad: 
+              status: Active
+            getclosetodatapad: 
+              status: Active
+        zoneactivity_grasslands_safehouse2: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+        zoneactivity_grasslands_safehouse3: 
+          status: Active
+          objectives: 
+            datapadwaypoint: 
+              status: Active
+            find_the_datapad: 
+              status: Active
+            getclosetodatapad: 
+              status: Active
+        zoneactivity_grasslands_safehouse4: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+        zoneactivity_mountains_safehouse1: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+        zoneactivity_mountains_safehouse2: 
+          status: completed
+          final: 
+            claim_the_command_console_endstate: completed
+            fact_lightson: TRUE
+        zoneactivity_mountains_safehouse3: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+        zoneactivity_mountains_safehouse4: 
+          status: completed
+          final: 
+            fact_lightson: TRUE
+        zoneactivity_shatteredlands_safehouse1: 
+          status: completed
+        zoneactivity_shatteredlands_safehouse3: 
+          status: Active
+          objectives: 
+            datapadwaypoint: 
+              status: Active
+            find_the_datapad: 
+              status: Active
+            getclosetodatapad: 
+              status: Active
+        zoneactivity_city_safehouse1: 
+          status: Active
+          objectives: 
+            datapadwaypoint: 
+              status: Active
+            find_the_datapad: 
+              status: Active
+            getclosetodatapad: 
+              status: Active
+    missionset_main_shatteredlands2: 
+      status: completed
+      missions: 
+        mission_main_shatteredlands2: 
+          status: completed
+          final: 
+            melee_generator_endstate: completed
+            find_a_power_core_endstate: completed
+            activate_core_chamber_systems_endstate: completed
+            restore_flowing_water_to_carcadia_endstate: completed
+            repair_leaders_chamber_critical_systems_endstate: completed
+            findquent_endstate: completed
+            ppppoutpost1_echo_endstate: completed
+            ppppoutpost2_echo_endstate: completed
+            invisechocollection_endstate: completed
+            kill_badass_security_jones_endstate: completed
+            kill_reinforcements_endstate: completed
+            pull_the_device_endstate: completed
+            destroy_the_fuel_endstate: completed
+            save_quent_endstate: deactivated
+    missionset_main_shatteredlands1: 
+      status: completed
+      missions: 
+        mission_main_shatteredlands1: 
+          ui_flags: 1
+          status: completed
+        mission_main_shatteredlands1b: 
+          status: completed
+          final: 
+            meet_zane_endstate: completed
+            head_to_the_electi_council_chamber_0_endstate: completed
+    missionset_main_grasslands3: 
+      status: completed
+      missions: 
+        mission_main_grasslands3: 
+          ui_flags: 1
+          status: completed
+          final: 
+            enterfortress_endstate: completed
+            gettosaftey_endstate: completed
+            salvagelocusts_endstate: completed
+            advancetofortress_endstate: completed
+            opengate_endstate: completed
+            findairshiphangar_endstate: completed
+            bosswaypoint03_endstate: completed
+            enter_commander_arena_endstate: completed
+            kill_commander_endstate: completed
+    missionset_main_mountains3: 
+      status: completed
+      missions: 
+        mission_main_mountains3: 
+          ui_flags: 1
+          status: completed
+          final: 
+            obj_destroydoorlocks_endstate: completed
+            invis_obj_waypointforwayback_endstate: completed
+            obj_killcommander_endstate: completed
+            obj_lootcommandersbolt_endstate: completed
+    missionset_main_shatteredlands3: 
+      status: completed
+      missions: 
+        mission_main_shatteredlands3: 
+          status: completed
+          final: 
+            gotoramp_endstate: completed
+            shootbomb_endstate: completed
+            rampillar_endstate: completed
+            turnonramp_endstate: completed
+            killrip_fortfrontbadass_endstate: completed
+            enterfortress_endstate: completed
+            killboss_endstate: completed
+    missionset_side_shatteredlandsa: 
+      missions: 
+        mission_side_agreatdisturbance: 
+          status: completed
+          final: 
+            reroute_power_flow_endstate: completed
+            search_for_a_keycard_endstate: completed
+            reroute_power_to_console_endstate: completed
+            use_keycard_endstate: completed
+        mission_side_vending: 
+          status: completed
+          exit: Exit
+          final: 
+            talkstreamsstart_endstate: completed
+            buyback_inputcode_endstate: completed
+            combat_inputcode_endstate: completed
+    missionset_main_searchforlilith: 
+      missions: 
+        mission_main_searchforlilith: 
+          status: Active
+          cursorposition: 27
+          state: 
+            invis_obj_clamp1momentholder_endstate: completed
+            invis_obj_meetamaraatignitioncontrol_endstate: completed
+            sfl_reach_ignition_control_endstate: completed
+          final: 
+            sfl_activate_space_elevator_endstate: completed
+          objectives: 
+            sfl_goto_zadra_hideout: 
+              status: Completed_PostFinished
+            invis_obj_ignitionbuildingmomentholder: 
+              status: Completed_PostFinished
+              updatecount: 2
+            sfl_activate_space_elevator: 
+              status: Completed_PostFinished
+            sfl_align_dish: 
+              status: Completed_PostFinished
+            sfl_amara_clamp_1: 
+              status: Failed_PostFinished
+            sfl_callis_bolt_place: 
+              status: Completed_PostFinished
+            sfl_callis_bolt_take: 
+              status: Completed_PostFinished
+            sfl_clamp_lever: 
+              status: Completed_PostFinished
+            sfl_climb_dish_tower: 
+              status: Completed_PostFinished
+            sfl_control_terminal: 
+              status: Completed_PostFinished
+            sfl_exit_control_room: 
+              status: Completed_PostFinished
+            sfl_follow_amara_tower_entrance: 
+              status: Completed_PostFinished
+            sfl_goto_amara_sanctuary: 
+              status: Completed_PostFinished
+            sfl_hack_the_controls: 
+              status: Completed_PostFinished
+            sfl_ignite_the_engines: 
+              status: Completed_PostFinished
+            sfl_kill_everything: 
+              status: Completed_PostFinished
+            sfl_kill_rippers: 
+              status: Completed_PostFinished
+            sfl_place_bolts_hideout: 
+              status: Completed_PostFinished
+              updatecount: 3
+            sfl_reach_dish_tower: 
+              status: Completed_PostFinished
+            sfl_reach_lift_tower: 
+              status: Completed_PostFinished
+            sfl_reach_space_elevator: 
+              status: Completed_PostFinished
+            sfl_release_clamp1: 
+              status: Completed_PostFinished
+              updatecount: 2
+            sfl_release_clamps: 
+              status: Completed_PostFinished
+              updatecount: 4
+            sfl_repair_lift: 
+              status: Completed_PostFinished
+            sfl_space_elevator_control_room: 
+              status: Completed_PostFinished
+            sfl_take_bolts_hideout: 
+              status: Completed_PostFinished
+              updatecount: 3
+            sfl_talk_to_amara: 
+              status: Active
+            sfl_use_access_lift: 
+              status: Completed_PostFinished
+            _sfl_place_bolts_hideout_sub0: 
+              status: Completed_PostFinished
+            _sfl_place_bolts_hideout_sub1: 
+              status: Completed_PostFinished
+            _sfl_place_bolts_hideout_sub2: 
+              status: Completed_PostFinished
+            _sfl_take_bolts_hideout_sub1: 
+              status: Completed_PostFinished
+            _sfl_take_bolts_hideout_sub0: 
+              status: Completed_PostFinished
+            _sfl_take_bolts_hideout_sub2: 
+              status: Completed_PostFinished
+            invis_obj_meetwithamaraforclamp1: 
+              status: Completed_PostFinished
+            invis_obj_clamp1momentholder: 
+              status: Completed_PostFinished
+            _sfl_release_clamp1_sub0: 
+              status: Completed_PostFinished
+            _sfl_release_clamp1_sub1: 
+              status: Completed_PostFinished
+            _sfl_release_clamps_sub0: 
+              status: Completed_PostFinished
+            _sfl_release_clamps_sub3: 
+              status: Completed_PostFinished
+            _sfl_release_clamps_sub1: 
+              status: Completed_PostFinished
+            _sfl_release_clamps_sub2: 
+              status: Completed_PostFinished
+            _invis_obj_ignitionbuildingmomentholder_sub0: 
+              status: Completed_PostFinished
+            _invis_obj_ignitionbuildingmomentholder_sub1: 
+              status: Completed_PostFinished
+            invis_obj_meetamaraatignitioncontrol: 
+              status: Completed_PostFinished
+            sfl_reach_ignition_control: 
+              status: Completed_PostFinished
+            sfl_hit_button_nag: 
+              status: Completed_PostFinished
+            sfl_reach_space_elevator_top: 
+              status: Completed_PostFinished
+            invistraveltoelpis: 
+              status: WaitingOnDependencies
+    missionset_zoneactivity_mine: 
+      missions: 
+        zoneactivity_grasslands_mine1: 
+          status: Active
+          objectives: 
+            find_the_entrance_to_the_mine: 
+              status: Active
+        zoneactivity_grasslands_mine2: 
+          status: Active
+          objectives: 
+            find_the_entrance_to_the_mine: 
+              status: Active
+            explore_the_mine: 
+              status: WaitingOnMission
+            kill_the_boss: 
+              status: WaitingOnMission
+        zoneactivity_mountains_mine2: 
+          status: Active
+          objectives: 
+            find_the_entrance_to_the_mine: 
+              status: Active
+        zoneactivity_shatteredlands_mine2: 
+          status: completed
+          final: 
+            find_the_entrance_to_the_mine_endstate: completed
+        zoneactivity_city_mine1: 
+          status: Active
+          objectives: 
+            find_the_entrance_to_the_mine: 
+              status: Active
+        zoneactivity_mountains_mine1: 
+          status: Active
+          objectives: 
+            find_the_entrance_to_the_mine: 
+              status: Active
+    missionset_zoneactivity_orderbunker: 
+      missions: 
+        zoneactivity_grasslands_orderbunker2: 
+          status: Active
+          objectives: 
+            open_the_door: 
+              status: Active
+        zoneactivity_grasslands_orderbunker1: 
+          status: Active
+          objectives: 
+            open_the_door: 
+              status: Active
+        zoneactivity_mountains_orderbunker2: 
+          status: completed
+          final: 
+            open_the_door_endstate: completed
+        zoneactivity_mountains_orderbunker1: 
+          status: Active
+          objectives: 
+            open_the_door: 
+              status: Active
+        zoneactivity_city_orderbunker1: 
+          status: Active
+          objectives: 
+            open_the_door: 
+              status: Active
+    missionset_main_mountains2b: 
+      status: completed
+      missions: 
+        mission_main_mountains2b: 
+          ui_flags: 1
+          status: completed
+          final: 
+            obj_findawayin_endstate: completed
+            obj_overarching_findphase_endstate: completed
+    missionset_main_beach: 
+      status: completed
+      missions: 
+        mission_main_beach: 
+          ui_flags: 1
+          status: completed
+          final: 
+            melee_the_door_0_endstate: completed
+            reach_village_endstate: completed
+            use_glide_to_reach_exit_endstate: completed
+            destroy_bolt_1_endstate: deactivated
+            destroy_bolt_3_endstate: deactivated
+            destroy_bolt_2_endstate: completed
+            activate__cl4ptps_safehouse_endstate: completed
+    missionset_zoneactivity_crawler: 
+      missions: 
+        zoneactivity_grasslands_crawler1: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_grasslands_crawler3: 
+          status: completed
+        zoneactivity_grasslands_crawler4: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_grasslands_crawler2: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_mountains_crawler4: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_mountains_crawler1: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_mountains_crawler2: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_shatteredlands_crawler1: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_shatteredlands_crawler2: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_shatteredlands_crawler3: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+        zoneactivity_mountains_crawler3: 
+          status: Active
+          objectives: 
+            power_up_the_crawler: 
+              status: Active
+    missionset_zoneactivity_silo: 
+      missions: 
+        zoneactivity_grasslands_silo1: 
+          status: completed
+        zoneactivity_grasslands_silo2: 
+          status: completed
+        zoneactivity_grasslands_silo3: 
+          status: completed
+        zoneactivity_mountains_silo3: 
+          status: Active
+          objectives: 
+            claim_the_command_console: 
+              status: Active
+        zoneactivity_mountains_silo1: 
+          status: completed
+        zoneactivity_mountains_silo2: 
+          status: Active
+          objectives: 
+            claim_the_command_console: 
+              status: Active
+        zoneactivity_shatteredlands_silo1: 
+          status: completed
+        zoneactivity_shatteredlands_silo2: 
+          status: completed
+        zoneactivity_shatteredlands_silo3: 
+          status: Active
+          objectives: 
+            claim_the_command_console: 
+              status: Active
+    missionset_main_grasslands1: 
+      status: completed
+      missions: 
+        mission_main_grasslands1: 
+          ui_flags: 1
+          status: completed
+          final: 
+            meet_nudge_endstate: completed
+            kill_order_soldiers_endstate: completed
+            commander_holo_tracker_endstate: completed
+            talk_with_conway_endstate: completed
+            scan_vehicle_endstate: completed
+            get_close_to_contra_2_endstate: completed
+            get_close_to_contra_1_endstate: completed
+            get_close_to_contra_4_endstate: completed
+            get_close_to_contra_3_endstate: completed
+            reach_the_lieutenant_endstate: completed
+            return_to_outbounder_hq_endstate: completed
+    missionset_micro_grasslandsa: 
+      missions: 
+        micro_grasslands_abductioninjunction: 
+          ui_flags: 1
+          status: completed
+        micro_grasslands_abductioninjunctionending: 
+          status: completed
+    missionset_side_grasslandsa: 
+      cursorposition: 1
+      missions: 
+        grasslands_side_murdermystery: 
+          ui_flags: 1
+          status: completed
+          final: 
+            enter_the_bunker_endstate: deactivated
+            kill_the_ice_cream_man_endstate: deactivated
+            listen_to_final_radio_endstate: completed
+        grasslands_side_murdermystery_beckon: 
+          status: completed
+        mission_side_thecureintro: 
+          status: completed
+        mission_side_lifespurpose: 
+          ui_flags: 1
+          status: completed
+          final: 
+            find_guide_endstate: completed
+            start_launch_sequence_endstate: completed
+            dumb_rando_encoutners_endstate: completed
+        mission_side_thecure: 
+          ui_flags: 1
+          status: completed
+        grasslands_side_salvagerippertunnelsintro: 
+          status: completed
+        mission_side_thresherrancherintro: 
+          status: completed
+    missionset_micro_grasslandsb: 
+      missions: 
+        micro_grasslands_carriedaway01: 
+          ui_flags: 1
+          status: completed
+    missionset_zoneactivity_drillsite: 
+      missions: 
+        zoneactivity_grasslands_drillsite2: 
+          status: Active
+          objectives: 
+            kill_the_boss: 
+              status: Active
+        zoneactivity_grasslands_drillsite1: 
+          status: Active
+          objectives: 
+            kill_the_boss: 
+              status: Active
+        zoneactivity_mountains_drillsite2: 
+          status: completed
+        zoneactivity_mountains_drillsite1: 
+          status: Active
+          objectives: 
+            kill_the_boss: 
+              status: Active
+        zoneactivity_shatteredlands_drillsite1: 
+          status: Active
+          objectives: 
+            kill_the_boss: 
+              status: Active
+        zoneactivity_shatteredlands_drillsite2: 
+          status: Active
+          objectives: 
+            kill_the_boss: 
+              status: Active
+    missionset_main_mountains1: 
+      status: completed
+      missions: 
+        mission_main_mountains1: 
+          ui_flags: 1
+          status: completed
+    missionset_main_grasslands2b: 
+      status: completed
+      missions: 
+        mission_main_grasslands2b: 
+          ui_flags: 1
+          status: completed
+          final: 
+            kill_factory_boss_endstate: completed
+            invisunderairship_endstate: completed
+            gettohq_endstate: completed
+            removedebris_endstate: completed
+            evacuateship_endstate: failed
+    missionset_side_grasslandsb: 
+      missions: 
+        side_grasslands_lighthousekeeper: 
+          ui_flags: 1
+          status: completed
+    missionset_vault_grasslands: 
+      missions: 
+        mission_side_grasslandsvault: 
+          ui_flags: 1
+          status: Active
+          cursorposition: 8
+          final: 
+            defeatinceptus_endstate: completed
+          objectives: 
+            usejump1: 
+              status: Completed_PostFinished
+            gotoarenabreadcrumb: 
+              status: Completed_PostFinished
+            gotoarena: 
+              status: Completed_PostFinished
+            defeatinceptus: 
+              status: Completed_PostFinished
+            enterriftinbossarena: 
+              status: Completed_PostFinished
+            gotoarena2: 
+              status: Completed_PostFinished
+            gotoarena3: 
+              status: Completed_PostFinished
+            gotobossarena: 
+              status: Completed_PostFinished
+            killenemiesarena1: 
+              status: Completed_PostFinished
+            killenemiesarena2: 
+              status: Completed_PostFinished
+            killenemiesarena3: 
+              status: Completed_PostFinished
+            lootvaultpower: 
+              status: Active
+            gotoarena2breadcrumb: 
+              status: Completed_PostFinished
+            usejumppad2: 
+              status: Completed_PostFinished
+            usejumppad3: 
+              status: Completed_PostFinished
+            usejumppad5: 
+              status: Completed_PostFinished
+            gotoarena3breadcrumb: 
+              status: Completed_PostFinished
+            usejumppad4: 
+              status: Completed_PostFinished
+            usejumppad6: 
+              status: Completed_PostFinished
+            usejumppad7: 
+              status: Completed_PostFinished
+            gotoarenabossarenabreadcrumb: 
+              status: Completed_PostFinished
+            inv_lootredchests_1: 
+              status: Completed_PostFinished
+            inv_lootredchests_2: 
+              status: Completed_PostFinished
+            enter_rift_to_exit: 
+              status: WaitingOnMission
+    missionset_main_mountains2a: 
+      status: completed
+      missions: 
+        mission_main_mountains2: 
+          ui_flags: 1
+          status: completed
+    missionset_micro_grasslandse: 
+      missions: 
+        mission_micro_powercoreplinko: 
+          ui_flags: 1
+          status: completed
+          final: 
+            got_a_bad_prize_endstate: deactivated
+            toss_in_the_powercore_endstate: completed
+    missionset_micro_mountainsa: 
+      missions: 
+        micro_boltfuneralrites: 
+          ui_flags: 1
+          status: Active
+          cursorposition: 1
+          objectives: 
+            newobjective: 
+              status: Completed_PostFinished
+            head_to_mining_site: 
+              status: Active
+            collect_the_bolts_of_the_fallen: 
+              status: WaitingOnMission
+            deliver_bolts_to_auger_hq: 
+              status: WaitingOnMission
+            place_bolts: 
+              status: WaitingOnMission
+        micro_mountains_whoneedsinstructions: 
+          ui_flags: 1
+          status: Active
+          objectives: 
+            lookintrash: 
+              status: Active
+            findtheinstructions: 
+              status: Active
+            buildthechair: 
+              status: WaitingOnMission
+            destroythechair: 
+              status: WaitingOnMission
+            findmaterials: 
+              status: WaitingOnMission
+            killrohkia: 
+              status: WaitingOnMission
+            searchthegrill: 
+              status: WaitingOnMission
+            searchthelaundry: 
+              status: WaitingOnMission
+            sellthechair: 
+              status: WaitingOnMission
+    missionset_micro_shatteredlandsb: 
+      missions: 
+        micro_shattered_ep_agri: 
+          status: completed
+    missionset_side_mountainsd: 
+      missions: 
+        mission_side_planetaryescape_intro5: 
+          status: completed
+oak.ui.progression_data: 
+  ui_progression_data: 
+    active_tree_index: 2
+    dont_ask_again_skills: false
+    dont_ask_again_respec_skills: false
+    dont_ask_again_specializations: false
+    dont_ask_again_respec_specializations: false
+    dont_ask_again_respec_node: false
+save_game_header: 
+  guid: 5127BD784F0B338BD08ACCAA6559B9EC
+  timestamp: 1758210962
+progression: 
+  graphs: 
+  - name: progress_graph_grav_action_skills
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: Exodus
+      is_activated: true
+    - name: Grav
+      is_activated: true
+  - name: progress_graph_grav_mods_exodus
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: 'Augment 3: Temporal Loop'
+      is_activated: true
+    - name: 'Capstone 1: Devastation'
+      is_activated: true
+  - name: Progress_Grav_Trunk_StasisShard
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: Field Research
+      points_spent: 3
+  - name: Progress_Grav_Trunk_ExodusShard
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: Velocity
+      points_spent: 5
+    - name: Fuzzy Math
+      points_spent: 5
+    - name: Elementary
+      points_spent: 2
+    - name: Mad Rads
+      points_spent: 3
+  - name: Progress_Grav_Branch_ExodusShard_02
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: Proven Results
+      points_spent: 5
+    - name: Fissile Launcher
+      points_spent: 2
+    - name: Chain Reactor
+      points_spent: 3
+    - name: Dirty Bomb
+      points_spent: 1
+  - name: Progress_Grav_Branch_ExodusShard_03
+    group_def_name: progress_group_gravitar
+    nodes: 
+    - name: Arithmatic Progression
+      points_spent: 5
+  - name: sdu_upgrades
+    group_def_name: Oak2_GlobalProgressGraph_Group
+    nodes: 
+    - name: Ammo_Pistol_01
+      points_spent: 5
+    - name: Ammo_SMG_01
+      points_spent: 5
+    - name: Ammo_SMG_02
+      points_spent: 10
+    - name: Ammo_SMG_03
+      points_spent: 20
+    - name: Ammo_AR_01
+      points_spent: 5
+    - name: Ammo_AR_02
+      points_spent: 10
+    - name: Ammo_AR_03
+      points_spent: 20
+    - name: Ammo_AR_04
+      points_spent: 30
+    - name: Ammo_AR_05
+      points_spent: 50
+    - name: Ammo_AR_06
+      points_spent: 80
+    - name: Ammo_SG_01
+      points_spent: 5
+    - name: Ammo_SG_02
+      points_spent: 10
+    - name: Ammo_SG_03
+      points_spent: 20
+    - name: Ammo_SR_01
+      points_spent: 5
+    - name: Ammo_SR_02
+      points_spent: 10
+    - name: Ammo_SR_03
+      points_spent: 20
+    - name: Ammo_SR_04
+      points_spent: 30
+    - name: Backpack_01
+      points_spent: 5
+    - name: Backpack_02
+      points_spent: 10
+    - name: Backpack_03
+      points_spent: 20
+    - name: Backpack_04
+      points_spent: 30
+    - name: Backpack_05
+      points_spent: 50
+    - name: Backpack_06
+      points_spent: 80
+    - name: Backpack_07
+      points_spent: 120
+    - name: Backpack_08
+      points_spent: 235
+    - name: Bank_01
+      points_spent: 5
+    - name: Bank_02
+      points_spent: 10
+    - name: Lost_Loot_01
+      points_spent: 5
+    - name: Lost_Loot_02
+      points_spent: 10
+  point_pools: 
+    characterprogresspoints: 34
+    echotokenprogresspoints: 990
+  progress_state_data: 
+    characterprogresspoints: 
+      id: EDFFDD234B6D11F608F9CBBB21CF10EA
+      reset_count: 0
+    specializationtokenpool: 
+      id: 2680315F4CA9D0758D5B4F811EC3BA4F
+      reset_count: 0
+unlockables: 
+  unlockable_hoverdrives: 
+    entries: 
+    - unlockable_hoverdrives.jakobs_01
+    - unlockable_hoverdrives.Jakobs_02
+    - unlockable_hoverdrives.Daedalus_01
+    - unlockable_hoverdrives.Maliwan_01
+    - unlockable_hoverdrives.Maliwan_02
+    - unlockable_hoverdrives.Torgue_01
+    - unlockable_hoverdrives.jakobs_03
+    - unlockable_hoverdrives.Order_01
+    - unlockable_hoverdrives.Torgue_02
+    - unlockable_hoverdrives.Vladof_01
+    - unlockable_hoverdrives.Torgue_03
+    - unlockable_hoverdrives.Order_02
+world_state: 
+  world_p.top.base.io_worldtrigger_propagandasystem_force_02: 
+    team: INVALID_TEAM
+  world_p.top.base.io_worldtrigger_propagandasystem_force_03: 
+    team: INVALID_TEAM
+timed_facts: 
