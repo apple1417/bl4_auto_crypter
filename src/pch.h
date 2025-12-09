@@ -8,6 +8,7 @@
 #include <shlobj.h>
 #include <wincrypt.h>
 
+#include <MinHook.h>
 #include <zlib.h>
 
 #ifdef __cplusplus
@@ -23,6 +24,7 @@
 #include <limits>
 #include <optional>
 #include <ranges>
+#include <stdexcept>
 #include <string>
 #include <string_view>
 #include <unordered_map>

@@ -1,11 +1,5 @@
 #include "pch.h"
 #include "sync.h"
-#include <shlobj_core.h>
-#include <winnt.h>
-#include <algorithm>
-#include <optional>
-#include <stdexcept>
-#include <unordered_map>
 #include "crypter.h"
 
 namespace b4ac {

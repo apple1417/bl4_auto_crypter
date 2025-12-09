@@ -32,6 +32,8 @@ function(target_link_libraries_system target)
     endforeach(lib)
 endfunction(target_link_libraries_system)
 
+add_subdirectory(minhook)
+
 function(add_common_args target_name)
     target_compile_features(${target_name} PUBLIC cxx_std_23)
     set_target_properties(${target_name} PROPERTIES
@@ -66,8 +68,14 @@ function(add_common_args target_name)
 
     target_precompile_headers(${target_name} PUBLIC "src/pch.h")
     target_include_directories(${target_name} PUBLIC "src" "${CONFIGURE_FILES_DIR}")
-    target_link_libraries(${target_name} PUBLIC bcrypt.dll)
+    target_link_libraries(${target_name} PUBLIC bcrypt.dll minhook)
     target_link_libraries_system(${target_name} zlibstatic)
+
+    set_target_properties(${target_name} PROPERTIES
+        EXPORT_COMPILE_COMMANDS True
+        OUTPUT_NAME "bl4_auto_crypter"
+        PREFIX ""
+    )
 endfunction()
 
 add_common_args(crypter_exe)

@@ -1,10 +1,15 @@
 #include "pch.h"
+#include "hooks.h"
+#include "sync.h"
 
 #ifdef CRYPTER_PLUGIN
 
 namespace {
 
 DWORD WINAPI startup_thread(LPVOID /*unused*/) {
+    b4ac::init_hooks();
+    b4ac::sync_all_saves();
+    std::cout << "[b4ac] initalized" << std::flush;
     return 1;
 }
 

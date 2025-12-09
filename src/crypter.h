@@ -1,3 +1,6 @@
+#ifndef CRYPTER_H
+#define CRYPTER_H
+
 #include "pch.h"
 
 namespace b4ac {
@@ -44,3 +47,5 @@ void encrypt(const std::filesystem::path& sav,
 std::string sha1_file(const std::filesystem::path& path);
 
 }  // namespace b4ac
+
+#endif /* CRYPTER_H */
