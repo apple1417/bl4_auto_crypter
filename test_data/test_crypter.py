@@ -101,3 +101,22 @@ def test_yaml_roundtrip(runner: Runner, sav: Path, yaml: Path, user_id: str) -> 
         runner("e", user_id, yaml, temp_sav.name)
         runner("d", user_id, temp_sav.name, temp_yaml.name)
         assert filecmp.cmp(yaml, temp_yaml.name)
+
+
+def test_ignores_empty_file(runner: Runner) -> None:
+    with (
+        tempfile.NamedTemporaryFile() as temp_in,
+        tempfile.NamedTemporaryFile() as temp_out,
+    ):
+        temp_in.close()
+        temp_out.close()
+        Path(temp_in.name).write_bytes(b"")
+        Path(temp_out.name).unlink(missing_ok=True)
+
+        assert Path(temp_in.name).stat().st_size == 0
+
+        runner("e", "72057594037927937", temp_in.name, temp_out.name)
+        assert not Path(temp_out.name).exists()
+
+        runner("d", "72057594037927937", temp_in.name, temp_out.name)
+        assert not Path(temp_out.name).exists()

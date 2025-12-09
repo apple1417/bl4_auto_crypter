@@ -136,7 +136,15 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
 void decrypt(const std::filesystem::path& yaml,
              const std::filesystem::path& sav,
              const crypto_key& key) {
-    std::vector<uint8_t> file_contents(std::filesystem::file_size(sav));
+#ifdef B4AC_DEBUG_LOGGING
+    std::cout << "[b4ac] decrypting " << sav.string() << "\n" << std::flush;
+#endif
+
+    auto file_size = std::filesystem::file_size(sav);
+    if (file_size == 0) {
+        return;
+    }
+    std::vector<uint8_t> file_contents(file_size);
     std::ifstream{sav, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
                                               (std::streamsize)file_contents.size());
 
@@ -166,7 +174,15 @@ void decrypt(const std::filesystem::path& yaml,
 void encrypt(const std::filesystem::path& sav,
              const std::filesystem::path& yaml,
              const crypto_key& key) {
-    std::vector<uint8_t> file_contents(std::filesystem::file_size(yaml));
+#ifdef B4AC_DEBUG_LOGGING
+    std::cout << "[b4ac] encrypting " << yaml.string() << "\n" << std::flush;
+#endif
+
+    auto file_size = std::filesystem::file_size(yaml);
+    if (file_size == 0) {
+        return;
+    }
+    std::vector<uint8_t> file_contents(file_size);
     std::ifstream{yaml, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
                                                (std::streamsize)file_contents.size());
 
@@ -213,7 +229,7 @@ std::string sha1_file(const std::filesystem::path& path) {
     std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
                                                (std::streamsize)file_contents.size());
 
-    if ((status = BCryptHashData(hash_handle, file_contents.data(), file_contents.size(), 0))
+    if ((status = BCryptHashData(hash_handle, file_contents.data(), (ULONG)file_contents.size(), 0))
         != 0) {
         throw std::runtime_error("couldn't hash file data");
     }

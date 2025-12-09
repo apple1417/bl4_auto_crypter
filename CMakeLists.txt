@@ -32,7 +32,7 @@ function(target_link_libraries_system target)
     endforeach(lib)
 endfunction(target_link_libraries_system)
 
-add_subdirectory(minhook)
+add_subdirectory(minhook EXCLUDE_FROM_ALL)
 
 function(add_common_args target_name)
     target_compile_features(${target_name} PUBLIC cxx_std_23)
@@ -91,3 +91,4 @@ install(
     RUNTIME DESTINATION
         .
 )
+install(FILES $<TARGET_PDB_FILE:crypter_dll> DESTINATION . OPTIONAL)

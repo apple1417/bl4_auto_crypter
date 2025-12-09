@@ -30,12 +30,24 @@ void backup_failing_file(const std::filesystem::path& file) {
 }
 
 /**
+ * @brief Gets the file's last write time.
+ *
+ * @param path The file to check.
+ * @return The file's last write time, or the oldest possible time if it doesn't exist.
+ */
+std::filesystem::file_time_type get_write_time_or_min(const std::filesystem::path& path) {
+    return std::filesystem::exists(path)
+               ? std::filesystem::last_write_time(path)
+               : std::numeric_limits<std::filesystem::file_time_type>::min();
+}
+
+/**
  * @brief Gets the timestamp we last saw the given file at.
  *
  * @param path The file to check.
  * @return The last time it was modified, or the newest possible time if we haven't seen it before.
  */
-std::filesystem::file_time_type get_previous_time(const std::filesystem::path& path) {
+std::filesystem::file_time_type get_previous_write_time_or_max(const std::filesystem::path& path) {
     auto ittr = previous_write_times.find(path);
     if (ittr == previous_write_times.end()) {
         return std::numeric_limits<std::filesystem::file_time_type>::max();
@@ -58,19 +70,21 @@ void sync_single_pair(const std::filesystem::path& folder,
 
     // Files that don't exist yet get the oldest possible time, so any other time on the other file
     // is newer than it
-    auto sav_time = std::filesystem::exists(sav)
-                        ? std::filesystem::last_write_time(sav)
-                        : std::numeric_limits<std::filesystem::file_time_type>::min();
-    auto yaml_time = std::filesystem::exists(yaml)
-                         ? std::filesystem::last_write_time(yaml)
-                         : std::numeric_limits<std::filesystem::file_time_type>::min();
+    auto sav_time = get_write_time_or_min(sav);
+    auto yaml_time = get_write_time_or_min(yaml);
 
     // Neither file's changed since we last saw it, can early exit
     // Since this returns the newest possible time, it can't be equal to the oldest possible time
     // from above
-    if (sav_time == get_previous_time(sav) && yaml_time == get_previous_time(yaml)) {
+    if (sav_time == get_previous_write_time_or_max(sav)
+        && yaml_time == get_previous_write_time_or_max(yaml)) {
         return;
     }
+
+#ifdef B4AC_DEBUG_LOGGING
+    std::cout << "[b4ac] sav time: " << sav_time << ", yaml time: " << yaml_time << "\n"
+              << std::flush;
+#endif
 
     // Prefer the sav when equal
     if (sav_time >= yaml_time) {
@@ -87,7 +101,7 @@ void sync_single_pair(const std::filesystem::path& folder,
             backup_failing_file(sav);
         }
 
-        sav_time = std::filesystem::last_write_time(sav);
+        yaml_time = get_write_time_or_min(yaml);
     } else {
         try {
             encrypt(sav, yaml, key);
@@ -101,7 +115,8 @@ void sync_single_pair(const std::filesystem::path& folder,
                       << std::flush;
             backup_failing_file(yaml);
         }
-        yaml_time = std::filesystem::last_write_time(yaml);
+
+        sav_time = get_write_time_or_min(sav);
     }
 
     // It's possible both times have updated since we saw them last - e.g. on the first call

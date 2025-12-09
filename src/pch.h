@@ -14,6 +14,7 @@
 #ifdef __cplusplus
 #include <algorithm>
 #include <array>
+#include <atomic>
 #include <bit>
 #include <charconv>
 #include <cstdint>
@@ -41,5 +42,8 @@ using std::uint64_t;
 using std::uint8_t;
 
 #endif
+
+// define to add a bunch of extra log messages
+#undef B4AC_DEBUG_LOGGING
 
 #endif /* PCH_H */
