@@ -4,7 +4,8 @@ extend-exclude = [
     "minhook",
     "pybind11",
     "LICENSE",
-    ".typos.toml"
+    ".typos.toml",
+    "test_data/*.yaml",
 ]
 
 [default]
@@ -18,3 +19,4 @@ llibgcc_s_seh = "llibgcc_s_seh"
 
 [default.extend-words]
 UE = "UE"
+sav = "sav"

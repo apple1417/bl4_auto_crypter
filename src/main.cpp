@@ -19,7 +19,7 @@ int sync_impl(int argc, char* argv[], bool wait) {
         return 1;
     }
 
-    std::filesystem::path folder{argv[3]};
+    const std::filesystem::path folder{argv[3]};
     if (!std::filesystem::exists(folder)) {
         std::cerr << "couldn't find folder: " << argv[3] << "\n";
         return 1;
@@ -52,13 +52,13 @@ int crypt_impl(int argc, char* argv[], bool encrypt) {
         return 1;
     }
 
-    std::filesystem::path input{argv[3]};
+    const std::filesystem::path input{argv[3]};
     if (!std::filesystem::exists(input)) {
         std::cerr << "couldn't find input: " << argv[3] << "\n";
         return 1;
     }
 
-    std::filesystem::path output{argv[4]};
+    const std::filesystem::path output{argv[4]};
     // nothing to check?
 
     if (encrypt) {
@@ -77,7 +77,7 @@ int hash_impl(int argc, char* argv[]) {
         return 1;
     }
 
-    std::filesystem::path input{argv[2]};
+    const std::filesystem::path input{argv[2]};
     if (!std::filesystem::exists(input)) {
         std::cerr << "couldn't find input: " << argv[2] << "\n";
         return 1;

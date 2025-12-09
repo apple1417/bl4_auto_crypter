@@ -46,4 +46,9 @@ using std::uint8_t;
 // define to add a bunch of extra log messages
 #undef B4AC_DEBUG_LOGGING
 
+#ifdef __MINGW32__
+#define BCRYPT_SHA1_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x00000031)
+#define BCRYPT_AES_ECB_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x000001b1)
+#endif
+
 #endif /* PCH_H */

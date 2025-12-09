@@ -9,7 +9,7 @@ namespace {
 DWORD WINAPI startup_thread(LPVOID /*unused*/) {
     b4ac::init_hooks();
     b4ac::sync_all_saves();
-    std::cout << "[b4ac] initalized\n" << std::flush;
+    std::cout << "[b4ac] initialized\n" << std::flush;
     return 1;
 }
 

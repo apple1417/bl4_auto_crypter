@@ -3,7 +3,7 @@
 namespace b4ac {
 
 /**
- * @brief Initalizes all hooks used by the plugin.
+ * @brief Initializes all hooks used by the plugin.
  */
 void init_hooks(void);
 

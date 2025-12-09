@@ -70,14 +70,14 @@ void detour(uintptr_t addr, void* detour_func, void** original_func, std::string
 
     MH_STATUS status = MH_OK;
 
-    static bool minhook_initalized = false;
-    if (!minhook_initalized) {
+    static bool minhook_initialized = false;
+    if (!minhook_initialized) {
         status = MH_Initialize();
         if (status != MH_OK) {
             throw std::runtime_error(
-                std::format("minhook initalization failed: {}", MH_StatusToString(status)));
+                std::format("minhook initialization failed: {}", MH_StatusToString(status)));
         }
-        minhook_initalized = true;
+        minhook_initialized = true;
     }
 
     status = MH_CreateHook(reinterpret_cast<LPVOID>(addr), detour_func, original_func);

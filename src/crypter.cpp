@@ -59,7 +59,7 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
     }
     const RaiiLambda raii{[&]() { BCryptDestroyKey(key_handle); }};
 
-    // With this alg, intput and output are always the same size (assuming padded input)
+    // With this alg, input and output are always the same size (assuming padded input)
     std::vector<uint8_t> output(input_size);
     ULONG output_size{};
     if ((status = crypto_func(key_handle, input, (ULONG)input_size, nullptr, nullptr, 0,
@@ -164,7 +164,7 @@ void decrypt(const std::filesystem::path& yaml,
     std::vector<uint8_t> output(decompressed_size);
     auto dest_len = (uLongf)decompressed_size;
     if (::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size) != Z_OK) {
-        throw std::runtime_error("decompression failled");
+        throw std::runtime_error("decompression failed");
     }
 
     std::ofstream{yaml, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
@@ -206,7 +206,7 @@ void encrypt(const std::filesystem::path& sav,
     memcpy(compressed.data() + compressed_size, &decompressed_size, sizeof(decompressed_size));
     compressed_size += sizeof(decompressed_size);
 
-    uint8_t num_padding = encryption_block_size - (compressed_size % encryption_block_size);
+    const uint8_t num_padding = encryption_block_size - (compressed_size % encryption_block_size);
     memset(compressed.data() + compressed_size, num_padding, num_padding);
     compressed_size += num_padding;
 
@@ -223,7 +223,7 @@ std::string sha1_file(const std::filesystem::path& path) {
         != 0) {
         throw std::runtime_error("couldn't create sha1 hash handle");
     }
-    RaiiLambda raii{[&]() { BCryptDestroyHash(hash_handle); }};
+    const RaiiLambda raii{[&]() { BCryptDestroyHash(hash_handle); }};
 
     std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
     std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),

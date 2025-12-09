@@ -155,7 +155,7 @@ std::filesystem::path get_saves_folder(void) {
     PWSTR raw_path = nullptr;
     auto ret = SHGetKnownFolderPath(FOLDERID_Documents, 0, nullptr, &raw_path);
     // Need to free regardless of if the call actually succeeded, so make a copy first
-    std::filesystem::path std_path = raw_path == nullptr ? L"" : raw_path;
+    const std::filesystem::path std_path = raw_path == nullptr ? L"" : raw_path;
     CoTaskMemFree(raw_path);
 
     if (ret != S_OK) {

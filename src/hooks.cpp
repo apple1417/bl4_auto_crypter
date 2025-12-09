@@ -203,15 +203,15 @@ bool delete_character_hook(void* param_1, wchar_t* save_file) {
         const Logger log{"delete character"};
 #endif
 
-        std::filesystem::path sav = save_file;
-        auto yaml = std::filesystem::path{sav}.replace_extension(".yaml");
+        const std::filesystem::path sav = save_file;
+        const auto yaml = std::filesystem::path{sav}.replace_extension(".yaml");
 
         // If we're trying to delete a save which has an equivalent yaml
         if (std::filesystem::exists(sav) && std::filesystem::exists(yaml)) {
             auto ret = delete_character_ptr(param_1, save_file);
 
             try {
-                // If it truely did remove the save, remove the yaml too
+                // If it truly did remove the save, remove the yaml too
                 if (!std::filesystem::exists(sav)) {
                     std::filesystem::remove(yaml);
                 }
