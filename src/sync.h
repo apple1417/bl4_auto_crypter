@@ -1,3 +1,6 @@
+#ifndef SYNC_H
+#define SYNC_H
+
 #include "pch.h"
 #include "crypter.h"
 
@@ -9,6 +12,14 @@ namespace b4ac {
  * @param folder The folder to syncronize.
  * @param key The crypto key for this folder.
  */
-void sync_saves(const std::filesystem::path& folder, const crypto_key& key);
+void sync_saves_in_folder(const std::filesystem::path& folder, const crypto_key& key);
+
+/**
+ * @brief Makes sure every save file we can find has a synced .sav and .yaml version.
+ * @note Checks all folders in Documents/My Games/...
+ */
+void sync_all_saves(void);
 
 }  // namespace b4ac
+
+#endif /* SYNC_H */

@@ -1,5 +1,11 @@
 #include "pch.h"
 #include "sync.h"
+#include <shlobj_core.h>
+#include <winnt.h>
+#include <algorithm>
+#include <optional>
+#include <stdexcept>
+#include <unordered_map>
 #include "crypter.h"
 
 namespace b4ac {
@@ -77,12 +83,12 @@ void sync_single_pair(const std::filesystem::path& folder,
         try {
             decrypt(yaml, sav, key);
         } catch (const std::exception& ex) {
-            std::cerr << "[b4ac] error decrypting file " << yaml.string() << ": " << ex.what()
+            std::cerr << "[b4ac] error decrypting file " << sav.string() << ": " << ex.what()
                       << "\n"
                       << std::flush;
             backup_failing_file(sav);
         } catch (...) {
-            std::cerr << "[b4ac] unknown error decrypting file " << yaml.string() << "\n"
+            std::cerr << "[b4ac] unknown error decrypting file " << sav.string() << "\n"
                       << std::flush;
             backup_failing_file(sav);
         }
@@ -111,10 +117,10 @@ void sync_single_pair(const std::filesystem::path& folder,
 
 }  // namespace
 
-void sync_saves(const std::filesystem::path& folder, const crypto_key& key) {
+void sync_saves_in_folder(const std::filesystem::path& folder, const crypto_key& key) {
     auto valid_stems = std::ranges::to<std::unordered_set>(
         std::views::all(std::filesystem::directory_iterator{folder})
-        | std::views::filter([](auto& entry) {
+        | std::views::filter([](const auto& entry) {
               if (!entry.is_regular_file() && !entry.is_symlink()) {
                   return false;
               }
@@ -126,6 +132,63 @@ void sync_saves(const std::filesystem::path& folder, const crypto_key& key) {
 
     for (auto& stem : valid_stems) {
         sync_single_pair(folder, key, stem);
+    }
+}
+
+namespace {
+
+std::filesystem::path get_saves_folder(void) {
+    std::optional<std::filesystem::path> saves_folder = std::nullopt;
+    if (saves_folder) {
+        return *saves_folder;
+    }
+
+    PWSTR raw_path = nullptr;
+    auto ret = SHGetKnownFolderPath(FOLDERID_Documents, 0, nullptr, &raw_path);
+    // Need to free regardless of if the call actually succeeded, so make a copy first
+    std::filesystem::path std_path = raw_path == nullptr ? L"" : raw_path;
+    CoTaskMemFree(raw_path);
+
+    if (ret != S_OK) {
+        throw std::runtime_error("couldn't get my documents path");
+    }
+
+    saves_folder = std_path / "My Games" / "Borderlands 4" / "Saved" / "SaveGames";
+    return *saves_folder;
+}
+
+std::unordered_map<std::filesystem::path, std::pair<std::filesystem::path, crypto_key>>
+    known_keys{};
+std::unordered_set<std::filesystem::path> known_bad_paths{};
+
+}  // namespace
+
+void sync_all_saves(void) {
+    for (const auto& entry : std::filesystem::directory_iterator{get_saves_folder()}) {
+        if (!entry.is_directory()) {
+            continue;
+        }
+
+        if (known_bad_paths.contains(entry.path())) {
+            continue;
+        }
+        if (known_keys.contains(entry.path())) {
+            auto [folder, key] = known_keys[entry.path()];
+            sync_saves_in_folder(folder, key);
+            continue;
+        }
+
+        crypto_key key{};
+        if (!parse_key(entry.path().filename().string(), key)) {
+            std::cerr << "[b4ac] Couldn't extract crypto key from folder: " << entry.path() << "\n"
+                      << std::flush;
+            known_bad_paths.insert(entry.path());
+            continue;
+        }
+
+        auto saves_dir = entry.path() / "Profiles" / "client";
+        known_keys[entry.path()] = {saves_dir, key};
+        sync_saves_in_folder(saves_dir, key);
     }
 }
 

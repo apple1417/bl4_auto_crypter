@@ -4,8 +4,8 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
-
 // must be after windows.h
+#include <shlobj.h>
 #include <wincrypt.h>
 
 #include <zlib.h>
@@ -21,6 +21,7 @@
 #include <ios>
 #include <iostream>
 #include <limits>
+#include <optional>
 #include <ranges>
 #include <string>
 #include <string_view>
