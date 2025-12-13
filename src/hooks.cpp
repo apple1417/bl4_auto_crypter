@@ -96,11 +96,17 @@ uint64_t save_file_hook(void* param_1, void* param_2, void* param_3) {
         if (rentrant) {
             return save_file_ptr(param_1, param_2, param_3);
         }
-        // --------------------------------
 
         auto ret = save_file_ptr(param_1, param_2, param_3);
-
-        sync_all_saves();
+        // Have to start a new try-catch after calling the original function, since we don't want
+        // an exception to re-call it a second time at the bottom of the function
+        try {
+            sync_all_saves();
+        } catch (const std::exception& ex) {
+            std::cerr << "[b4ac] error in save file hook: " << ex.what() << "\n" << std::flush;
+        } catch (...) {
+            std::cerr << "[b4ac] unknown error in save file hook\n" << std::flush;
+        }
 
         return ret;
     } catch (const std::exception& ex) {
@@ -239,6 +245,11 @@ static_assert(std::is_same_v<decltype(delete_character_hook), delete_character_f
 #pragma endregion
 
 void init_hooks(void) {
+    // HACK: since the game is packed, we can't necessarily sigscan until it's been unpacked.
+    //       I don't have a good hook for when this is, so just wait it out.
+    const constexpr auto sleep_time = std::chrono::seconds{5};
+    std::this_thread::sleep_for(sleep_time);
+
     detour(SAVE_FILE_SIG, save_file_hook, &save_file_ptr, "save file");
     detour(DELETE_CHARACTER_SIG, delete_character_hook, &delete_character_ptr, "delete character");
 }

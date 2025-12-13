@@ -7,9 +7,15 @@
 namespace {
 
 DWORD WINAPI startup_thread(LPVOID /*unused*/) {
-    b4ac::init_hooks();
-    b4ac::sync_all_saves();
-    std::cout << "[b4ac] initialized\n" << std::flush;
+    try {
+        b4ac::init_hooks();
+        b4ac::sync_all_saves();
+        std::cout << "[b4ac] initialized\n" << std::flush;
+    } catch (const std::exception& ex) {
+        std::cerr << "[b4ac] error while initalizing: " << ex.what() << "\n" << std::flush;
+    } catch (...) {
+        std::cerr << "[b4ac] unknown error while initalizing\n" << std::flush;
+    }
     return 1;
 }
 
