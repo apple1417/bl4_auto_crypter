@@ -4,8 +4,8 @@ project(bl4_auto_crypter VERSION 1)
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "src/*.cpp" "src/*.h")
 list(APPEND sources "src/versioninfo.rc")
 
-add_executable(crypter_exe ${sources})
-add_library(crypter_plugin SHARED ${sources})
+add_library(bl4_auto_crypter SHARED ${sources})
+add_executable(bl4_auto_crypter_exe ${sources})
 
 set(CONFIGURE_FILES_DIR "${CMAKE_CURRENT_BINARY_DIR}/configure")
 
@@ -75,37 +75,27 @@ function(add_common_args target_name)
         EXPORT_COMPILE_COMMANDS True
         PREFIX ""
     )
-    # MSVC fails to link if we change this?? Have to hack around it in the install
-    if (NOT MSVC)
-        set_target_properties(${target_name} PROPERTIES
-            OUTPUT_NAME "bl4_auto_crypter"
-        )
-    endif()
 endfunction()
 
-add_common_args(crypter_exe)
-add_common_args(crypter_plugin)
+add_common_args(bl4_auto_crypter)
+add_common_args(bl4_auto_crypter_exe)
 
-target_compile_definitions(crypter_exe PUBLIC CRYPTER_EXE)
-target_compile_definitions(crypter_plugin PUBLIC CRYPTER_PLUGIN)
+target_compile_definitions(bl4_auto_crypter PUBLIC CRYPTER_PLUGIN)
+target_compile_definitions(bl4_auto_crypter_exe PUBLIC CRYPTER_EXE)
 
-if(NOT MSVC)
-    install(
-        TARGETS
-           crypter_exe
-           crypter_plugin
-        RUNTIME DESTINATION
-            .
-    )
+set_target_properties(bl4_auto_crypter_exe PROPERTIES OUTPUT_NAME "bl4_auto_crypter")
 
-    # The mingw linker doesn't support pdbs, so despite being optional, CMake fails it for even
-    # trying to accessing this
-    if(NOT MINGW)
-        install(FILES $<TARGET_PDB_FILE:crypter_plugin> DESTINATION . OPTIONAL)
-    endif()
-else()
-    # Hack to rename for msvc
-    install(PROGRAMS $<TARGET_FILE:crypter_exe> DESTINATION . RENAME bl4_auto_crypter.exe)
-    install(FILES $<TARGET_FILE:crypter_plugin> DESTINATION . RENAME bl4_auto_crypter.dll)
-    install(FILES $<TARGET_PDB_FILE:crypter_plugin> DESTINATION . RENAME bl4_auto_crypter.pdb OPTIONAL)
+install(
+    TARGETS
+      bl4_auto_crypter
+      bl4_auto_crypter_exe
+    RUNTIME DESTINATION
+        .
+)
+
+# The mingw linker doesn't support pdbs, so despite being optional, CMake fails it for even
+# trying to accessing this
+if(NOT MINGW)
+    install(FILES $<TARGET_PDB_FILE:bl4_auto_crypter> DESTINATION . OPTIONAL)
 endif()
+
