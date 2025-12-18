@@ -65,7 +65,13 @@ struct Logger {
 #pragma region save file
 namespace {
 
-using save_file_func = uint64_t(void* param_1, void* param_2, void* param_3);
+struct FString {
+    wchar_t* str;
+    int32_t count;
+    int32_t max;
+};
+
+using save_file_func = uint64_t(void* param_1, const FString* file_stem, void* param_3);
 save_file_func* save_file_ptr;
 
 // Find this sig by looking for L"%s.tmp" refs - NOT "%s.%s.tmp"
@@ -86,20 +92,23 @@ const constinit Pattern<44> SAVE_FILE_SIG{
     "48 89 CF"             // mov rdi, rcx
 };
 
-uint64_t save_file_hook(void* param_1, void* param_2, void* param_3) {
+uint64_t save_file_hook(void* param_1, const FString* file_stem, void* param_3) {
     try {
 #ifdef B4AC_DEBUG_LOGGING
         const Logger log{"save file"};
+        std::wcout << L"[b4ac] " << std::wstring_view{file_stem->str, (size_t)file_stem->count}
+                   << L"\n"
+                   << std::flush;
 #endif
         // Somehow this function appears to be re-entrant?
         // Since we want to sync after it's finished saving, only run after the top level call
         static ReentrancyGuard guard{};
         auto rentrant = guard.claim();
         if (rentrant) {
-            return save_file_ptr(param_1, param_2, param_3);
+            return save_file_ptr(param_1, file_stem, param_3);
         }
 
-        auto ret = save_file_ptr(param_1, param_2, param_3);
+        auto ret = save_file_ptr(param_1, file_stem, param_3);
         // Have to start a new try-catch after calling the original function, since we don't want
         // an exception to re-call it a second time at the bottom of the function
         try {
@@ -117,7 +126,7 @@ uint64_t save_file_hook(void* param_1, void* param_2, void* param_3) {
         std::cerr << "[b4ac] unknown error in save file hook\n" << std::flush;
     }
 
-    return save_file_ptr(param_1, param_2, param_3);
+    return save_file_ptr(param_1, file_stem, param_3);
 }
 static_assert(std::is_same_v<decltype(save_file_hook), save_file_func>);
 
