@@ -89,9 +89,8 @@ void backup_failing_file(const std::filesystem::path& file) {
  * @return The file's last write time, or the oldest possible time if it doesn't exist.
  */
 std::filesystem::file_time_type get_write_time_or_min(const std::filesystem::path& path) {
-    return std::filesystem::exists(path)
-               ? std::filesystem::last_write_time(path)
-               : std::numeric_limits<std::filesystem::file_time_type>::min();
+    return std::filesystem::exists(path) ? std::filesystem::last_write_time(path)
+                                         : std::filesystem::file_time_type::min();
 }
 
 /**
@@ -103,7 +102,7 @@ std::filesystem::file_time_type get_write_time_or_min(const std::filesystem::pat
 std::filesystem::file_time_type get_previous_write_time_or_max(const std::filesystem::path& path) {
     auto ittr = previous_write_times.find(path);
     if (ittr == previous_write_times.end()) {
-        return std::numeric_limits<std::filesystem::file_time_type>::max();
+        return std::filesystem::file_time_type::max();
     }
     return (*ittr).second;
 }
@@ -136,35 +135,49 @@ void sync_single_pair(const std::filesystem::path& folder,
 
     log::debug("sav time: {}, yaml time: {}", sav_time, yaml_time);
 
+    auto update_previous_times = [&sav, &yaml](void) {
+        previous_write_times[sav] = get_write_time_or_min(sav);
+        previous_write_times[yaml] = get_write_time_or_min(yaml);
+    };
+
+    // Write a temporary file at first, in case something modifies our target while we're working
     std::filesystem::path tmp;
-    const wchar_t* file_to_be_replaced{};
+    const std::filesystem::path* target{};  // rather not copy
 
     // Prefer the sav when equal
     if (sav_time >= yaml_time) {
+        target = &yaml;
         tmp = std::filesystem::path{yaml}.replace_extension(".yaml.b4ac");
-        file_to_be_replaced = yaml.c_str();
 
         try {
             decrypt(tmp, sav, key);
         } catch (const std::exception& ex) {
             log::error("error decrypting file {}: {}", sav.string(), ex.what());
             backup_failing_file(sav);
+            update_previous_times();
+            return;
         } catch (...) {
             log::error("unknown error decrypting file {}", sav.string());
             backup_failing_file(sav);
+            update_previous_times();
+            return;
         }
     } else {
+        target = &sav;
         tmp = std::filesystem::path{sav}.replace_extension(".sav.b4ac");
-        file_to_be_replaced = sav.c_str();
 
         try {
             encrypt(tmp, yaml, key);
         } catch (const std::exception& ex) {
             log::error("error encrypting file {}: {}", yaml.string(), ex.what());
             backup_failing_file(yaml);
+            update_previous_times();
+            return;
         } catch (...) {
             log::error("unknown error encrypting file {}", yaml.string());
             backup_failing_file(yaml);
+            update_previous_times();
+            return;
         }
     }
 
@@ -183,15 +196,10 @@ void sync_single_pair(const std::filesystem::path& folder,
     // time and replacing the file
     // If we get two events on the same file so close to each other, deciding we don't care
 
-    auto ret = ReplaceFileW(file_to_be_replaced, tmp.c_str(), nullptr,
-                            REPLACEFILE_IGNORE_ACL_ERRORS | REPLACEFILE_IGNORE_MERGE_ERRORS,
-                            nullptr, nullptr);
-    if (ret == 0) {
-        log::error("failed to replace file {} ({}, {})", tmp.string(), ret, GetLastError());
-    }
+    // This is defined as overwriting existing files, which is what we want
+    std::filesystem::rename(tmp, *target);
 
-    previous_write_times[sav] = get_write_time_or_min(sav);
-    previous_write_times[yaml] = get_write_time_or_min(yaml);
+    update_previous_times();
     log::debug("new times sav: {}, yaml: {}", previous_write_times[sav],
                previous_write_times[yaml]);
 }

@@ -229,7 +229,7 @@ def test_backs_up_invalid_sav(runner: Runner) -> None:
         assert (folder / SYNC_1_SAV.name).read_bytes() == corrupt_data
 
         data_hash = hashlib.sha1(corrupt_data).hexdigest()  # noqa: S324
-        backup_file = folder / "bl4_auto_crypter errors" / (data_hash + ".sav")
+        backup_file = folder / "bl4_auto_crypter errors" / (data_hash + ".sav.b4ac")
 
         assert backup_file.exists()
         assert filecmp.cmp(folder / SYNC_1_SAV.name, backup_file)
