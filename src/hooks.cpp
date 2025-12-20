@@ -7,43 +7,6 @@ namespace b4ac {
 
 namespace {
 
-/**
- * @brief Helper class to detect a reentrant call.
- *
- * Sample usage:
- *     static ReentrancyGuard guard{};
- *     auto rentrant = guard.claim();
- *     if (rentrant) { ... }
- *
- * guard.claim() returns a RAII class - you must store it in a variable to prevent it immediately
- * destruting and considering the call over.
- */
-struct ReentrancyGuard {
-   private:
-    std::atomic<int> counter = 0;
-
-    struct Claimer {
-       private:
-        // NOLINTNEXTLINE(cppcoreguidelines-avoid-const-or-ref-data-members)
-        std::atomic<int>& counter;
-        bool reentrant;
-
-       public:
-        Claimer(std::atomic<int>& counter) : counter(counter), reentrant(this->counter++ != 0) {}
-        ~Claimer() { this->counter--; }
-
-        operator bool(void) const { return this->reentrant; }
-
-        Claimer(const Claimer&) = delete;
-        Claimer(Claimer&&) = delete;
-        Claimer& operator=(const Claimer&) = delete;
-        Claimer& operator=(Claimer&&) = delete;
-    };
-
-   public:
-    Claimer claim(void) { return {this->counter}; }
-};
-
 #ifdef B4AC_DEBUG_LOGGING
 struct Logger {
     const char* name{};
@@ -65,6 +28,44 @@ struct Logger {
 #pragma region save file
 namespace {
 
+// This hook triggers near simultaneously on multiple threads, and I don't think it likes being
+// delayed too long. Since timing isn't critical, we'll just do the actual processing in a thread.
+
+std::atomic_flag syncing_finished;
+
+[[noreturn]] void syncing_thread(void) {
+    SetThreadDescription(GetCurrentThread(), L"b4ac syncer");
+
+    while (true) {
+        // Wait until the flag is no longer true
+        syncing_finished.wait(true);
+
+        // We almost always get a save and profile file save at essentially the same time
+        // Wait a little more to try let them both fire before we bother syncing
+        // NOLINTNEXTLINE(readability-magic-numbers)
+        std::this_thread::sleep_for(std::chrono::milliseconds{50});
+
+        // Set the flag to true, and if it was previously false
+        while (!syncing_finished.test_and_set()) {
+            // Then it's time to try sync saves
+            try {
+#ifdef B4AC_DEBUG_LOGGING
+                std::cout << "[b4ac] syncing...\n" << std::flush;
+#endif
+
+                sync_all_saves();
+            } catch (const std::exception& ex) {
+                std::cerr << std::format("[b4ac] error while syncing saves: {}\n", ex.what())
+                          << std::flush;
+            } catch (...) {
+                std::cerr << "[b4ac] unknown error while syncing saves\n" << std::flush;
+            }
+
+            // While we're syncing, another thread might save a new file and clear the flag
+        }
+    }
+}
+
 struct FString {
     wchar_t* str;
     int32_t count;
@@ -75,6 +76,7 @@ using save_file_func = uint64_t(void* param_1, const FString* file_stem, void* p
 save_file_func* save_file_ptr;
 
 // Find this sig by looking for L"%s.tmp" refs - NOT "%s.%s.tmp"
+// It should call ReplaceFileW (and a couple other filesystem funcs) near the bottom
 const constinit Pattern<44> SAVE_FILE_SIG{
     "41 57"                // push r15
     "41 56"                // push r14
@@ -95,38 +97,25 @@ const constinit Pattern<44> SAVE_FILE_SIG{
 uint64_t save_file_hook(void* param_1, const FString* file_stem, void* param_3) {
     try {
 #ifdef B4AC_DEBUG_LOGGING
+    // Technically we ought to put this in a try-catch too, but meh
         const Logger log{"save file"};
-        std::wcout << L"[b4ac] " << std::wstring_view{file_stem->str, (size_t)file_stem->count}
-                   << L"\n"
-                   << std::flush;
+                              std::wstring_view{file_stem->str, (size_t)file_stem->count},
+                              std::this_thread::get_id())
+               << std::flush;
 #endif
-        // Somehow this function appears to be re-entrant?
-        // Since we want to sync after it's finished saving, only run after the top level call
-        static ReentrancyGuard guard{};
-        auto rentrant = guard.claim();
-        if (rentrant) {
-            return save_file_ptr(param_1, file_stem, param_3);
-        }
 
-        auto ret = save_file_ptr(param_1, file_stem, param_3);
-        // Have to start a new try-catch after calling the original function, since we don't want
-        // an exception to re-call it a second time at the bottom of the function
-        try {
-            sync_all_saves();
-        } catch (const std::exception& ex) {
-            std::cerr << "[b4ac] error in save file hook: " << ex.what() << "\n" << std::flush;
-        } catch (...) {
-            std::cerr << "[b4ac] unknown error in save file hook\n" << std::flush;
-        }
+    auto ret = save_file_ptr(param_1, file_stem, param_3);
 
-        return ret;
+    try {
+        syncing_finished.clear();
+        syncing_finished.notify_all();
     } catch (const std::exception& ex) {
-        std::cerr << "[b4ac] error in save file hook: " << ex.what() << "\n" << std::flush;
+        std::cerr << std::format("[b4ac] error in save file hook: {}\n", ex.what()) << std::flush;
     } catch (...) {
         std::cerr << "[b4ac] unknown error in save file hook\n" << std::flush;
     }
 
-    return save_file_ptr(param_1, file_stem, param_3);
+    return ret;
 }
 static_assert(std::is_same_v<decltype(save_file_hook), save_file_func>);
 
@@ -208,6 +197,9 @@ void init_hooks(void) {
     //       I don't have a good hook for when this is, so just wait it out.
     const constexpr auto sleep_time = std::chrono::seconds{5};
     std::this_thread::sleep_for(sleep_time);
+
+    // Since the flag is clear, first run will do an inital sync
+    std::thread(syncing_thread).detach();
 
     detour(SAVE_FILE_SIG, save_file_hook, &save_file_ptr, "save file");
     detour(DELETE_CHARACTER_SIG, delete_character_hook, &delete_character_ptr, "delete character");

@@ -51,6 +51,8 @@ using std::uint8_t;
 #ifdef __MINGW32__
 #define BCRYPT_SHA1_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x00000031)
 #define BCRYPT_AES_ECB_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x000001b1)
+// NOLINTNEXTLINE(readability-identifier-naming)
+#define SetThreadDescription(x, y)
 #endif
 
 #endif /* PCH_H */
