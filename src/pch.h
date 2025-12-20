@@ -48,7 +48,7 @@ using std::uint8_t;
 // define to add a bunch of extra log messages
 #undef B4AC_DEBUG_LOGGING
 // define to also write to a log file, instead of just stdout/stderr
-#undef B4AC_LOG_TO_FILE
+#define B4AC_LOG_TO_FILE
 
 #ifdef __MINGW32__
 #define BCRYPT_SHA1_ALG_HANDLE ((BCRYPT_ALG_HANDLE)0x00000031)

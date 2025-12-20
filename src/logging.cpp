@@ -29,7 +29,7 @@ std::filesystem::path get_log_file_path(void) {
 
 }  // namespace
 
-std::ofstream log_file_stream{get_log_file_path(), std::ofstream::trunc};
+std::ofstream log_file_stream{get_log_file_path(), std::ofstream::app};
 
 #endif
 

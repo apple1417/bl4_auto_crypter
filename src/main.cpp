@@ -39,7 +39,7 @@ int sync_impl(int argc, char* argv[], bool wait) {
     return 0;
 }
 
-int crypt_impl(int argc, char* argv[], bool encrypt) {
+int crypt_impl(int argc, char* argv[], bool encrypt, bool crypt_only) {
     // NOLINTNEXTLINE(readability-magic-numbers)
     if (argc != 5) {
         std::cerr << "wrong num args\n";
@@ -61,10 +61,14 @@ int crypt_impl(int argc, char* argv[], bool encrypt) {
     const std::filesystem::path output{argv[4]};
     // nothing to check?
 
-    if (encrypt) {
-        b4ac::encrypt(output, input, key);
+    if (crypt_only) {
+        b4ac::internal::crypt_only(output, input, key, encrypt ? BCryptEncrypt : BCryptDecrypt);
     } else {
-        b4ac::decrypt(output, input, key);
+        if (encrypt) {
+            b4ac::encrypt(output, input, key);
+        } else {
+            b4ac::decrypt(output, input, key);
+        }
     }
 
     return 0;
@@ -95,10 +99,16 @@ int main_impl(int argc, char* argv[]) {
 
     auto action = *argv[1];
     if (action == 'd') {
-        return crypt_impl(argc, argv, false);
+        return crypt_impl(argc, argv, false, false);
     }
     if (action == 'e') {
-        return crypt_impl(argc, argv, true);
+        return crypt_impl(argc, argv, true, false);
+    }
+    if (action == 'D') {
+        return crypt_impl(argc, argv, false, true);
+    }
+    if (action == 'E') {
+        return crypt_impl(argc, argv, true, true);
     }
     if (action == 's') {
         return sync_impl(argc, argv, false);
@@ -125,7 +135,7 @@ int main(int argc, char* argv[]) {
     auto ret = main_impl(argc, argv);
     if (ret != 0) {
         // clang-format off
-        std::cerr << "usage: " << argv[0] << " <d|e> <key> <input> <output>\n"
+        std::cerr << "usage: " << argv[0] << " <d|e|D|E> <key> <input> <output>\n"
                      "       " << argv[0] << " <s|S> <key> <folder>\n"
                      "       " << argv[0] << " <A>\n"
                      "       " << argv[0] << " <h> <file>\n";

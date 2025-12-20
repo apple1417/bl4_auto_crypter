@@ -137,7 +137,7 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
 void decrypt(const std::filesystem::path& yaml,
              const std::filesystem::path& sav,
              const crypto_key& key) {
-    log::debug("decrypting {}", sav.string());
+    log::info("decrypting {}", sav.string());
 
     auto file_size = std::filesystem::file_size(sav);
     if (file_size == 0) {
@@ -164,7 +164,8 @@ void decrypt(const std::filesystem::path& yaml,
     auto dest_len = (uLongf)decompressed_size;
     auto z_ret = ::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size);
     if (z_ret != Z_OK) {
-        throw std::runtime_error(std::format("decompression failed: {}", z_ret));
+        throw std::runtime_error(
+            std::format("decompression failed: {}, {}, {}", z_ret, dest_len, compressed_size));
     }
 
     std::ofstream{yaml, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
@@ -174,7 +175,7 @@ void decrypt(const std::filesystem::path& yaml,
 void encrypt(const std::filesystem::path& sav,
              const std::filesystem::path& yaml,
              const crypto_key& key) {
-    log::debug("encrypting {}", yaml.string());
+    log::info("encrypting {}", yaml.string());
 
     auto file_size = std::filesystem::file_size(yaml);
     if (file_size == 0) {
@@ -189,7 +190,8 @@ void encrypt(const std::filesystem::path& sav,
     auto z_ret = ::compress2(compressed.data(), &compressed_size, file_contents.data(),
                              (uLong)file_contents.size(), Z_DEFAULT_COMPRESSION);
     if (z_ret != Z_OK) {
-        throw std::runtime_error(std::format("compression failed: {}", z_ret));
+        throw std::runtime_error(std::format("compression failed: {}, {}, {}", z_ret,
+                                             compressed_size, file_contents.size()));
     }
 
     auto decompressed_size = (uint32_t)file_contents.size();
@@ -249,5 +251,28 @@ std::string sha1_file(const std::filesystem::path& path) {
         hash[19]);
     // NOLINTEND(readability-magic-numbers)
 }
+
+namespace internal {
+
+void crypt_only(const std::filesystem::path& output,
+                const std::filesystem::path& input,
+                const crypto_key& key,
+                decltype(BCryptEncrypt) crypto_func) {
+    auto file_size = std::filesystem::file_size(input);
+    if (file_size == 0) {
+        return;
+    }
+    std::vector<uint8_t> file_contents(file_size);
+    std::ifstream{input, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
+                                                (std::streamsize)file_contents.size());
+
+    std::vector<uint8_t> decrypted =
+        encrypt_decrypt(file_contents.data(), file_contents.size(), key, crypto_func);
+
+    std::ofstream{output, std::ios::binary}.write(reinterpret_cast<char*>(decrypted.data()),
+                                                  (std::streamsize)decrypted.size());
+}
+
+}  // namespace internal
 
 }  // namespace b4ac

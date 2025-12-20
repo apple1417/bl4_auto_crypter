@@ -46,6 +46,24 @@ void encrypt(const std::filesystem::path& sav,
  */
 std::string sha1_file(const std::filesystem::path& path);
 
+namespace internal {
+// Just exposed for the exe
+
+/**
+ * @brief Encrypts/decrypts the given file, but does not (de)compress it.
+ *
+ * @param output Path to write output to.
+ * @param intput Path to input file.
+ * @param key The key to en/decrypt with.
+ * @param crypto_func One of BCryptEncrypt or BCryptDecrypt
+ */
+void crypt_only(const std::filesystem::path& output,
+                const std::filesystem::path& input,
+                const crypto_key& key,
+                decltype(BCryptEncrypt) crypto_func);
+
+}  // namespace internal
+
 }  // namespace b4ac
 
 #endif /* CRYPTER_H */
