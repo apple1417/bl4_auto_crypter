@@ -7,7 +7,7 @@
 namespace b4ac {
 
 /**
- * @brief Starts the syncing thread, and triggers an inital sync.
+ * @brief Starts the syncing thread, and triggers an initial sync.
  */
 void start_syncing_thread(void);
 

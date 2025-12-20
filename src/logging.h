@@ -10,7 +10,7 @@ extern std::ofstream log_file_stream;
 #endif
 
 /**
- * @brief Logs an error messsage.
+ * @brief Logs an error message.
  *
  * @tparam Args Format args types (automatic).
  * @param fmt Format string.
@@ -27,7 +27,7 @@ void error(std::format_string<Args...> fmt, Args&&... args) {
 }
 
 /**
- * @brief Logs an info messsage.
+ * @brief Logs an info message.
  *
  * @tparam Args Format args types (automatic).
  * @param fmt Format string.
@@ -43,14 +43,14 @@ void info(std::format_string<Args...> fmt, Args&&... args) {
 }
 
 /**
- * @brief Logs a debug messsage.
+ * @brief Logs a debug message.
  *
  * @tparam Args Format args types (automatic).
  * @param fmt Format string.
  * @param args Format args.
  */
 template <typename... Args>
-void debug(std::format_string<Args...> fmt, Args&&... args) {
+void debug([[maybe_unused]] std::format_string<Args...> fmt, [[maybe_unused]] Args&&... args) {
 #ifdef B4AC_DEBUG_LOGGING
     auto msg = std::format("[b4ac] {}\n", std::format(fmt, std::forward<Args>(args)...));
     std::cout << msg << std::flush;

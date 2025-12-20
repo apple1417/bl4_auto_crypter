@@ -44,7 +44,7 @@ std::atomic_flag syncing_finished;
 }  // namespace
 
 void start_syncing_thread(void) {
-    // Since the flag is clear by default, first run will do an inital sync
+    // Since the flag is clear by default, first run will do an initial sync
     std::thread(syncing_thread).detach();
 }
 

@@ -13,9 +13,9 @@ DWORD WINAPI startup_thread(LPVOID /*unused*/) {
         b4ac::init_hooks();
         b4ac::log::info("initialized");
     } catch (const std::exception& ex) {
-        b4ac::log::error("error while initalizing: {}", ex.what());
+        b4ac::log::error("error while initializing: {}", ex.what());
     } catch (...) {
-        b4ac::log::error("unknown error while initalizing");
+        b4ac::log::error("unknown error while initializing");
     }
     return 1;
 }
