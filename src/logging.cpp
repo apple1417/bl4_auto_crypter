@@ -23,7 +23,7 @@ std::filesystem::path get_log_file_path(void) {
     }
 
     auto begin = &buf[0];
-    std::filesystem::path this_module_path{begin, begin + num_chars};
+    const std::filesystem::path this_module_path{begin, begin + num_chars};
     return this_module_path.parent_path() / "bl4_auto_crypter.log";
 }
 

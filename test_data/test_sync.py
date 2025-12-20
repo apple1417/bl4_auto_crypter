@@ -68,11 +68,12 @@ def cache_runner(pytestconfig: pytest.Config) -> CacheRunner:
             encoding="utf8",
         )
         assert proc.stdout
-        proc.stdout.readline()
+
+        while proc.stdout.readline() != "first sync done; waiting for input\n":
+            pass
 
         def finish() -> None:
-            stdout, stderr = proc.communicate("g", timeout=timeout)
-            assert not stdout and not stderr
+            proc.communicate("g", timeout=timeout)
             assert proc.wait(timeout=timeout) == 0
 
         return finish

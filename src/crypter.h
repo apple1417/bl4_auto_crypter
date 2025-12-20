@@ -53,7 +53,7 @@ namespace internal {
  * @brief Encrypts/decrypts the given file, but does not (de)compress it.
  *
  * @param output Path to write output to.
- * @param intput Path to input file.
+ * @param input Path to input file.
  * @param key The key to en/decrypt with.
  * @param crypto_func One of BCryptEncrypt or BCryptDecrypt
  */
