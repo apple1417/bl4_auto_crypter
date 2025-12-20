@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hooks.h"
+#include "logging.h"
 #include "sync.h"
 
 #ifdef CRYPTER_PLUGIN
@@ -9,11 +10,11 @@ namespace {
 DWORD WINAPI startup_thread(LPVOID /*unused*/) {
     try {
         b4ac::init_hooks();
-        std::cout << "[b4ac] initialized\n" << std::flush;
+        b4ac::log::info("initialized");
     } catch (const std::exception& ex) {
-        std::cerr << "[b4ac] error while initalizing: " << ex.what() << "\n" << std::flush;
+        b4ac::log::error("error while initalizing: {}", ex.what());
     } catch (...) {
-        std::cerr << "[b4ac] unknown error while initalizing\n" << std::flush;
+        b4ac::log::error("unknown error while initalizing");
     }
     return 1;
 }

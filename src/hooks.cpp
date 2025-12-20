@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hooks.h"
+#include "logging.h"
 #include "memory.h"
 #include "sync.h"
 
@@ -11,10 +12,8 @@ namespace {
 struct Logger {
     const char* name{};
 
-    Logger(const char* name) : name(name) {
-        std::cout << "[b4ac] " << this->name << " enter\n" << std::flush;
-    }
-    ~Logger(void) { std::cout << "[b4ac] " << this->name << " exit\n" << std::flush; }
+    Logger(const char* name) : name(name) { log::debug("{} enter", this->name); }
+    ~Logger(void) { log::debug("{} exit", this->name); }
 
     Logger(const Logger&) = delete;
     Logger(Logger&&) = delete;
@@ -49,16 +48,12 @@ std::atomic_flag syncing_finished;
         while (!syncing_finished.test_and_set()) {
             // Then it's time to try sync saves
             try {
-#ifdef B4AC_DEBUG_LOGGING
-                std::cout << "[b4ac] syncing...\n" << std::flush;
-#endif
-
+                log::debug("syncing...");
                 sync_all_saves();
             } catch (const std::exception& ex) {
-                std::cerr << std::format("[b4ac] error while syncing saves: {}\n", ex.what())
-                          << std::flush;
+                log::error("error while syncing saves: {}", ex.what());
             } catch (...) {
-                std::cerr << "[b4ac] unknown error while syncing saves\n" << std::flush;
+                log::error("unknown error while syncing saves");
             }
 
             // While we're syncing, another thread might save a new file and clear the flag
@@ -95,10 +90,11 @@ const constinit Pattern<44> SAVE_FILE_SIG{
 };
 
 uint64_t save_file_hook(void* param_1, const FString* file_stem, void* param_3) {
-    try {
 #ifdef B4AC_DEBUG_LOGGING
     // Technically we ought to put this in a try-catch too, but meh
-        const Logger log{"save file"};
+    const Logger log{"save file"};
+    // Do this manually so we don't need to convert wstrings
+    std::wcout << std::format(L"[b4ac] file: {} thread: {}\n",
                               std::wstring_view{file_stem->str, (size_t)file_stem->count},
                               std::this_thread::get_id())
                << std::flush;
@@ -110,9 +106,9 @@ uint64_t save_file_hook(void* param_1, const FString* file_stem, void* param_3) 
         syncing_finished.clear();
         syncing_finished.notify_all();
     } catch (const std::exception& ex) {
-        std::cerr << std::format("[b4ac] error in save file hook: {}\n", ex.what()) << std::flush;
+        log::error("error in save file hook: {}", ex.what());
     } catch (...) {
-        std::cerr << "[b4ac] unknown error in save file hook\n" << std::flush;
+        log::error("unknown error in save file hook");
     }
 
     return ret;
@@ -169,10 +165,9 @@ bool delete_character_hook(void* param_1, wchar_t* save_file) {
                         std::filesystem::remove(yaml);
                     }
                 } catch (const std::exception& ex) {
-                    std::cerr << "[b4ac] error in delete character hook: " << ex.what() << "\n"
-                              << std::flush;
+                    log::error("error in delete character hook: {}", ex.what());
                 } catch (...) {
-                    std::cerr << "[b4ac] unknown error in delete character hook\n" << std::flush;
+                    log::error("unknown error in delete character hook");
                 }
 
                 return ret;
@@ -180,9 +175,9 @@ bool delete_character_hook(void* param_1, wchar_t* save_file) {
         }
 
     } catch (const std::exception& ex) {
-        std::cerr << "[b4ac] error in delete character hook: " << ex.what() << "\n" << std::flush;
+        log::error("error in delete character hook: {}", ex.what());
     } catch (...) {
-        std::cerr << "[b4ac] unknown error in delete character hook\n" << std::flush;
+        log::error("unknown error in delete character hook");
     }
 
     return delete_character_ptr(param_1, save_file);

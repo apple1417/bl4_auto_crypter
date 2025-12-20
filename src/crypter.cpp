@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "crypter.h"
+#include "logging.h"
 
 namespace b4ac {
 
@@ -136,9 +137,7 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
 void decrypt(const std::filesystem::path& yaml,
              const std::filesystem::path& sav,
              const crypto_key& key) {
-#ifdef B4AC_DEBUG_LOGGING
-    std::cout << "[b4ac] decrypting " << sav.string() << "\n" << std::flush;
-#endif
+    log::debug("decrypting {}", sav.string());
 
     auto file_size = std::filesystem::file_size(sav);
     if (file_size == 0) {
@@ -163,8 +162,9 @@ void decrypt(const std::filesystem::path& yaml,
 
     std::vector<uint8_t> output(decompressed_size);
     auto dest_len = (uLongf)decompressed_size;
-    if (::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size) != Z_OK) {
-        throw std::runtime_error("decompression failed");
+    auto z_ret = ::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size);
+    if (z_ret != Z_OK) {
+        throw std::runtime_error(std::format("decompression failed: {}", z_ret));
     }
 
     std::ofstream{yaml, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
@@ -174,9 +174,7 @@ void decrypt(const std::filesystem::path& yaml,
 void encrypt(const std::filesystem::path& sav,
              const std::filesystem::path& yaml,
              const crypto_key& key) {
-#ifdef B4AC_DEBUG_LOGGING
-    std::cout << "[b4ac] encrypting " << yaml.string() << "\n" << std::flush;
-#endif
+    log::debug("encrypting {}", yaml.string());
 
     auto file_size = std::filesystem::file_size(yaml);
     if (file_size == 0) {
@@ -188,10 +186,10 @@ void encrypt(const std::filesystem::path& sav,
 
     std::vector<uint8_t> compressed(compressBound((uLong)file_contents.size()));
     auto compressed_size = (uLongf)compressed.size();
-    if (::compress2(compressed.data(), &compressed_size, file_contents.data(),
-                    (uLong)file_contents.size(), Z_DEFAULT_COMPRESSION)
-        != Z_OK) {
-        throw std::runtime_error("compression failed");
+    auto z_ret = ::compress2(compressed.data(), &compressed_size, file_contents.data(),
+                             (uLong)file_contents.size(), Z_DEFAULT_COMPRESSION);
+    if (z_ret != Z_OK) {
+        throw std::runtime_error(std::format("compression failed: {}", z_ret));
     }
 
     auto decompressed_size = (uint32_t)file_contents.size();

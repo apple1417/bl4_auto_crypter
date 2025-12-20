@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "sync.h"
 #include "crypter.h"
+#include "logging.h"
 
 namespace b4ac {
 
@@ -23,9 +24,9 @@ void backup_failing_file(const std::filesystem::path& file) {
         std::filesystem::copy_file(file, backup_path, std::filesystem::copy_options::skip_existing);
 
     } catch (const std::exception& ex) {
-        std::cerr << "[b4ac] error backing up failing file: " << ex.what() << "\n" << std::flush;
+        log::error("error backing up failing file: {}", ex.what());
     } catch (...) {
-        std::cerr << "[b4ac] unknown error backing up failing file\n" << std::flush;
+        log::error("unknown error backing up failing file");
     }
 }
 
@@ -81,23 +82,17 @@ void sync_single_pair(const std::filesystem::path& folder,
         return;
     }
 
-#ifdef B4AC_DEBUG_LOGGING
-    std::cout << "[b4ac] sav time: " << sav_time << ", yaml time: " << yaml_time << "\n"
-              << std::flush;
-#endif
+    log::debug("sav time: {}, yaml time: {}", sav_time, yaml_time);
 
     // Prefer the sav when equal
     if (sav_time >= yaml_time) {
         try {
             decrypt(yaml, sav, key);
         } catch (const std::exception& ex) {
-            std::cerr << "[b4ac] error decrypting file " << sav.string() << ": " << ex.what()
-                      << "\n"
-                      << std::flush;
+            log::error("error decrypting file {}: {}", sav.string(), ex.what());
             backup_failing_file(sav);
         } catch (...) {
-            std::cerr << "[b4ac] unknown error decrypting file " << sav.string() << "\n"
-                      << std::flush;
+            log::error("unknown error decrypting file {}", sav.string());
             backup_failing_file(sav);
         }
 
@@ -106,13 +101,10 @@ void sync_single_pair(const std::filesystem::path& folder,
         try {
             encrypt(sav, yaml, key);
         } catch (const std::exception& ex) {
-            std::cerr << "[b4ac] error encrypting file " << yaml.string() << ": " << ex.what()
-                      << "\n"
-                      << std::flush;
+            log::error("error encrypting file {}: {}", yaml.string(), ex.what());
             backup_failing_file(yaml);
         } catch (...) {
-            std::cerr << "[b4ac] unknown error encrypting file " << yaml.string() << "\n"
-                      << std::flush;
+            log::error("unknown error encrypting file {}", yaml.string());
             backup_failing_file(yaml);
         }
 
@@ -189,8 +181,7 @@ void sync_all_saves(void) {
 
         crypto_key key{};
         if (!parse_key(entry.path().filename().string(), key)) {
-            std::cerr << "[b4ac] Couldn't extract crypto key from folder: " << entry.path() << "\n"
-                      << std::flush;
+            log::error("Couldn't extract crypto key from folder: {}", entry.path().string());
             known_bad_paths.insert(entry.path());
             continue;
         }

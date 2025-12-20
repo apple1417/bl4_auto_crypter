@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "memory.h"
+#include "logging.h"
 
 namespace b4ac {
 
@@ -62,8 +63,7 @@ uintptr_t sigscan(const uint8_t* bytes, const uint8_t* mask, size_t pattern_size
 }
 
 void detour(uintptr_t addr, void* detour_func, void** original_func, std::string_view name) {
-    std::cout << std::format("[b4ac] detouring {} at {:p}\n", name, reinterpret_cast<void*>(addr))
-              << std::flush;
+    log::info("detouring {} at {:p}", name, reinterpret_cast<void*>(addr));
     if (addr == 0) {
         throw std::runtime_error("tried to detour null address");
     }
