@@ -3,7 +3,7 @@
 
 namespace b4ac::log {
 
-#ifdef B4AC_DEBUG_LOGGING
+#ifdef B4AC_LOG_TO_FILE
 
 namespace {
 
