@@ -27,40 +27,6 @@ struct Logger {
 #pragma region save file
 namespace {
 
-// This hook triggers near simultaneously on multiple threads, and I don't think it likes being
-// delayed too long. Since timing isn't critical, we'll just do the actual processing in a thread.
-
-std::atomic_flag syncing_finished;
-
-[[noreturn]] void syncing_thread(void) {
-    SetThreadDescription(GetCurrentThread(), L"b4ac syncer");
-
-    while (true) {
-        // Wait until the flag is no longer true
-        syncing_finished.wait(true);
-
-        // We almost always get a save and profile file save at essentially the same time
-        // Wait a little more to try let them both fire before we bother syncing
-        // NOLINTNEXTLINE(readability-magic-numbers)
-        std::this_thread::sleep_for(std::chrono::milliseconds{50});
-
-        // Set the flag to true, and if it was previously false
-        while (!syncing_finished.test_and_set()) {
-            // Then it's time to try sync saves
-            try {
-                log::debug("syncing...");
-                sync_all_saves();
-            } catch (const std::exception& ex) {
-                log::error("error while syncing saves: {}", ex.what());
-            } catch (...) {
-                log::error("unknown error while syncing saves");
-            }
-
-            // While we're syncing, another thread might save a new file and clear the flag
-        }
-    }
-}
-
 struct FString {
     wchar_t* str;
     int32_t count;
@@ -103,8 +69,7 @@ uint64_t save_file_hook(void* param_1, const FString* file_stem, void* param_3) 
     auto ret = save_file_ptr(param_1, file_stem, param_3);
 
     try {
-        syncing_finished.clear();
-        syncing_finished.notify_all();
+        trigger_sync();
     } catch (const std::exception& ex) {
         log::error("error in save file hook: {}", ex.what());
     } catch (...) {
@@ -192,9 +157,6 @@ void init_hooks(void) {
     //       I don't have a good hook for when this is, so just wait it out.
     const constexpr auto sleep_time = std::chrono::seconds{5};
     std::this_thread::sleep_for(sleep_time);
-
-    // Since the flag is clear, first run will do an inital sync
-    std::thread(syncing_thread).detach();
 
     detour(SAVE_FILE_SIG, save_file_hook, &save_file_ptr, "save file");
     detour(DELETE_CHARACTER_SIG, delete_character_hook, &delete_character_ptr, "delete character");

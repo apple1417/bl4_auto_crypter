@@ -9,6 +9,7 @@ namespace {
 
 DWORD WINAPI startup_thread(LPVOID /*unused*/) {
     try {
+        b4ac::start_syncing_thread();
         b4ac::init_hooks();
         b4ac::log::info("initialized");
     } catch (const std::exception& ex) {

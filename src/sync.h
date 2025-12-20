@@ -7,6 +7,19 @@
 namespace b4ac {
 
 /**
+ * @brief Starts the syncing thread, and triggers an inital sync.
+ */
+void start_syncing_thread(void);
+
+/**
+ * @brief Trigger a new save sync.
+ */
+void trigger_sync(void);
+
+namespace internal {
+// Mostly just exposed for the tests
+
+/**
  * @brief Makes sure every save file in the given folder has a synced .sav and .yaml version.
  *
  * @param folder The folder to synchronize.
@@ -19,6 +32,8 @@ void sync_saves_in_folder(const std::filesystem::path& folder, const crypto_key&
  * @note Checks all folders in Documents/My Games/...
  */
 void sync_all_saves(void);
+
+}  // namespace internal
 
 }  // namespace b4ac
 

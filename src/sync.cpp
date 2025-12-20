@@ -7,6 +7,54 @@ namespace b4ac {
 
 namespace {
 
+// In the plugin, we trigger all syncing from our own thread, since encryption/decryption can be
+// quite slow, and to help deal with the fact that the hooks are each triggered on their own thread,
+// which could cause us to trigger syncing twice at the same time
+std::atomic_flag syncing_finished;
+
+[[noreturn]] void syncing_thread(void) {
+    SetThreadDescription(GetCurrentThread(), L"b4ac syncer");
+
+    while (true) {
+        // Wait until the flag is no longer true
+        syncing_finished.wait(true);
+
+        // We almost always get a save and profile file save at essentially the same time
+        // Wait a little more to try let them both fire before we bother syncing
+        // NOLINTNEXTLINE(readability-magic-numbers)
+        std::this_thread::sleep_for(std::chrono::milliseconds{50});
+
+        // Set the flag to true, and if it was previously false
+        while (!syncing_finished.test_and_set()) {
+            // Then it's time to try sync saves
+            try {
+                log::debug("syncing...");
+                internal::sync_all_saves();
+            } catch (const std::exception& ex) {
+                log::error("error while syncing saves: {}", ex.what());
+            } catch (...) {
+                log::error("unknown error while syncing saves");
+            }
+
+            // While we're syncing, another thread might save a new file and clear the flag
+        }
+    }
+}
+
+}  // namespace
+
+void start_syncing_thread(void) {
+    // Since the flag is clear by default, first run will do an inital sync
+    std::thread(syncing_thread).detach();
+}
+
+void trigger_sync(void) {
+    syncing_finished.clear();
+    syncing_finished.notify_all();
+}
+
+namespace {
+
 std::unordered_map<std::filesystem::path, std::filesystem::file_time_type> previous_write_times{};
 
 /**
@@ -21,6 +69,10 @@ void backup_failing_file(const std::filesystem::path& file) {
 
         // don't need to care about duplicates if we name everything using it's hash
         auto backup_path = (error_folder / sha1_file(file)).replace_extension(file.extension());
+        // Any .sav file, even in a subfolder, is added to steam cloud, so add our own extension to
+        // avoid that
+        backup_path += ".b4ac";
+
         std::filesystem::copy_file(file, backup_path, std::filesystem::copy_options::skip_existing);
 
     } catch (const std::exception& ex) {
@@ -84,10 +136,16 @@ void sync_single_pair(const std::filesystem::path& folder,
 
     log::debug("sav time: {}, yaml time: {}", sav_time, yaml_time);
 
+    std::filesystem::path tmp;
+    const wchar_t* file_to_be_replaced{};
+
     // Prefer the sav when equal
     if (sav_time >= yaml_time) {
+        tmp = std::filesystem::path{yaml}.replace_extension(".yaml.b4ac");
+        file_to_be_replaced = yaml.c_str();
+
         try {
-            decrypt(yaml, sav, key);
+            decrypt(tmp, sav, key);
         } catch (const std::exception& ex) {
             log::error("error decrypting file {}: {}", sav.string(), ex.what());
             backup_failing_file(sav);
@@ -95,11 +153,12 @@ void sync_single_pair(const std::filesystem::path& folder,
             log::error("unknown error decrypting file {}", sav.string());
             backup_failing_file(sav);
         }
-
-        yaml_time = get_write_time_or_min(yaml);
     } else {
+        tmp = std::filesystem::path{sav}.replace_extension(".sav.b4ac");
+        file_to_be_replaced = sav.c_str();
+
         try {
-            encrypt(sav, yaml, key);
+            encrypt(tmp, yaml, key);
         } catch (const std::exception& ex) {
             log::error("error encrypting file {}: {}", yaml.string(), ex.what());
             backup_failing_file(yaml);
@@ -107,16 +166,39 @@ void sync_single_pair(const std::filesystem::path& folder,
             log::error("unknown error encrypting file {}", yaml.string());
             backup_failing_file(yaml);
         }
-
-        sav_time = get_write_time_or_min(sav);
     }
 
-    // It's possible both times have updated since we saw them last - e.g. on the first call
-    previous_write_times[sav] = sav_time;
-    previous_write_times[yaml] = yaml_time;
+    auto new_sav_time = get_write_time_or_min(sav);
+    auto new_yaml_time = get_write_time_or_min(yaml);
+
+    if (sav_time != new_sav_time || yaml_time != new_yaml_time) {
+        // Something modified one of the files while we were working on it. Give up and retry.
+        log::debug("file modified, discarding");
+        std::filesystem::remove(tmp);
+        trigger_sync();
+        return;
+    }
+    // Technically we still have a slight race condition here - the crypto/compression takes by far
+    // the longest, but it's still possible for something to get modified between us grabbing the
+    // time and replacing the file
+    // If we get two events on the same file so close to each other, deciding we don't care
+
+    auto ret = ReplaceFileW(file_to_be_replaced, tmp.c_str(), nullptr,
+                            REPLACEFILE_IGNORE_ACL_ERRORS | REPLACEFILE_IGNORE_MERGE_ERRORS,
+                            nullptr, nullptr);
+    if (ret == 0) {
+        log::error("failed to replace file {} ({}, {})", tmp.string(), ret, GetLastError());
+    }
+
+    previous_write_times[sav] = get_write_time_or_min(sav);
+    previous_write_times[yaml] = get_write_time_or_min(yaml);
+    log::debug("new times sav: {}, yaml: {}", previous_write_times[sav],
+               previous_write_times[yaml]);
 }
 
 }  // namespace
+
+namespace internal {
 
 void sync_saves_in_folder(const std::filesystem::path& folder, const crypto_key& key) {
     auto valid_stems = std::ranges::to<std::unordered_set>(
@@ -135,6 +217,8 @@ void sync_saves_in_folder(const std::filesystem::path& folder, const crypto_key&
         sync_single_pair(folder, key, stem);
     }
 }
+
+}  // namespace internal
 
 namespace {
 
@@ -164,6 +248,8 @@ std::unordered_set<std::filesystem::path> known_bad_paths{};
 
 }  // namespace
 
+namespace internal {
+
 void sync_all_saves(void) {
     for (const auto& entry : std::filesystem::directory_iterator{get_saves_folder()}) {
         if (!entry.is_directory()) {
@@ -191,5 +277,7 @@ void sync_all_saves(void) {
         sync_saves_in_folder(saves_dir, key);
     }
 }
+
+}  // namespace internal
 
 }  // namespace b4ac

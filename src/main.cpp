@@ -25,7 +25,7 @@ int sync_impl(int argc, char* argv[], bool wait) {
         return 1;
     }
 
-    b4ac::sync_saves_in_folder(folder, key);
+    b4ac::internal::sync_saves_in_folder(folder, key);
 
     if (wait) {
         std::cout << "first sync done; waiting for input\n" << std::flush;
@@ -33,7 +33,7 @@ int sync_impl(int argc, char* argv[], bool wait) {
         char dummy{};
         std::cin >> dummy;
 
-        b4ac::sync_saves_in_folder(folder, key);
+        b4ac::internal::sync_saves_in_folder(folder, key);
     }
 
     return 0;
@@ -107,7 +107,7 @@ int main_impl(int argc, char* argv[]) {
         return sync_impl(argc, argv, true);
     }
     if (action == 'A') {
-        b4ac::sync_all_saves();
+        b4ac::internal::sync_all_saves();
         return 0;
     }
     if (action == 'h') {
