@@ -299,7 +299,7 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v5
       with:
-        name: msvc-oak-release
+        name: msvc-release
         path: releases/bl4_auto_crypter
 
     - name: Re-zip artifacts
