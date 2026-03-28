@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(bl4_auto_crypter VERSION 1)
+project(bl4_auto_crypter VERSION 2)
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "src/*.cpp" "src/*.h")
 list(APPEND sources "src/versioninfo.rc")
