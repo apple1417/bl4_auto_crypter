@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "hooks.h"
+#include <chrono>
+#include <thread>
 #include "logging.h"
 #include "memory.h"
 #include "sync.h"
@@ -205,13 +207,33 @@ static_assert(std::is_same_v<decltype(delete_character_hook), delete_character_f
 #pragma endregion
 
 void init_hooks(void) {
-    // HACK: since the game is packed, we can't necessarily sigscan until it's been unpacked.
-    //       I don't have a good hook for when this is, so just wait it out.
-    const constexpr auto sleep_time = std::chrono::seconds{5};
-    std::this_thread::sleep_for(sleep_time);
+    // There's a couple of no-access pages which kill our sigscans.
+    // Wait a second just in case they naturally unlock, then do it ourselves.
+    std::this_thread::sleep_for(std::chrono::seconds{1});
+    remove_no_access_pages();
 
-    detour(SAVE_FILE_SIG, save_file_hook, &save_file_ptr, "save file");
-    detour(DELETE_CHARACTER_SIG, delete_character_hook, &delete_character_ptr, "delete character");
+    // Since the game is packed, we can't necessarily sigscan until it's been unpacked.
+    // I don't have a good hook for when this is, so just keep retrying until timeout.
+    const auto timeout = std::chrono::steady_clock::now() + std::chrono::seconds{30};
+    while (std::chrono::steady_clock::now() < timeout) {
+        const constexpr auto sleep_time = std::chrono::milliseconds{500};
+        std::this_thread::sleep_for(sleep_time);
+
+        auto save_addr = SAVE_FILE_SIG.sigscan_nullable();
+        if (save_addr == 0) {
+            log::debug("save file sigscan failed, sleeping");
+            continue;
+        }
+        detour(save_addr, reinterpret_cast<void*>(save_file_hook),
+               reinterpret_cast<void**>(&save_file_ptr), "save file");
+
+        // Once we have the first sigscan, assume we're good
+        detour(DELETE_CHARACTER_SIG, delete_character_hook, &delete_character_ptr,
+               "delete character");
+        return;
+    }
+
+    throw std::runtime_error("failed to find hooks before timeout!");
 }
 
 }  // namespace b4ac

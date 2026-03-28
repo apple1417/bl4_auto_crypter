@@ -93,4 +93,31 @@ void detour(uintptr_t addr, void* detour_func, void** original_func, std::string
     }
 }
 
+const constexpr auto ASSUMED_MIN_PAGE_SIZE = 0x1000;
+
+void remove_no_access_pages(void) {
+    auto [base, size] = get_exe_range();
+
+    for (uintptr_t ptr = base; ptr < (base + size);) {
+        MEMORY_BASIC_INFORMATION mem;
+        if (VirtualQuery(reinterpret_cast<void*>(ptr), &mem, sizeof(mem)) == 0) {
+            log::debug("Failed to query memory at {:012x}", ptr);
+            ptr += ASSUMED_MIN_PAGE_SIZE;
+            continue;
+        }
+        ptr = reinterpret_cast<uintptr_t>(mem.BaseAddress) + mem.RegionSize;
+
+        if (mem.State != MEM_COMMIT || mem.Protect != PAGE_NOACCESS) {
+            continue;
+        }
+
+        log::debug("Unlocking page at {:012x}", reinterpret_cast<uintptr_t>(mem.BaseAddress));
+
+        DWORD old_protect{};
+        if (VirtualProtect(mem.BaseAddress, mem.RegionSize, PAGE_READONLY, &old_protect) == 0) {
+            log::error("Failed to unlock page: {:x}", GetLastError());
+        }
+    }
+}
+
 }  // namespace b4ac

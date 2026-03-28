@@ -165,6 +165,11 @@ struct Pattern {
     }
 };
 
+/**
+ * @brief Changes any PAGE_NOACCESS pages in the executable to PAGE_READONLY.
+ */
+void remove_no_access_pages(void);
+
 }  // namespace b4ac
 
 #endif /* MEMORY_H */
