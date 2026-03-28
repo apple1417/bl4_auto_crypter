@@ -45,7 +45,7 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
             {
                 .dwMagic = BCRYPT_KEY_DATA_BLOB_MAGIC,
                 .dwVersion = BCRYPT_KEY_DATA_BLOB_VERSION1,
-                .cbKeyData = (ULONG)key.size(),
+                .cbKeyData = static_cast<ULONG>(key.size()),
             },
         .key = key,
     };
@@ -63,8 +63,8 @@ std::vector<uint8_t> encrypt_decrypt(uint8_t* input,
     // With this alg, input and output are always the same size (assuming padded input)
     std::vector<uint8_t> output(input_size);
     ULONG output_size{};
-    if ((status = crypto_func(key_handle, input, (ULONG)input_size, nullptr, nullptr, 0,
-                              output.data(), (ULONG)output.size(), &output_size, 0))
+    if ((status = crypto_func(key_handle, input, static_cast<ULONG>(input_size), nullptr, nullptr,
+                              0, output.data(), static_cast<ULONG>(output.size()), &output_size, 0))
         != 0) {
         throw std::runtime_error("en/decrypt failed");
     }
@@ -102,10 +102,12 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
         // falls off the end
         static_assert(epic_account_id_len == sizeof(out_key));
         for (size_t i = 0; i < (epic_account_id_len / 2); i++) {
-            // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
+            // NOLINTBEGIN(cppcoreguidelines-pro-bounds-constant-array-index,
+            //             cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
             out_key[(2 * i) + 0] ^= account_id[i];
-            // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
             out_key[(2 * i) + 1] ^= 0x00;
+            // NOLINTEND(cppcoreguidelines-pro-bounds-constant-array-index,
+            //           cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
         }
         return true;
     }
@@ -124,8 +126,11 @@ bool parse_key(std::string_view account_id, crypto_key& out_key) {
             memcpy(bytes.data(), &steam_uid, sizeof(steam_uid));
 
             for (size_t i = 0; i < bytes.size(); i++) {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
+                // NOLINTBEGIN(cppcoreguidelines-pro-bounds-constant-array-index,
+                //             cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
                 out_key[i] ^= bytes[i];
+                // NOLINTEND(cppcoreguidelines-pro-bounds-constant-array-index,
+                //           cppcoreguidelines-pro-bounds-avoid-unchecked-container-access)
             }
             return true;
         }
@@ -145,7 +150,7 @@ void decrypt(const std::filesystem::path& yaml,
     }
     std::vector<uint8_t> file_contents(file_size);
     std::ifstream{sav, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
-                                              (std::streamsize)file_contents.size());
+                                              static_cast<std::streamsize>(file_contents.size()));
 
     std::vector<uint8_t> decrypted =
         encrypt_decrypt(file_contents.data(), file_contents.size(), key, BCryptDecrypt);
@@ -161,15 +166,16 @@ void decrypt(const std::filesystem::path& yaml,
     memcpy(&decompressed_size, file_contents.data() + compressed_size, sizeof(decompressed_size));
 
     std::vector<uint8_t> output(decompressed_size);
-    auto dest_len = (uLongf)decompressed_size;
-    auto z_ret = ::uncompress(output.data(), &dest_len, decrypted.data(), (uLong)compressed_size);
+    auto dest_len = static_cast<uLongf>(decompressed_size);
+    auto z_ret = ::uncompress(output.data(), &dest_len, decrypted.data(),
+                              static_cast<uLong>(compressed_size));
     if (z_ret != Z_OK) {
         throw std::runtime_error(
             std::format("decompression failed: {}, {}, {}", z_ret, dest_len, compressed_size));
     }
 
     std::ofstream{yaml, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
-                                                (std::streamsize)dest_len);
+                                                static_cast<std::streamsize>(dest_len));
 }
 
 void encrypt(const std::filesystem::path& sav,
@@ -183,18 +189,18 @@ void encrypt(const std::filesystem::path& sav,
     }
     std::vector<uint8_t> file_contents(file_size);
     std::ifstream{yaml, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
-                                               (std::streamsize)file_contents.size());
+                                               static_cast<std::streamsize>(file_contents.size()));
 
-    std::vector<uint8_t> compressed(compressBound((uLong)file_contents.size()));
-    auto compressed_size = (uLongf)compressed.size();
+    std::vector<uint8_t> compressed(compressBound(static_cast<uLong>(file_contents.size())));
+    auto compressed_size = static_cast<uLongf>(compressed.size());
     auto z_ret = ::compress2(compressed.data(), &compressed_size, file_contents.data(),
-                             (uLong)file_contents.size(), Z_DEFAULT_COMPRESSION);
+                             static_cast<uLong>(file_contents.size()), Z_DEFAULT_COMPRESSION);
     if (z_ret != Z_OK) {
         throw std::runtime_error(std::format("compression failed: {}, {}, {}", z_ret,
                                              compressed_size, file_contents.size()));
     }
 
-    auto decompressed_size = (uint32_t)file_contents.size();
+    auto decompressed_size = static_cast<uint32_t>(file_contents.size());
 
     // In case we perfectly filled the buffer, need to resize to add the worst case on top of that
     // In 99% of cases we'll have plenty of free space so this shouldn't need an extra allocation
@@ -212,7 +218,7 @@ void encrypt(const std::filesystem::path& sav,
 
     auto output = encrypt_decrypt(compressed.data(), compressed_size, key, BCryptEncrypt);
     std::ofstream{sav, std::ios::binary}.write(reinterpret_cast<char*>(output.data()),
-                                               (std::streamsize)output.size());
+                                               static_cast<std::streamsize>(output.size()));
 }
 
 // This isn't strictly related to en/decryption, but lets keep all the bcrypt stuff to this file
@@ -227,9 +233,10 @@ std::string sha1_file(const std::filesystem::path& path) {
 
     std::vector<uint8_t> file_contents(std::filesystem::file_size(path));
     std::ifstream{path, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
-                                               (std::streamsize)file_contents.size());
+                                               static_cast<std::streamsize>(file_contents.size()));
 
-    if ((status = BCryptHashData(hash_handle, file_contents.data(), (ULONG)file_contents.size(), 0))
+    if ((status = BCryptHashData(hash_handle, file_contents.data(),
+                                 static_cast<ULONG>(file_contents.size()), 0))
         != 0) {
         throw std::runtime_error("couldn't hash file data");
     }
@@ -264,13 +271,13 @@ void crypt_only(const std::filesystem::path& output,
     }
     std::vector<uint8_t> file_contents(file_size);
     std::ifstream{input, std::ios::binary}.read(reinterpret_cast<char*>(file_contents.data()),
-                                                (std::streamsize)file_contents.size());
+                                                static_cast<std::streamsize>(file_contents.size()));
 
     std::vector<uint8_t> decrypted =
         encrypt_decrypt(file_contents.data(), file_contents.size(), key, crypto_func);
 
     std::ofstream{output, std::ios::binary}.write(reinterpret_cast<char*>(decrypted.data()),
-                                                  (std::streamsize)decrypted.size());
+                                                  static_cast<std::streamsize>(decrypted.size()));
 }
 
 }  // namespace internal
